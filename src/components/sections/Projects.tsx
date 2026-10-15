@@ -8,7 +8,7 @@ function ProjectItem({ project }: { project: Project }) {
 
   return (
     <article
-      className={`flex min-w-0 flex-col gap-4 rounded-md border border-border ${project.featured ? "p-6" : "p-4 sm:p-6"}`}
+      className={`flex min-w-0 flex-col gap-4 rounded-md border border-border ${project.featured ? "p-6" : "max-w-2xl p-4"}`}
     >
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h3
