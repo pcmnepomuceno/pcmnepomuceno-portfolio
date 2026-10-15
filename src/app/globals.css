@@ -38,4 +38,9 @@
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
+
+  /* Sections the command palette focuses after a jump; a ring around a whole section is noise. */
+  section[tabindex="-1"]:focus {
+    outline: none;
+  }
 }
