@@ -1,8 +1,11 @@
 import Image from "next/image";
-import { profile } from "@/content";
+import { cv, profile } from "@/content";
 
 const linkClass =
   "inline-flex min-h-11 items-center rounded-md border border-muted px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
+
+const primaryClass =
+  "inline-flex min-h-11 items-center rounded-md border border-accent bg-accent px-4 font-medium text-background hover:border-foreground hover:bg-foreground";
 
 export default function Hero() {
   const { links, photo } = profile;
@@ -26,7 +29,13 @@ export default function Hero() {
         <p className="font-mono text-sm text-muted">
           {profile.education} · {profile.location}
         </p>
-        <ul className="flex flex-wrap gap-3">
+        <ul role="list" className="flex flex-wrap gap-3">
+          <li>
+            <a href={cv.href} download className={primaryClass}>
+              {cv.label}
+              <span className="sr-only"> (PDF)</span>
+            </a>
+          </li>
           <li>
             <a href={links.github} className={linkClass}>
               GitHub

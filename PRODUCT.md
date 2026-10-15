@@ -24,15 +24,15 @@ Single-page static site with anchored sections: Home, Experience, Projects, Skil
 - Minimal animation only (subtle scroll reveals); no heavy animation, 3D or page transitions.
 - Some projects are excluded until permission or readiness is confirmed; nothing is shown beyond what is in src/content.ts.
 - No claims about experience or projects beyond `src/content.ts`.
-- Undecided: CosRec presentation (demo, public repo or screenshots), tagline and summary wording, how the CV PDF is produced and kept current.
+- Decided: CosRec is shown as an in-progress card with no links until a live demo exists; tagline and summary wording are decided; the CV is produced by the owner and replaced manually in `public/cv/`.
 
 ## Brand Commitments
 Light, clean, techy, Japanese-red visual style; visual style only, no Japanese text. Voice: casual-professional, first person, plain, light personality, no buzzwords (assumed; to be confirmed by owner).
 
 ## Evidence on Hand
 - Steam Review Analyzer: project is finished and the owner can show it.
-- CosRec: exists; demo, repo or screenshots not yet decided.
-- Sablay photo and CV PDF: exist but are not yet in `public/`.
+- CosRec: shown as an in-progress card with no links until a live demo exists.
+- Sablay photo and CV PDF: exist in `public/` and are in use.
 - Not available and not to be invented: testimonials, metrics, employer or client claims beyond `src/content.ts`, FashionTech material.
 
 ## Product Principles
