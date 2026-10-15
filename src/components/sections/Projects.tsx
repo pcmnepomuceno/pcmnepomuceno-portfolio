@@ -1,3 +1,4 @@
+import Stamp from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
 
 const linkClass =
@@ -16,6 +17,7 @@ function ProjectItem({ project }: { project: Project }) {
         >
           {project.title}
         </h3>
+        {project.featured && project.status && <Stamp status={project.status} />}
         {meta && <p className="font-mono text-sm text-muted">{meta}</p>}
       </div>
       <p className="max-w-prose">{project.summary}</p>
@@ -45,10 +47,7 @@ function ProjectItem({ project }: { project: Project }) {
         </ul>
       )}
       {project.status === "in-progress" && (
-        <p className="mt-auto flex items-center gap-2 pt-2 font-mono text-sm text-muted">
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-          Live demo in progress
-        </p>
+        <p className="mt-auto pt-2 font-mono text-sm text-muted">Live demo in progress</p>
       )}
     </article>
   );
