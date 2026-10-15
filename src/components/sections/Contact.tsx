@@ -1,4 +1,4 @@
-import { cv, profile } from "@/content";
+import { contactIntro, cv, profile } from "@/content";
 
 // Same outline style as Hero and Projects; shared module deferred to the Milestone 7 polish pass.
 const linkClass =
@@ -16,10 +16,7 @@ export default function Contact() {
         <h2 className="font-serif text-3xl">Contact</h2>
       </div>
       <div className="space-y-6">
-        <p className="max-w-prose">
-          I&apos;m looking for Software Engineer, Backend, Full-Stack, or AI Automation roles. Email
-          is the best way to reach me.
-        </p>
+        <p className="max-w-prose">{contactIntro}</p>
         <a
           href={`mailto:${links.email}`}
           className="inline-flex min-h-11 items-center text-lg underline underline-offset-4 [overflow-wrap:anywhere] hover:text-accent motion-safe:transition-colors sm:text-xl"

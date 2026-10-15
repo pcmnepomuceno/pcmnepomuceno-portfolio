@@ -58,6 +58,9 @@ export const siteUrl = "https://pcmnepomuceno.vercel.app";
 export const siteDescription =
   "Prince Czedrick Nepomuceno is a full-stack developer and UP Los Baños Computer Science graduate. Projects include a Steam review analyzer and CosRec, a hybrid image-text search system.";
 
+export const contactIntro =
+  "I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles. Email is the best way to reach me.";
+
 export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Download CV" };
 
 // Each item links to the section whose id is the lowercase item.
