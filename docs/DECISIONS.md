@@ -24,3 +24,4 @@ Rules for this file:
 | 2026-10-14 | Deferred the ESLint deprecation warning from the scaffold | No correctness impact; revisit with the eslint-config-next update |
 | 2026-10-15 | Added CLAUDE.md as project memory | Claude Code reads it every session; keeps rules out of individual prompts |
 | 2026-10-15 | Theme: light by default, manual toggle, no system-preference detection | Matches the light and clean preference; predictable behavior. Assumed by Claude, not yet explicitly confirmed by Czed |
+| 2026-10-15 | Reversed the entry above. Theme now follows the visitor's system preference by default (next-themes, enableSystem), with a manual light/dark toggle whose choice persists | Czed's choice: respect the visitor's OS setting while still allowing an override. Light is the design's primary look, so light mode gets the most polish |
