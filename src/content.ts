@@ -72,6 +72,7 @@ export const palette = {
   hint: "Ctrl K",
   dialog: "Command palette",
   input: "Search commands",
+  placeholder: "Type a command",
   goTo: "Go to",
   toggleTheme: "Toggle theme",
   empty: "No matching commands",

@@ -143,6 +143,7 @@ export default function CommandPalette() {
           type="text"
           role="combobox"
           aria-label={palette.input}
+          placeholder={palette.placeholder}
           aria-autocomplete="list"
           aria-expanded={filtered.length > 0}
           aria-controls={filtered.length > 0 ? listId : undefined}
@@ -155,7 +156,7 @@ export default function CommandPalette() {
             setActive(0);
           }}
           onKeyDown={onKeyDown}
-          className="w-full border-b border-border bg-transparent px-4 py-3 font-mono text-sm -outline-offset-2"
+          className="w-full border-b border-border bg-transparent px-4 py-3 font-mono text-sm -outline-offset-2 placeholder:text-muted"
         />
         {filtered.length > 0 && (
           <ul id={listId} role="listbox" aria-label={palette.dialog} className="max-h-[60vh] overflow-y-auto py-2">
