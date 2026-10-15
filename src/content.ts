@@ -18,6 +18,23 @@ export type ExperienceItem = {
   tags: string[];
 };
 
+export type Project = {
+  slug: string;
+  title: string;
+  summary: string;
+  status: "live" | "in-progress" | null;
+  featured: boolean;
+  period?: string;
+  role?: string;
+  tags: string[];
+  links: { label: string; href: string }[];
+};
+
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
 export const profile: Profile = {
   name: "Prince Czedrick Nepomuceno",
   role: "Full-stack developer",
@@ -36,8 +53,8 @@ export const profile: Profile = {
   },
 };
 
-// Add "Projects", "Skills", "Contact" when those sections exist (Milestones 4-5).
-export const nav = ["Home", "Experience"];
+// Add "Contact" when that section exists (Milestone 5).
+export const nav = ["Home", "Experience", "Projects", "Skills"];
 
 const items: ExperienceItem[] = [
   {
@@ -46,7 +63,7 @@ const items: ExperienceItem[] = [
     organization: "UPLB Computer Science Society",
     start: "2023",
     end: "2024",
-    bullets: [],
+    bullets: ["Handled external partnerships and email correspondence for the society."],
     tags: [],
   },
   {
@@ -66,7 +83,7 @@ const items: ExperienceItem[] = [
     organization: "UP Soma Soshiki (UPLB Japanese pop culture organization)",
     start: "2024",
     end: "2025",
-    bullets: [],
+    bullets: ["Handled email correspondence and wrote the minutes of meetings."],
     tags: [],
   },
 ];
@@ -78,3 +95,50 @@ const year = (date: string) => Number(/\d{4}/.exec(date)?.[0] ?? Infinity);
 export const experience: ExperienceItem[] = [...items].sort(
   (a, b) => year(b.end) - year(a.end) || year(b.start) - year(a.start),
 );
+
+// Display order is source order (not sorted).
+export const projects: Project[] = [
+  {
+    slug: "steam-review-analyzer",
+    title: "Steam Review Analyzer",
+    summary:
+      "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on the minority class against a 0.000 baseline.",
+    status: "live",
+    featured: true,
+    tags: ["Python", "FastAPI", "PostgreSQL", "scikit-learn", "Next.js"],
+    links: [
+      { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
+      { label: "Source code", href: "https://github.com/pcmnepomuceno/steam-review-analyzer" },
+    ],
+  },
+  {
+    slug: "cosrec",
+    title: "CosRec",
+    summary:
+      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
+    status: "in-progress",
+    featured: true,
+    tags: ["Python", "Vision Transformer", "TF-IDF"],
+    links: [],
+  },
+  {
+    slug: "picsel",
+    title: "PICSEL",
+    summary:
+      "A team room-reservation web app built with the PERN stack. I built front-end pieces (account and booking modals, dashboard cards, nested routes) and wrote the documentation.",
+    status: null,
+    featured: false,
+    role: "Team project",
+    period: "Mar - May 2024",
+    tags: ["React", "Bootstrap"],
+    links: [],
+  },
+];
+
+export const skills: SkillGroup[] = [
+  { label: "Languages", items: ["Python", "JavaScript"] },
+  { label: "Backend", items: ["FastAPI", "Node.js"] },
+  { label: "Frontend", items: ["React"] },
+  { label: "Mobile", items: ["Flutter"] },
+  { label: "Data and tools", items: ["PostgreSQL", "Git"] },
+];
