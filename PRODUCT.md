@@ -22,16 +22,15 @@ Single-page static site with anchored sections: Home, Experience, Projects, Skil
 - Static: no backend, database, auth, CMS or blog in v1. Chatbot, /now page and hackathon log are v2.
 - Light/dark mode following system preference with manual override; responsive; SEO/OG metadata; downloadable CV.
 - Minimal animation only (subtle scroll reveals); no heavy animation, 3D or page transitions.
-- No FashionTech code, screenshots or demo details until Limitless Lab gives written permission.
-- Steinholdt project is excluded until deployed and the client agrees.
+- Some projects are excluded until permission or readiness is confirmed; nothing is shown beyond what is in src/content.ts.
 - No claims about experience or projects beyond `src/content.ts`.
 - Undecided: CosRec presentation (demo, public repo or screenshots), tagline and summary wording, how the CV PDF is produced and kept current.
 
 ## Brand Commitments
-Light, clean, techy, Japanese-red visual style; visual style only, no Japanese text. Voice: casual-professional, first person, plain, light personality, no buzzwords.
+Light, clean, techy, Japanese-red visual style; visual style only, no Japanese text. Voice: casual-professional, first person, plain, light personality, no buzzwords (assumed; to be confirmed by owner).
 
 ## Evidence on Hand
-- Steam Review Analyzer: public repo github.com/pcmnepomuceno/steam-review-analyzer (confirmed by owner as available).
+- Steam Review Analyzer: project is finished and the owner can show it.
 - CosRec: exists; demo, repo or screenshots not yet decided.
 - Sablay photo and CV PDF: exist but are not yet in `public/`.
 - Not available and not to be invented: testimonials, metrics, employer or client claims beyond `src/content.ts`, FashionTech material.
