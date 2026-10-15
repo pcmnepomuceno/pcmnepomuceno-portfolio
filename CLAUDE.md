@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 2 done. Next: Milestone 3 (content.ts + Hero + Experience).
+Milestone 3 done. Next: Milestone 4 (Projects + Skills).
