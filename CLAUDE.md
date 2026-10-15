@@ -39,6 +39,7 @@ Czed's personal portfolio website. Light, clean, techy, Japanese-red visual styl
 - No claims about experience or projects beyond what is in `content.ts`.
 - No FashionTech code, screenshots, or demo details (pending written permission from Limitless Lab).
 - `next.config.ts` keeps `agentRules: false` (stops Next generating AGENTS.md).
+- docs/PROJECT_BRIEF.md owns scope, milestones and out-of-scope. PRODUCT.md owns audience, tone and design intent. If they conflict, stop and ask me.
 - Log every non-trivial decision, including deferred items and reversals, in docs/DECISIONS.md (append-only).
 
 ## Workflow
