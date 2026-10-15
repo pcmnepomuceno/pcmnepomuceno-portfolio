@@ -43,7 +43,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="border-b border-border">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2">
-              <a href="#home" className="font-serif text-lg">
+              <a
+                href="#home"
+                className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
+              >
                 Prince Czedrick Nepomuceno
               </a>
               <div className="flex flex-wrap items-center gap-x-3">
@@ -54,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                       <li key={item}>
                         <a
                           href={`#${item.toLowerCase()}`}
-                          className="inline-flex min-h-11 min-w-11 items-center justify-center px-2"
+                          className="inline-flex min-h-11 min-w-11 items-center justify-center px-2 hover:text-accent motion-safe:transition-colors"
                         >
                           {item}
                         </a>
