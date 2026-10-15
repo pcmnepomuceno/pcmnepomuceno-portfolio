@@ -34,3 +34,4 @@ Rules for this file:
 | 2026-10-15 | Header and footer live inline in layout.tsx; name and nav labels hardcoded for now | Used once; move to components and content.ts in Milestone 3 |
 | 2026-10-15 | Deferred skip-to-content link to Milestone 7 | Accessibility polish pass |
 | 2026-10-15 | Browser verification not run by Claude: Playwright MCP present but its Chrome binary is missing | Per instruction, no Playwright install or browser download. Czed verifies in the browser |
+| 2026-10-15 | Site name changed from "Czed Nepomuceno" to "Prince Czedrick Nepomuceno" (title, description, header, footer, specimen) | Czed's request. Past entries and CLAUDE.md keep "Czed" as the nickname |

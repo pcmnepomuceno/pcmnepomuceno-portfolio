@@ -28,8 +28,8 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Czed Nepomuceno",
-  description: "Portfolio of Czed Nepomuceno",
+  title: "Prince Czedrick Nepomuceno",
+  description: "Portfolio of Prince Czedrick Nepomuceno",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <header className="border-b border-border">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4">
               <a href="#home" className="font-serif text-lg">
-                Czed Nepomuceno
+                Prince Czedrick Nepomuceno
               </a>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                 <nav aria-label="Primary">
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <footer className="border-t border-border">
             <p className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
-              © 2026 Czed Nepomuceno
+              © 2026 Prince Czedrick Nepomuceno
             </p>
           </footer>
         </ThemeProvider>

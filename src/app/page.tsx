@@ -6,7 +6,7 @@ export default function Home() {
         <p className="font-mono text-sm uppercase tracking-widest text-accent">
           Design specimen
         </p>
-        <h1 className="font-serif text-4xl">Czed Nepomuceno</h1>
+        <h1 className="font-serif text-4xl">Prince Czedrick Nepomuceno</h1>
         <p className="max-w-prose">
           Body text in Inter. The quick brown fox jumps over the lazy dog.
         </p>
