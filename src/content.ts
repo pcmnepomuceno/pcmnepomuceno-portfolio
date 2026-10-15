@@ -22,7 +22,7 @@ export type ExperienceItem = {
 export const profile: Profile = {
   name: "Prince Czedrick Nepomuceno",
   displayName: "Czed Nepomuceno",
-  role: "Full-stack developer, from backend systems to AI-powered search",
+  role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
   summary:
@@ -34,7 +34,7 @@ export const profile: Profile = {
   },
   photo: {
     src: "/images/portrait.jpg",
-    alt: "Portrait of Czed Nepomuceno in his UP Sablay",
+    alt: "Portrait of Czed Nepomuceno wearing his University of the Philippines graduation sash",
   },
 };
 
@@ -47,7 +47,7 @@ const items: ExperienceItem[] = [
     organization: "UPLB Computer Science Society",
     start: "2023",
     end: "2024",
-    bullets: ["Served as an officer of the society."],
+    bullets: [],
     tags: [],
   },
   {
@@ -67,7 +67,7 @@ const items: ExperienceItem[] = [
     organization: "UP Soma Soshiki (UPLB Japanese pop culture organization)",
     start: "2024",
     end: "2025",
-    bullets: ["Served as an officer of the organization."],
+    bullets: [],
     tags: [],
   },
 ];
