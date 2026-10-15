@@ -66,6 +66,17 @@ export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Downl
 // Each item links to the section whose id is the lowercase item.
 export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
+// Command palette copy. Actions are built from nav and cv, so only fixed words live here.
+export const palette = {
+  trigger: "Open command palette",
+  hint: "Ctrl K",
+  dialog: "Command palette",
+  input: "Search commands",
+  goTo: "Go to",
+  toggleTheme: "Toggle theme",
+  empty: "No matching commands",
+};
+
 const items: ExperienceItem[] = [
   {
     type: "org",
@@ -105,6 +116,12 @@ const year = (date: string) => Number(/\d{4}/.exec(date)?.[0] ?? Infinity);
 export const experience: ExperienceItem[] = [...items].sort(
   (a, b) => year(b.end) - year(a.end) || year(b.start) - year(a.start),
 );
+
+// Stamp text for each project status; null shows no stamp.
+export const statusLabels: Record<NonNullable<Project["status"]>, string> = {
+  live: "LIVE",
+  "in-progress": "IN PROGRESS",
+};
 
 // Display order is source order (not sorted).
 export const projects: Project[] = [
