@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 3 done. Next: Milestone 4 (Projects + Skills).
+Milestone 4 done. Next: Milestone 5 (Contact + CV + SEO)
