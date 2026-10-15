@@ -29,7 +29,7 @@ export default function Hero() {
         <p className="font-mono text-sm text-muted">
           {profile.education} · {profile.location}
         </p>
-        <ul className="flex flex-wrap gap-3">
+        <ul role="list" className="flex flex-wrap gap-3">
           <li>
             <a href={cv.href} download className={primaryClass}>
               {cv.label}

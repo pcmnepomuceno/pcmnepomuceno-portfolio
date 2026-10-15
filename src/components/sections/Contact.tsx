@@ -23,7 +23,7 @@ export default function Contact() {
         >
           {links.email}
         </a>
-        <ul className="flex flex-wrap gap-3">
+        <ul role="list" className="flex flex-wrap gap-3">
           <li>
             <a href={links.github} className={linkClass}>
               GitHub
