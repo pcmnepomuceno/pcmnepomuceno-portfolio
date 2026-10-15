@@ -2,7 +2,7 @@ import Image from "next/image";
 import { profile } from "@/content";
 
 const linkClass =
-  "inline-flex min-h-11 items-center rounded-md border border-border px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
+  "inline-flex min-h-11 items-center rounded-md border border-muted px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
 
 export default function Hero() {
   const { links, photo } = profile;
@@ -14,7 +14,9 @@ export default function Hero() {
     >
       <div className="min-w-0 space-y-6">
         <div className="space-y-3">
-          <p className="font-mono text-sm text-muted">~/czed</p>
+          <p aria-hidden="true" className="font-mono text-sm text-muted">
+            <span className="text-accent">~/</span>czed
+          </p>
           <h1 className="font-serif text-4xl sm:text-5xl">{profile.displayName}</h1>
           <p className="text-lg sm:text-xl">{profile.role}</p>
         </div>
