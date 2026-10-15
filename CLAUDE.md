@@ -47,4 +47,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 1 done. Next: Milestone 2 (design tokens, fonts, theme toggle).
+Milestone 2 done. Next: Milestone 3 (content.ts + Hero + Experience).

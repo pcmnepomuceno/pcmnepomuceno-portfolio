@@ -25,3 +25,12 @@ Rules for this file:
 | 2026-10-15 | Added CLAUDE.md as project memory | Claude Code reads it every session; keeps rules out of individual prompts |
 | 2026-10-15 | Theme: light by default, manual toggle, no system-preference detection | Matches the light and clean preference; predictable behavior. Assumed by Claude, not yet explicitly confirmed by Czed |
 | 2026-10-15 | Reversed the entry above. Theme now follows the visitor's system preference by default (next-themes, enableSystem), with a manual light/dark toggle whose choice persists | Czed's choice: respect the visitor's OS setting while still allowing an override. Light is the design's primary look, so light mode gets the most polish |
+| 2026-10-15 | Pinned next-themes at exactly 0.4.6 (--save-exact) | Only new dependency in Milestone 2; exact pin avoids surprise upgrades |
+| 2026-10-15 | Fonts: Noto Serif JP 600, JetBrains Mono 400, Inter 400 and 500; latin subset only; display swap | Max 2 weights per family, only those used. Noto Serif JP offers a latin subset, so no CJK stop was needed |
+| 2026-10-15 | Flagged: next build emits ~124 Noto Serif JP @font-face rules (CJK slices) though only latin is preloaded | Browsers fetch by unicode-range, so CJK files should not download for latin text. Not verified in a real browser (see Playwright entry); verify in DevTools Network and revisit if CJK woff2 files load |
+| 2026-10-15 | Kept the starting colors unchanged; all pass WCAG AA. Light: text 16.81, accent 5.51, muted 5.58. Dark: text 16.27, accent 5.80, muted 6.79 | Contrast checked by calculation. Added muted (#6B625B / #A39A91) and border (#E4DDD3 / #2E2925) values; border is decorative only (1.26 / 1.31) |
+| 2026-10-15 | Button text uses the background token on the accent fill (5.51 light, 5.80 dark); no accent-foreground token | One fewer token; contrast already passes |
+| 2026-10-15 | Theme toggle mounted-check uses useSyncExternalStore, not useEffect + setState | Avoids the React 19 set-state-in-effect lint rule; same no-mismatch result |
+| 2026-10-15 | Header and footer live inline in layout.tsx; name and nav labels hardcoded for now | Used once; move to components and content.ts in Milestone 3 |
+| 2026-10-15 | Deferred skip-to-content link to Milestone 7 | Accessibility polish pass |
+| 2026-10-15 | Browser verification not run by Claude: Playwright MCP present but its Chrome binary is missing | Per instruction, no Playwright install or browser download. Czed verifies in the browser |
