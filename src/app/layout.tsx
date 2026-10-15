@@ -42,16 +42,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="border-b border-border">
-            <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4">
-              <a href="#home" className="font-serif text-lg">
+            <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2">
+              <a
+                href="#home"
+                className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
+              >
                 Prince Czedrick Nepomuceno
               </a>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <div className="flex flex-wrap items-center gap-x-3">
                 <nav aria-label="Primary">
-                  <ul className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
+                  {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
+                  <ul className="-mx-2 flex flex-wrap font-mono text-sm">
                     {nav.map((item) => (
                       <li key={item}>
-                        <a href={`#${item.toLowerCase()}`}>{item}</a>
+                        <a
+                          href={`#${item.toLowerCase()}`}
+                          className="inline-flex min-h-11 min-w-11 items-center justify-center px-2 hover:text-accent motion-safe:transition-colors"
+                        >
+                          {item}
+                        </a>
                       </li>
                     ))}
                   </ul>
