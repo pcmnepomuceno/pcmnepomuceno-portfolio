@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import CommandPalette from "@/components/CommandPalette";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { nav, profile, siteDescription, siteUrl } from "@/content";
 import "./globals.css";
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <div className="flex flex-wrap items-center gap-x-3">
                 <nav aria-label="Primary">
                   {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
-                  <ul className="-mx-2 flex flex-wrap font-mono text-sm">
+                  <ul role="list" className="-mx-2 flex flex-wrap font-mono text-sm">
                     {nav.map((item) => (
                       <li key={item}>
                         <a
@@ -68,7 +69,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     ))}
                   </ul>
                 </nav>
-                <ThemeToggle />
+                <div className="flex items-center gap-2">
+                  <CommandPalette />
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </header>
