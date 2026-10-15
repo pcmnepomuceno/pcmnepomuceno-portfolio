@@ -159,7 +159,7 @@ export default function CommandPalette() {
           className="w-full border-b border-border bg-transparent px-4 py-3 font-mono text-sm -outline-offset-2 placeholder:text-muted"
         />
         {filtered.length > 0 && (
-          <ul id={listId} role="listbox" aria-label={palette.dialog} className="max-h-[60vh] overflow-y-auto py-2">
+          <ul id={listId} role="listbox" className="max-h-[60vh] overflow-y-auto py-2">
             {filtered.map((command, i) => (
               <li
                 key={command.label}
