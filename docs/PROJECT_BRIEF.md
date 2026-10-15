@@ -69,10 +69,4 @@ Single page with anchored sections: Home, Experience, Projects, Skills, Contact.
 - CV: how will the PDF be produced and kept current?
 
 ## 10. Decisions log
-| Date | Decision | Reason |
-|---|---|---|
-| 2026-10-14 | Next.js + Tailwind + Vercel | Known stack, free, matches references |
-| 2026-10-14 | No backend in v1 | Nothing to store; reduces cost and risk |
-| 2026-10-14 | Chatbot deferred to v2 | Ship static site first; chatbot needs server route, key handling, rate limits |
-| 2026-10-14 | Visual style only (no Japanese text) | Personal taste (anime, UP Soma Soshiki); avoids mistranslation risk |
-| 2026-10-14 | Free vercel.app URL for now | Budget $0 |
+See `docs/DECISIONS.md`.
