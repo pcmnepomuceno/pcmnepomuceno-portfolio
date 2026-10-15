@@ -10,7 +10,7 @@
 
 ## 2. Core features (MVP)
 1. Hero: Sablay photo + name + short summary + links
-2. Experience timeline (chronological: work, projects, orgs)
+2. Experience timeline (chronological: work, orgs); projects have their own section
 3. Featured projects: Steam Review Analyzer, CosRec (+ small PICSEL card)
 4. Skills grouped by area
 5. Contact (email, GitHub, LinkedIn) + downloadable CV (PDF)
@@ -37,9 +37,9 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 | Hosting | Vercel (free), pcmnepomuceno.vercel.app | Free, deploy on push |
 
 ## 5. Data model (content.ts)
-- Profile: name, tagline, summary, photo, links
-- ExperienceItem: type (work | project | org), title, org, start, end, bullets, tags
-- Project: slug, title, summary, stack[], links (demo/repo), featured, status
+- Profile: name, role, location, education, summary, links (email, github, linkedin), photo (src, alt)
+- ExperienceItem: type (work | org), title, organization, start, end, bullets[], tags[]
+- Project: slug, title, summary, status ("live" | "in-progress" | null), featured, period?, role?, tags[], links[] { label, href }
 - SkillGroup: label, items[]
 
 ## 6. Key screens
@@ -51,7 +51,7 @@ Single page with anchored sections: Home, Experience, Projects, Skills, Contact.
 | 1 | Scaffold + hello world + Vercel deploy connected | Runs locally; live URL shows the page |
 | 2 | Design tokens (red/ink/washi), fonts, layout shell, theme toggle | Light/dark toggle works, no flash on reload |
 | 3 | content.ts + Hero + Experience timeline | Timeline renders chronologically from data |
-| 4 | Featured projects + PICSEL card + Skills | Steam + CosRec cards link to real demo/repo |
+| 4 | Featured projects + PICSEL card + Skills | Steam card links to the real demo and repo; CosRec card shows a demo-in-progress label |
 | 5 | Contact + CV PDF + SEO/OG metadata | CV downloads; link preview looks right |
 | 6 | Command palette (Ctrl+K) + hanko status stamps | Palette jumps to sections, toggles theme |
 | 7 | Polish: responsive, accessibility, Lighthouse | Mobile OK; Lighthouse 90+ |
