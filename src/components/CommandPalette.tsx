@@ -130,11 +130,13 @@ export default function CommandPalette() {
           {palette.hint}
         </kbd>
       </button>
+      {/* Scrim is black, not a token: foreground is near-white in dark mode and would lighten the page.
+          Literal rgb, not bg-black/50, which compiles to var(--color-black); older Safari's ::backdrop can't read custom properties. */}
       <dialog
         ref={dialogRef}
         aria-label={palette.dialog}
         onClose={onClose}
-        className="m-auto mt-16 w-[calc(100%-2rem)] max-w-lg rounded-md border border-border bg-background p-0 text-foreground backdrop:bg-foreground/40"
+        className="m-auto mt-16 w-[calc(100%-2rem)] max-w-lg rounded-md border border-border bg-background p-0 text-foreground backdrop:bg-[rgb(0_0_0/0.5)]"
       >
         <input
           ref={inputRef}
