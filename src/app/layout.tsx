@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { nav, profile } from "@/content";
 import "./globals.css";
-
-const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 const serif = Noto_Serif_JP({
   subsets: ["latin"],
@@ -28,8 +27,8 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Prince Czedrick Nepomuceno",
-  description: "Portfolio of Prince Czedrick Nepomuceno",
+  title: profile.name,
+  description: `Portfolio of ${profile.name}. ${profile.role}.`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -47,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 href="#home"
                 className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
               >
-                Prince Czedrick Nepomuceno
+                {profile.name}
               </a>
               <div className="flex flex-wrap items-center gap-x-3">
                 <nav aria-label="Primary">
@@ -72,7 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <footer className="border-t border-border">
             <p className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
-              © {new Date().getFullYear()} Prince Czedrick Nepomuceno
+              © {new Date().getFullYear()} {profile.name}
             </p>
           </footer>
         </ThemeProvider>
