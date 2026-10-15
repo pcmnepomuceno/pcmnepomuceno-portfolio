@@ -123,8 +123,8 @@ export default function CommandPalette() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <circle cx="11" cy="11" r="7" />
-          <path d="m20 20-3.5-3.5" />
+          <path d="m5 7 5 5-5 5" />
+          <path d="M12 17h7" />
         </svg>
         <kbd aria-hidden="true" className="hidden font-mono text-xs text-muted sm:inline">
           {palette.hint}
