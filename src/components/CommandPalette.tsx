@@ -110,7 +110,7 @@ export default function CommandPalette() {
         onClick={open}
         aria-haspopup="dialog"
         aria-keyshortcuts="Control+K Meta+K"
-        className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md border border-border px-3 text-foreground hover:border-accent hover:text-accent"
+        className="hidden min-h-11 min-w-11 items-center justify-center gap-2 rounded-md border border-border px-3 text-foreground hover:border-accent hover:text-accent sm:inline-flex"
       >
         <span className="sr-only">{palette.trigger}</span>
         <svg
