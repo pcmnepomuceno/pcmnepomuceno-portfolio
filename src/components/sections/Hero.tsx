@@ -17,7 +17,9 @@ export default function Hero() {
           <p aria-hidden="true" className="font-mono text-sm text-muted">
             <span className="text-accent">~/</span>czed
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl">{profile.displayName}</h1>
+          <h1 className="font-serif text-3xl text-balance sm:text-4xl md:text-5xl">
+            {profile.name}
+          </h1>
           <p className="text-lg sm:text-xl">{profile.role}</p>
         </div>
         <p className="max-w-prose">{profile.summary}</p>

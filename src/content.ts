@@ -1,6 +1,5 @@
 export type Profile = {
   name: string;
-  displayName: string;
   role: string;
   location: string;
   education: string;
@@ -21,7 +20,6 @@ export type ExperienceItem = {
 
 export const profile: Profile = {
   name: "Prince Czedrick Nepomuceno",
-  displayName: "Czed Nepomuceno",
   role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
@@ -34,7 +32,7 @@ export const profile: Profile = {
   },
   photo: {
     src: "/images/portrait.jpg",
-    alt: "Portrait of Czed Nepomuceno wearing his University of the Philippines graduation sash",
+    alt: "Portrait of Prince Czedrick Nepomuceno wearing his University of the Philippines graduation sash",
   },
 };
 

@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 href="#home"
                 className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
               >
-                {profile.displayName}
+                {profile.name}
               </a>
               <div className="flex flex-wrap items-center gap-x-3">
                 <nav aria-label="Primary">
