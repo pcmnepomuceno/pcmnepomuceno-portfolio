@@ -53,8 +53,8 @@ export const profile: Profile = {
   },
 };
 
-// Add "Projects", "Skills", "Contact" when those sections exist (Milestones 4-5).
-export const nav = ["Home", "Experience"];
+// Add "Contact" when that section exists (Milestone 5).
+export const nav = ["Home", "Experience", "Projects", "Skills"];
 
 const items: ExperienceItem[] = [
   {
