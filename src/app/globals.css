@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: #faf7f2; /* washi */
+  --color-foreground: #1a1614; /* sumi */
+  --color-muted: #6b625b;
+  --color-border: #e4ddd3;
+  --color-accent: #c8102e; /* vermilion */
+}
+
+.dark {
+  --color-background: #14110f;
+  --color-foreground: #f2eee8;
+  --color-muted: #a39a91;
+  --color-border: #2e2925;
+  --color-accent: #ff4d5e;
+}
+
+@theme inline {
+  --font-serif: var(--font-noto-serif-jp), serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
