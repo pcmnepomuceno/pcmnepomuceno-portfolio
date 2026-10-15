@@ -1,0 +1,44 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Users
+Primary: recruiters and hiring managers (PH entry-level, remote/global) who scan quickly for proof the owner can ship. Secondary: freelance clients and fellow developers. Today they see a LinkedIn profile, GitHub and a PDF resume; none of these show projects or personality together.
+
+## Product Purpose
+Prince Czedrick Nepomuceno's (nickname Czed) personal portfolio: an easily accessible resume that shows projects, experience and the ability to ship. It is a portfolio piece, real use in job applications, and a personal brand (anime / J-pop culture). Success: a recruiter reaches experience, featured projects and contact or CV in one short visit.
+
+## Positioning
+A resume PDF plus links cannot show shipped projects and personality in one place. This site does, and its own build quality is part of the evidence.
+
+## Operating Context
+Single-page static site with anchored sections: Home, Experience, Projects, Skills, Contact. Hosted on Vercel free tier at pcmnepomuceno.vercel.app. Content lives in a typed `src/content.ts`. Scope, milestones and out-of-scope live in `docs/PROJECT_BRIEF.md`, which wins on those; this file owns audience, tone and design intent.
+
+## Capabilities and Constraints
+- Static: no backend, database, auth, CMS or blog in v1. Chatbot, /now page and hackathon log are v2.
+- Light/dark mode following system preference with manual override; responsive; SEO/OG metadata; downloadable CV.
+- Minimal animation only (subtle scroll reveals); no heavy animation, 3D or page transitions.
+- No FashionTech code, screenshots or demo details until Limitless Lab gives written permission.
+- Steinholdt project is excluded until deployed and the client agrees.
+- No claims about experience or projects beyond `src/content.ts`.
+- Undecided: CosRec presentation (demo, public repo or screenshots), tagline and summary wording, how the CV PDF is produced and kept current.
+
+## Brand Commitments
+Light, clean, techy, Japanese-red visual style; visual style only, no Japanese text. Voice: casual-professional, first person, plain, light personality, no buzzwords.
+
+## Evidence on Hand
+- Steam Review Analyzer: public repo github.com/pcmnepomuceno/steam-review-analyzer (confirmed by owner as available).
+- CosRec: exists; demo, repo or screenshots not yet decided.
+- Sablay photo and CV PDF: exist but are not yet in `public/`.
+- Not available and not to be invented: testimonials, metrics, employer or client claims beyond `src/content.ts`, FashionTech material.
+
+## Product Principles
+- Proof over polish: real projects and links come before decoration.
+- Scannable in under a minute for a recruiter, with depth one click away.
+- Claim only what `src/content.ts` supports.
+- Personality stays light; clarity and craft come first.
+- Restraint: minimal motion, no clutter.
