@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 5 done. Next: Milestone 6 (command palette + hanko stamps)
+Milestone 6 done. Next: Milestone 7 (polish: audit, adapt, polish)
