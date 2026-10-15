@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { nav, profile } from "@/content";
+import { nav, profile, siteDescription, siteUrl } from "@/content";
 import "./globals.css";
 
 const serif = Noto_Serif_JP({
@@ -27,8 +27,12 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: profile.name,
-  description: `Portfolio of ${profile.name}. ${profile.role}.`,
+  description: siteDescription,
+  openGraph: { title: profile.name, description: siteDescription, url: "/", type: "website" },
+  // Images come from app/opengraph-image.tsx; Next copies them into twitter:image.
+  twitter: { card: "summary_large_image", title: profile.name, description: siteDescription },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

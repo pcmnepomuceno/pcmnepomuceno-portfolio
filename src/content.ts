@@ -53,8 +53,18 @@ export const profile: Profile = {
   },
 };
 
-// Add "Contact" when that section exists (Milestone 5).
-export const nav = ["Home", "Experience", "Projects", "Skills"];
+export const siteUrl = "https://pcmnepomuceno.vercel.app";
+
+export const siteDescription =
+  "Prince Czedrick Nepomuceno is a full-stack developer and UP Los Baños Computer Science graduate. Projects include a Steam review analyzer and CosRec, a hybrid image-text search system.";
+
+export const contactIntro =
+  "I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles. Email is the best way to reach me.";
+
+export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Download CV" };
+
+// Each item links to the section whose id is the lowercase item.
+export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 const items: ExperienceItem[] = [
   {
@@ -68,7 +78,7 @@ const items: ExperienceItem[] = [
   },
   {
     type: "work",
-    title: "Software Developer Intern",
+    title: "Software Engineer Intern",
     organization: "Limitless Lab",
     start: "Jun 2025",
     end: "Jul 2025",
@@ -136,9 +146,10 @@ export const projects: Project[] = [
 ];
 
 export const skills: SkillGroup[] = [
-  { label: "Languages", items: ["Python", "JavaScript"] },
-  { label: "Backend", items: ["FastAPI", "Node.js"] },
-  { label: "Frontend", items: ["React"] },
+  { label: "Languages", items: ["Python", "JavaScript", "Java", "Dart"] },
+  { label: "Backend", items: ["FastAPI", "Node.js", "Express.js"] },
+  { label: "Frontend", items: ["React", "Next.js"] },
   { label: "Mobile", items: ["Flutter"] },
-  { label: "Data and tools", items: ["PostgreSQL", "Git"] },
+  { label: "Data and ML", items: ["PostgreSQL", "MongoDB", "Firebase", "scikit-learn"] },
+  { label: "Tools", items: ["Git", "Docker"] },
 ];
