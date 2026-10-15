@@ -78,7 +78,7 @@ const items: ExperienceItem[] = [
   },
   {
     type: "work",
-    title: "Software Developer Intern",
+    title: "Software Engineer Intern",
     organization: "Limitless Lab",
     start: "Jun 2025",
     end: "Jul 2025",
