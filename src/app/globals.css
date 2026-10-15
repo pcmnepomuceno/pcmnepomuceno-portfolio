@@ -19,9 +19,9 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-noto-serif-jp);
-  --font-mono: var(--font-jetbrains-mono);
-  --font-sans: var(--font-inter);
+  --font-serif: var(--font-noto-serif-jp), serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
