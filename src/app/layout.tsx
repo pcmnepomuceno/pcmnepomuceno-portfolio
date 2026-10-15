@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import "./globals.css";
+
+const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 const serif = Noto_Serif_JP({
   subsets: ["latin"],
@@ -38,7 +41,31 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <header className="border-b border-border">
+            <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4">
+              <a href="#home" className="font-serif text-lg">
+                Czed Nepomuceno
+              </a>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <nav aria-label="Primary">
+                  <ul className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
+                    {nav.map((item) => (
+                      <li key={item}>
+                        <a href={`#${item.toLowerCase()}`}>{item}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                <ThemeToggle />
+              </div>
+            </div>
+          </header>
           {children}
+          <footer className="border-t border-border">
+            <p className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
+              © 2026 Czed Nepomuceno
+            </p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
