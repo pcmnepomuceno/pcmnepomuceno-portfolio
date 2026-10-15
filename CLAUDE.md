@@ -1,0 +1,49 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project
+
+Czed's personal portfolio website. Light, clean, techy, Japanese-red visual style (visual style only, no Japanese text). Scope, milestones, open questions and decisions log: `docs/PROJECT_BRIEF.md`.
+
+## Stack
+
+- Next.js 16 App Router, React 19, TypeScript strict, path alias `@/*` → `src/*`.
+- Tailwind CSS v4 via `@tailwindcss/postcss` and `postcss.config.mjs` (not the turbopack loader). `globals.css` is `@import "tailwindcss"`; no `tailwind.config`.
+- next-themes (theming), Motion (minimal scroll reveals).
+- Static site. No backend, database, auth, CMS or blog in v1. Chatbot is v2.
+- Layouts use Next's global `LayoutProps<"/">` type (no import).
+- This Next version may differ from training data; check `node_modules/next/dist/docs/` before using unfamiliar APIs.
+
+## Commands
+
+- `npm run dev` — dev server (http://localhost:3000)
+- `npm run build` — production build
+- `npm run lint` — ESLint (flat config)
+- No test runner configured.
+
+## Folder structure (target)
+
+- `src/app/` — `layout.tsx`, `page.tsx`, `globals.css`: routes, theme provider, tokens
+- `src/components/sections/` — Hero, Experience, Projects, Skills, Contact
+- `src/components/ui/` — small reusable pieces
+- `src/content.ts` — all data, typed (Profile, ExperienceItem, Project, SkillGroup). Content is not hardcoded in components.
+- `public/` — photo, CV PDF, og-image
+- `docs/` — `PROJECT_BRIEF.md` and decisions
+
+## Rules
+
+- Never commit `.env` files.
+- Ask before adding any new dependency.
+- Minimal animation only.
+- No claims about experience or projects beyond what is in `content.ts`.
+- No FashionTech code, screenshots, or demo details (pending written permission from Limitless Lab).
+- `next.config.ts` keeps `agentRules: false` (stops Next generating AGENTS.md).
+
+## Workflow
+
+One milestone at a time, branch per milestone, plan mode first, small logical commits. Stop only when a decision is the user's.
+
+## Status
+
+Milestone 1 done. Next: Milestone 2 (design tokens, fonts, theme toggle).
