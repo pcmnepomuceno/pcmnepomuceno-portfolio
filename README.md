@@ -33,6 +33,10 @@ npm run lint    # ESLint
 
 Text, projects, skills and links live in `src/content.ts`. Edit that file to change what the site says; components only render it.
 
+## Fonts
+
+Inter and JetBrains Mono load through `next/font/google`. The heading font is a self-hosted file, `src/app/fonts/NotoSerifJP-600-latin.woff2`: Noto Serif JP, weight 600, latin subset only. It is copyright (c) 2017-2024 Adobe and licensed under the SIL Open Font License 1.1 (https://openfontlicense.org). The full license text is not bundled in the repo; add an `OFL.txt` next to the font if the license requires it for your use.
+
 ## Decisions
 
 Scope decisions, deferred items and reversals are recorded in [docs/DECISIONS.md](docs/DECISIONS.md).
