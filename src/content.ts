@@ -79,13 +79,14 @@ export const skipLink = "Skip to content";
 
 export const backToTop = "Back to top";
 
-// Contact "Copy email" button and its result messages.
+// Screenshot lightbox on the Projects section.
 export const lightbox = {
   heading: (title: string) => `${title} results`,
   open: (title: string) => `Enlarge screenshot: ${title} results`,
   close: "Close",
 };
 
+// Contact "Copy email" button and its result messages.
 export const copyEmail = {
   button: "Copy email",
   copied: "Email copied",

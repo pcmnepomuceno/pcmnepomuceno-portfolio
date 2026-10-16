@@ -1,4 +1,4 @@
-import { outlineLink } from "@/components/ui/links";
+import { primaryLink, textLink } from "@/components/ui/links";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import Stamp from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
@@ -35,15 +35,16 @@ function ProjectItem({ project }: { project: Project }) {
           <ul
             role="list"
             aria-label={`${project.title} links`}
-            className="flex flex-wrap gap-3 pt-2"
+            className="flex flex-wrap items-center gap-x-5 gap-y-1 pt-2"
           >
-            {project.links.map((link) => (
+            {/* The first link in the data (the live demo) is the primary action, the rest are quiet. */}
+            {project.links.map((link, i) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={outlineLink}
+                  className={i === 0 ? primaryLink : textLink}
                 >
                   {link.label}
                   <span className="sr-only"> for {project.title} (opens in new tab)</span>
