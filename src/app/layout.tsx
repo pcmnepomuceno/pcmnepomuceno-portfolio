@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import SiteNav from "@/components/SiteNav";
@@ -7,11 +8,16 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import { backToTop, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
 
-const serif = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["600"],
+// Self-hosted latin subset of Noto Serif JP 600. next/font/google would add ~120 CJK @font-face
+// rules (about 34 KB gzip) to the render-blocking stylesheet. The site has no Japanese text.
+// next/font/local names the family after this constant, so it must not be a CSS generic like "serif".
+const notoSerifJP = localFont({
+  src: "./fonts/NotoSerifJP-600-latin.woff2",
+  weight: "600",
+  style: "normal",
   display: "swap",
   variable: "--font-noto-serif-jp",
+  adjustFontFallback: "Times New Roman",
 });
 
 const mono = JetBrains_Mono({
@@ -41,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${serif.variable} ${mono.variable} ${sans.variable}`}
+      className={`${notoSerifJP.variable} ${mono.variable} ${sans.variable}`}
       suppressHydrationWarning
     >
       <body>
