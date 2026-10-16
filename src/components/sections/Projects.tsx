@@ -1,6 +1,6 @@
 import { primaryLink, textLink } from "@/components/ui/links";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
-import Stamp from "@/components/ui/Stamp";
+import Stamp, { Badge } from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
 
 function ProjectItem({ project }: { project: Project }) {
@@ -14,6 +14,7 @@ function ProjectItem({ project }: { project: Project }) {
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="font-serif text-2xl font-semibold">{project.title}</h3>
           {project.featured && project.status && <Stamp status={project.status} />}
+          {project.badge && <Badge label={project.badge} />}
           {meta && <p className="font-mono text-sm text-muted">{meta}</p>}
         </div>
         {project.result && <p className="font-mono text-sm">{project.result}</p>}
@@ -43,6 +44,7 @@ function ProjectItem({ project }: { project: Project }) {
                   className={i === 0 ? primaryLink : textLink}
                 >
                   {link.label}
+                  <span aria-hidden="true">&nbsp;↗</span>
                   <span className="sr-only"> for {project.title} (opens in new tab)</span>
                 </a>
               </li>

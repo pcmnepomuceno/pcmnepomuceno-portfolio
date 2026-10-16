@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main id="main" tabIndex={-1} className="mx-auto max-w-5xl px-4">
       <Hero />
-      <Experience />
       <Projects />
+      <Experience />
       <Skills />
       <Contact />
     </main>

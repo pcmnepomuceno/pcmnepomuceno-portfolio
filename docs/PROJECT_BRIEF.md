@@ -43,7 +43,7 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 - SkillGroup: label, items[]
 
 ## 6. Key screens
-Single page with anchored sections: Home, Experience, Projects, Skills, Contact. Plus /resume (print-friendly, optional).
+Single page with anchored sections: Home, Projects, Experience, Skills, Contact. Plus /resume (print-friendly, optional).
 
 ## 7. Milestones
 | # | Milestone | Done when... |

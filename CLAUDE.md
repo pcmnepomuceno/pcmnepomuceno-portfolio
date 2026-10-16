@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 8c (Projects list rows + lightbox) in review; 8b merged.
+Milestone 9 (critique fixes + ideas from friends' portfolios) in review; 8c merged.

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { outlineLink, primaryLink } from "@/components/ui/links";
+import SummaryToggle from "@/components/ui/SummaryToggle";
 import { cv, profile } from "@/content";
 
 export default function Hero() {
@@ -12,15 +13,16 @@ export default function Hero() {
     >
       <div className="min-w-0 space-y-6">
         <div className="space-y-3">
-          <p aria-hidden="true" className="font-mono text-sm text-muted">
-            <span className="text-accent">~/</span>czed
+          <p className="flex items-start gap-2 font-mono text-sm text-muted">
+            <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" />
+            {profile.availability}
           </p>
           <h1 className="font-serif text-3xl text-balance sm:text-4xl md:text-5xl">
             {profile.name}
           </h1>
           <p className="text-lg sm:text-xl">{profile.role}</p>
         </div>
-        <p className="max-w-prose">
+        <SummaryToggle bullets={profile.tldr}>
           {profile.summary.map((part) =>
             typeof part === "string" ? (
               part
@@ -37,7 +39,7 @@ export default function Hero() {
               </a>
             ),
           )}
-        </p>
+        </SummaryToggle>
         <p className="font-mono text-sm text-muted">
           {profile.education} · {profile.location}
         </p>

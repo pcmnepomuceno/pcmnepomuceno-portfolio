@@ -3,7 +3,9 @@ export type Profile = {
   role: string;
   location: string;
   education: string;
+  availability: string;
   summary: (string | { text: string; href: string })[];
+  tldr: string[];
   links: { email: string; github: string; linkedin: string };
   photo: { src: string; alt: string };
 };
@@ -26,6 +28,8 @@ export type Project = {
   summary: string;
   status: "live" | "in-progress" | null;
   featured: boolean;
+  // Short context tag shown beside the title, e.g. "Thesis".
+  badge?: string;
   // One headline number, restated from the summary; shown under the title.
   result?: string;
   period?: string;
@@ -46,10 +50,18 @@ export const profile: Profile = {
   role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
+  availability:
+    "Open to Software Engineer, Backend, Full-Stack and AI Automation roles · Philippines (UTC+8) · remote or on-site",
   summary: [
-    "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. I built ",
+    "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. My thesis, ",
     { text: "CosRec", href: "https://cosrec.vercel.app" },
-    ", a hybrid search system that pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset. I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles where I can keep building and learning.",
+    ", is a live image-text search system.",
+  ],
+  tldr: [
+    "CS graduate, UP Los Baños, July 2026",
+    "Built CosRec, image-text search, 97.8% Top-K (thesis)",
+    "Built Steam Review Analyzer, sentiment model, F1 0.780",
+    "Software Engineer intern at Limitless Lab (Flutter, Firebase)",
   ],
   links: {
     email: "pcmnepomuceno@gmail.com",
@@ -70,10 +82,13 @@ export const siteDescription =
 export const contactIntro =
   "I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles. Email is the best way to reach me.";
 
-export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Download CV" };
+export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Download CV", navLabel: "CV" };
 
 // Each item links to the section whose id is the lowercase item.
-export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
+export const nav = ["Home", "Projects", "Experience", "Skills", "Contact"];
+
+// Hero summary / TL;DR switch.
+export const summaryToggle = { label: "Hero summary view", summary: "Summary", tldr: "TL;DR" };
 
 export const skipLink = "Skip to content";
 
@@ -85,6 +100,7 @@ export const lightbox = {
   open: (title: string) => `Enlarge screenshot: ${title} results`,
   close: "Close",
   scrollRegion: "Screenshot, scrollable",
+  panHint: "Scroll sideways to see the full results.",
 };
 
 // Contact "Copy email" button and its result messages.
@@ -159,13 +175,27 @@ export const statusLabels: Record<NonNullable<Project["status"]>, string> = {
 // Display order is source order (not sorted).
 export const projects: Project[] = [
   {
+    slug: "cosrec",
+    title: "CosRec",
+    summary:
+      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
+    status: "live",
+    featured: true,
+    badge: "Thesis",
+    result: "Right item in the top results 97.8% of the time (500-item test set)",
+    period: "Apr 2026 – Oct 2026",
+    tags: ["Python", "Vision Transformer", "TF-IDF"],
+    links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
+  },
+  {
     slug: "steam-review-analyzer",
     title: "Steam Review Analyzer",
     summary:
       "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on the minority class against a 0.000 baseline.",
     status: "live",
     featured: true,
-    result: "F1 0.780 vs 0.000 baseline",
+    period: "Oct 2026",
+    result: "Spots the rarer review class a naive baseline misses entirely (F1 0.780 vs 0.000)",
     tags: ["Python", "FastAPI", "PostgreSQL", "scikit-learn", "Next.js"],
     links: [
       { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
@@ -177,18 +207,6 @@ export const projects: Project[] = [
       alt: "Steam Review Analyzer 'By topic' results for Cyberpunk 2077, showing the share of reviews that read as positive for each topic: Performance 63%, Price and value 74%, Bugs and stability 55%, Story and writing 81%, Gameplay 83%, each with example review quotes.",
       caption: "Cyberpunk 2077, the 1,000 most recent English reviews, Oct 5 to Oct 12, 2026.",
     },
-  },
-  {
-    slug: "cosrec",
-    title: "CosRec",
-    summary:
-      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
-    status: "live",
-    featured: true,
-    result: "97.8% Top-K on 500 items",
-    period: "Apr 2026 – Oct 2026",
-    tags: ["Python", "Vision Transformer", "TF-IDF"],
-    links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
   },
   {
     slug: "picsel",
