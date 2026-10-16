@@ -1,3 +1,4 @@
+import CopyEmail from "@/components/ui/CopyEmail";
 import { outlineLink } from "@/components/ui/links";
 import { contactIntro, cv, profile } from "@/content";
 
@@ -14,12 +15,7 @@ export default function Contact() {
       </div>
       <div className="space-y-6">
         <p className="max-w-prose">{contactIntro}</p>
-        <a
-          href={`mailto:${links.email}`}
-          className="inline-flex min-h-11 items-center text-lg underline underline-offset-4 [overflow-wrap:anywhere] hover:text-accent motion-safe:transition-colors sm:text-xl"
-        >
-          {links.email}
-        </a>
+        <CopyEmail />
         <ul role="list" className="flex flex-wrap gap-3">
           <li>
             <a href={links.github} className={outlineLink}>

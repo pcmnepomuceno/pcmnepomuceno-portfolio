@@ -68,6 +68,13 @@ export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 export const skipLink = "Skip to content";
 
+// Contact "Copy email" button and its result messages.
+export const copyEmail = {
+  button: "Copy email",
+  copied: "Email copied",
+  failed: "Couldn't copy automatically. The address is selected, so you can copy it yourself.",
+};
+
 // Accessible names of the mobile menu button (below sm).
 export const menu = { open: "Open menu", close: "Close menu" };
 
