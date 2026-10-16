@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 8b (Steam visual) in review; 8a merged.
+Milestone 8c (Projects list rows + lightbox) in review; 8b merged.
