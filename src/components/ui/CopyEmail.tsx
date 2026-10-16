@@ -49,8 +49,10 @@ export default function CopyEmail() {
       <p role="status" className="sr-only">
         {message}
       </p>
-      <p aria-hidden="true" className="font-mono text-sm text-muted empty:hidden">
-        {message}
+      {/* Grid stack: an invisible copy of the longest message holds the height, so showing or clearing the message never moves what follows. */}
+      <p aria-hidden="true" className="grid font-mono text-sm text-muted">
+        <span className="invisible col-start-1 row-start-1">{copyEmail.failed}</span>
+        <span className="col-start-1 row-start-1">{message}</span>
       </p>
     </div>
   );
