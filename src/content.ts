@@ -18,6 +18,8 @@ export type ExperienceItem = {
   tags: string[];
 };
 
+type ProjectImageFile = { src: string; width: number; height: number };
+
 export type Project = {
   slug: string;
   title: string;
@@ -28,6 +30,8 @@ export type Project = {
   role?: string;
   tags: string[];
   links: { label: string; href: string }[];
+  // Theme pair: Projects shows the light file in light mode and the dark file in dark mode.
+  image?: { light: ProjectImageFile; dark: ProjectImageFile; alt: string; caption: string };
 };
 
 export type SkillGroup = {
@@ -156,6 +160,12 @@ export const projects: Project[] = [
       { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
       { label: "Source code", href: "https://github.com/pcmnepomuceno/steam-review-analyzer" },
     ],
+    image: {
+      light: { src: "/images/projects/steam-review-analyzer-light.png", width: 1104, height: 851 },
+      dark: { src: "/images/projects/steam-review-analyzer-dark.png", width: 1104, height: 851 },
+      alt: "Steam Review Analyzer 'By topic' results for Cyberpunk 2077, showing the share of reviews that read as positive for each topic: Performance 63%, Price and value 74%, Bugs and stability 55%, Story and writing 81%, Gameplay 83%, each with example review quotes.",
+      caption: "Cyberpunk 2077, the 1,000 most recent English reviews, Oct 5 to Oct 12, 2026.",
+    },
   },
   {
     slug: "cosrec",
