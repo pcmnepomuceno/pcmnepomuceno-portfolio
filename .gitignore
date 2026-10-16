@@ -65,3 +65,6 @@ next-env.d.ts
 
 # Windows download markers
 *:Zone.Identifier
+
+# Claude Code personal settings
+.claude/settings.local.json
