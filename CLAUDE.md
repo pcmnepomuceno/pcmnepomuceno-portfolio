@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 8a (CosRec live demo, hero link) in review; font slimming merged. Next: Milestone 8b (Steam visual)
+Milestone 8b (Steam visual) in review; 8a merged.

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { outlineLink } from "@/components/ui/links";
 import Stamp from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
@@ -7,7 +8,7 @@ function ProjectItem({ project }: { project: Project }) {
 
   return (
     <article
-      className={`flex min-w-0 flex-col gap-4 rounded-md border border-border ${project.featured ? "p-6" : "max-w-2xl p-4"}`}
+      className={`flex min-w-0 flex-col gap-4 rounded-md border border-border ${project.featured ? "p-6" : "max-w-2xl p-4"}${project.image ? " md:col-span-2" : ""}`}
     >
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h3
@@ -48,6 +49,24 @@ function ProjectItem({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
+      )}
+      {project.image && (
+        <figure className="space-y-2">
+          {/* Both files render, CSS hides the inactive one. display:none makes the browser skip its
+              lazy load and drops it from the accessibility tree, so one download and one alt read. */}
+          {(["light", "dark"] as const).map((theme) => (
+            <Image
+              key={theme}
+              src={project.image![theme].src}
+              width={project.image![theme].width}
+              height={project.image![theme].height}
+              alt={project.image!.alt}
+              sizes="(min-width: 1024px) 942px, calc(100vw - 82px)"
+              className={`h-auto w-full max-w-full rounded-md border border-border ${theme === "light" ? "dark:hidden" : "hidden dark:block"}`}
+            />
+          ))}
+          <figcaption className="text-sm text-muted">{project.image.caption}</figcaption>
+        </figure>
       )}
       {project.status === "in-progress" && (
         <p className="mt-auto pt-2 font-mono text-sm text-muted">Live demo in progress</p>
