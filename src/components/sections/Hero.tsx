@@ -53,9 +53,9 @@ export default function Hero() {
         alt={photo.alt}
         width={560}
         height={560}
-        sizes="(min-width: 640px) 280px, 128px"
+        sizes="(min-width: 640px) 280px, 96px"
         preload
-        className="order-first aspect-square size-32 rounded-md border border-border object-cover object-center sm:order-none sm:size-70"
+        className="order-first aspect-square size-24 rounded-md border border-border object-cover object-center sm:order-none sm:size-70"
       />
     </section>
   );
