@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { outlineLink, primaryLink } from "@/components/ui/links";
+import { outlineLink } from "@/components/ui/links";
 import SummaryToggle from "@/components/ui/SummaryToggle";
 import { cv, profile } from "@/content";
 
@@ -45,7 +45,7 @@ export default function Hero() {
         </p>
         <ul role="list" className="flex flex-wrap gap-3">
           <li>
-            <a href={cv.href} download className={primaryLink}>
+            <a href={cv.href} download className={outlineLink}>
               {cv.label}
               <span className="sr-only"> (PDF)</span>
             </a>

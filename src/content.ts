@@ -59,8 +59,8 @@ export const profile: Profile = {
   ],
   tldr: [
     "CS graduate, UP Los Baños, July 2026",
-    "Built CosRec, image-text search, 97.8% Top-K (thesis)",
-    "Built Steam Review Analyzer, sentiment model, F1 0.780",
+    "Built CosRec, a live image-text search; the right item is in the top results 97.8% of the time",
+    "Built Steam Review Analyzer, a live tool that reads game reviews for sentiment and topics",
     "Software Engineer intern at Limitless Lab (Flutter, Firebase)",
   ],
   links: {
