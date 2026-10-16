@@ -68,6 +68,18 @@ export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 export const skipLink = "Skip to content";
 
+export const backToTop = "Back to top";
+
+// Contact "Copy email" button and its result messages.
+export const copyEmail = {
+  button: "Copy email",
+  copied: "Email copied",
+  failed: "Couldn't copy automatically. The address is selected, so you can copy it yourself.",
+};
+
+// Accessible names of the mobile menu button (below sm).
+export const menu = { open: "Open menu", close: "Close menu" };
+
 // Command palette copy. Actions are built from nav and cv, so only fixed words live here.
 export const palette = {
   trigger: "Open command palette",
