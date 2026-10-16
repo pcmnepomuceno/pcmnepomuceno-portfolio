@@ -12,11 +12,7 @@ function ProjectItem({ project }: { project: Project }) {
     >
       <div className="flex min-w-0 max-w-prose flex-col gap-4">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3
-            className={`font-serif font-semibold ${project.featured ? "text-xl" : "text-lg"}`}
-          >
-            {project.title}
-          </h3>
+          <h3 className="font-serif text-2xl font-semibold">{project.title}</h3>
           {project.featured && project.status && <Stamp status={project.status} />}
           {meta && <p className="font-mono text-sm text-muted">{meta}</p>}
         </div>
