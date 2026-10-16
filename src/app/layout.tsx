@@ -55,12 +55,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2">
               <a
                 href="#home"
-                className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
+                className="inline-flex min-h-11 grow basis-0 items-center font-serif text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
               >
                 {profile.name}
               </a>
-              <div className="flex flex-wrap items-center gap-x-3">
-                <nav aria-label="Primary">
+              {/* Below sm this wrapper is display: contents, so nav and tools join the outer row:
+                  name and toggle on row 1, nav (order-last) below. DOM order is unchanged. */}
+              <div className="contents sm:flex sm:flex-wrap sm:items-center sm:gap-x-3">
+                <nav aria-label="Primary" className="order-last basis-full sm:order-none sm:basis-auto">
                   {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
                   <ul role="list" className="-mx-2 flex flex-wrap font-mono text-sm">
                     {nav.map((item) => (
