@@ -20,6 +20,7 @@ function ProjectItem({ project }: { project: Project }) {
           {project.featured && project.status && <Stamp status={project.status} />}
           {meta && <p className="font-mono text-sm text-muted">{meta}</p>}
         </div>
+        {project.result && <p className="font-mono text-sm">{project.result}</p>}
         <p>{project.summary}</p>
         {project.tags.length > 0 && (
           <ul role="list" aria-label="Technologies" className="flex flex-wrap gap-2">

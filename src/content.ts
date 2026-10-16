@@ -26,6 +26,8 @@ export type Project = {
   summary: string;
   status: "live" | "in-progress" | null;
   featured: boolean;
+  // One headline number, restated from the summary; shown under the title.
+  result?: string;
   period?: string;
   role?: string;
   tags: string[];
@@ -161,6 +163,7 @@ export const projects: Project[] = [
       "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on the minority class against a 0.000 baseline.",
     status: "live",
     featured: true,
+    result: "F1 0.780 vs 0.000 baseline",
     tags: ["Python", "FastAPI", "PostgreSQL", "scikit-learn", "Next.js"],
     links: [
       { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
@@ -180,6 +183,7 @@ export const projects: Project[] = [
       "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
     status: "live",
     featured: true,
+    result: "97.8% Top-K on 500 items",
     period: "Apr 2026 – Oct 2026",
     tags: ["Python", "Vision Transformer", "TF-IDF"],
     links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
