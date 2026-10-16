@@ -37,7 +37,7 @@ Czed's personal portfolio website. Light, clean, techy, Japanese-red visual styl
 - Ask before adding any new dependency.
 - Minimal animation only.
 - No claims about experience or projects beyond what is in `content.ts`.
-- No FashionTech code, screenshots, or demo details (pending written permission from Limitless Lab).
+- FashionTech (Limitless Lab): the project name, the owner's role, screenshots and a short demo video are allowed, and Limitless Lab must be credited wherever it's shown. NEVER add source code, code snippets, repo links or a public repo for it. Screenshots must not show real customer data.
 - `next.config.ts` keeps `agentRules: false` (stops Next generating AGENTS.md).
 - docs/PROJECT_BRIEF.md owns scope, milestones and out-of-scope. PRODUCT.md owns audience, tone and design intent. If they conflict, stop and ask me.
 - Log every non-trivial decision, including deferred items and reversals, in docs/DECISIONS.md (append-only).
