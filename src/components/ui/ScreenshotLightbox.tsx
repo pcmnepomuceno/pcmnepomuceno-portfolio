@@ -46,7 +46,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         <span className="relative block aspect-[1104/500] overflow-hidden md:aspect-[1104/851] rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
           <ThemedImages
             image={image}
-            sizes="(min-width: 768px) 320px, calc(100vw - 32px)"
+            sizes="(min-width: 1024px) 400px, (min-width: 768px) 320px, calc(100vw - 32px)"
             className="h-auto w-full max-w-full"
           />
           {/* Decorative: the button's aria-label already says what it does. Opaque chip keeps the icon legible over either screenshot. */}

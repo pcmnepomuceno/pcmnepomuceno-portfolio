@@ -8,7 +8,7 @@ function ProjectItem({ project }: { project: Project }) {
 
   return (
     <article
-      className={`py-10 first:pt-0 last:pb-0${project.image ? " md:grid md:grid-cols-[minmax(0,1fr)_320px] md:gap-8" : ""}`}
+      className={`py-10 first:pt-0 last:pb-0${project.image ? " md:grid md:grid-cols-[minmax(0,1fr)_320px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_400px]" : ""}`}
     >
       <div className="flex min-w-0 max-w-prose flex-col gap-4">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
