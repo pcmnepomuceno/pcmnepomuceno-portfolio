@@ -20,7 +20,24 @@ export default function Hero() {
           </h1>
           <p className="text-lg sm:text-xl">{profile.role}</p>
         </div>
-        <p className="max-w-prose">{profile.summary}</p>
+        <p className="max-w-prose">
+          {profile.summary.map((part) =>
+            typeof part === "string" ? (
+              part
+            ) : (
+              <a
+                key={part.href}
+                href={part.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-accent underline-offset-4 hover:text-accent motion-safe:transition-colors"
+              >
+                {part.text}
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            ),
+          )}
+        </p>
         <p className="font-mono text-sm text-muted">
           {profile.education} · {profile.location}
         </p>

@@ -36,9 +36,14 @@ function ProjectItem({ project }: { project: Project }) {
         >
           {project.links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className={outlineLink}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={outlineLink}
+              >
                 {link.label}
-                <span className="sr-only"> for {project.title}</span>
+                <span className="sr-only"> for {project.title} (opens in new tab)</span>
               </a>
             </li>
           ))}

@@ -3,7 +3,7 @@ export type Profile = {
   role: string;
   location: string;
   education: string;
-  summary: string;
+  summary: (string | { text: string; href: string })[];
   links: { email: string; github: string; linkedin: string };
   photo: { src: string; alt: string };
 };
@@ -40,8 +40,11 @@ export const profile: Profile = {
   role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
-  summary:
-    "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. I built CosRec, a hybrid search system that pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset. I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles where I can keep building and learning.",
+  summary: [
+    "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. I built ",
+    { text: "CosRec", href: "https://cosrec.vercel.app" },
+    ", a hybrid search system that pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset. I'm looking for Software Engineer, Backend, Full-Stack, or AI Automation roles where I can keep building and learning.",
+  ],
   links: {
     email: "pcmnepomuceno@gmail.com",
     github: "https://github.com/pcmnepomuceno",
@@ -159,10 +162,11 @@ export const projects: Project[] = [
     title: "CosRec",
     summary:
       "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
-    status: "in-progress",
+    status: "live",
     featured: true,
+    period: "Apr 2026 – Oct 2026",
     tags: ["Python", "Vision Transformer", "TF-IDF"],
-    links: [],
+    links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
   },
   {
     slug: "picsel",
@@ -172,7 +176,7 @@ export const projects: Project[] = [
     status: null,
     featured: false,
     role: "Team project",
-    period: "Mar - May 2024",
+    period: "Mar – May 2024",
     tags: ["React", "Bootstrap"],
     links: [],
   },
