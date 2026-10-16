@@ -41,16 +41,35 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         onClick={show}
         aria-haspopup="dialog"
         aria-label={lightbox.open(title)}
-        className="group block w-full min-w-0 space-y-1 text-left"
+        className="group block w-full min-w-0 text-left"
       >
-        <span className="block aspect-[1104/500] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
+        <span className="relative block aspect-[1104/500] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
           <ThemedImages
             image={image}
             sizes="(min-width: 768px) 320px, calc(100vw - 32px)"
             className="h-auto w-full max-w-full"
           />
+          {/* Decorative: the button's aria-label already says what it does. Opaque chip keeps the icon legible over either screenshot. */}
+          <span
+            aria-hidden="true"
+            className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-md border border-border bg-background text-foreground"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="size-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M9 21H3v-6" />
+              <path d="m21 3-7 7" />
+              <path d="m3 21 7-7" />
+            </svg>
+          </span>
         </span>
-        <span className="block text-sm text-muted">{lightbox.enlarge}</span>
       </button>
       {/* Scrim is a literal rgb for the same reason as the command palette. The dialog has no padding, so only a click on the backdrop has the dialog itself as its target. */}
       <dialog
