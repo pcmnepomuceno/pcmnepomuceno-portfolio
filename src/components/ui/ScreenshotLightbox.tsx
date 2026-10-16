@@ -45,11 +45,11 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         aria-label={lightbox.open(title)}
         className="group block w-full min-w-0 text-left"
       >
-        <span className="relative block aspect-[1104/500] overflow-hidden md:aspect-[1104/851] rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
+        <span className="relative block aspect-[475/335] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
           <ThemedImages
             image={image}
-            sizes="(min-width: 1024px) 400px, (min-width: 768px) 320px, calc(100vw - 32px)"
-            className="h-auto w-full max-w-full"
+            sizes="(min-width: 1024px) 928px, (min-width: 768px) 743px, calc(232vw - 75px)"
+            className="h-auto -mt-[17.9%] -ml-[5.3%] w-[232%] max-w-none"
           />
           {/* Decorative: the button's aria-label already says what it does. Opaque chip keeps the icon legible over either screenshot. */}
           <span
@@ -116,6 +116,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
               />
             )}
           </div>
+          <p className="text-sm text-muted md:hidden">{lightbox.panHint}</p>
           <p className="text-sm text-muted">{image.caption}</p>
         </div>
       </dialog>

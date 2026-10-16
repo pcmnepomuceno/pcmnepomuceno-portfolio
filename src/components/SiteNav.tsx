@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { jumpTo } from "@/components/ui/jump";
-import { menu, nav, profile } from "@/content";
+import { primaryLink } from "@/components/ui/links";
+import { cv, menu, nav, profile } from "@/content";
 
 // The whole header row is one nav landmark, so exactly one exists at every width and
 // DOM order matches visual order: name, links (sm and up) or menu button (below sm),
@@ -116,6 +117,10 @@ export default function SiteNav({ children }: { children: ReactNode }) {
             ))}
           </ul>
         </div>
+        <a href={cv.href} download className={`${primaryLink} hidden sm:inline-flex`}>
+          {cv.navLabel}
+          <span className="sr-only"> (PDF)</span>
+        </a>
         <button
           ref={buttonRef}
           type="button"
@@ -168,6 +173,15 @@ export default function SiteNav({ children }: { children: ReactNode }) {
               </a>
             </li>
           ))}
+          <li>
+            <a href={cv.href} download className="flex min-h-11 items-center hover:text-accent">
+              <span aria-hidden="true" className="invisible w-[2ch]">
+                &gt;
+              </span>
+              {cv.label}
+              <span className="sr-only"> (PDF)</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
