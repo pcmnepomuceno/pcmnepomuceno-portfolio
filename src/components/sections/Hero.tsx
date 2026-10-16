@@ -1,11 +1,6 @@
 import Image from "next/image";
+import { outlineLink, primaryLink } from "@/components/ui/links";
 import { cv, profile } from "@/content";
-
-const linkClass =
-  "inline-flex min-h-11 items-center rounded-md border border-muted px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
-
-const primaryClass =
-  "inline-flex min-h-11 items-center rounded-md border border-accent bg-accent px-4 font-medium text-background hover:border-foreground hover:bg-foreground";
 
 export default function Hero() {
   const { links, photo } = profile;
@@ -13,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="grid items-center gap-8 py-16 sm:grid-cols-[1fr_17.5rem] sm:gap-12 sm:py-24"
+      className="grid items-center gap-8 py-16 sm:grid-cols-[1fr_17.5rem] sm:gap-12 md:py-24"
     >
       <div className="min-w-0 space-y-6">
         <div className="space-y-3">
@@ -31,23 +26,23 @@ export default function Hero() {
         </p>
         <ul role="list" className="flex flex-wrap gap-3">
           <li>
-            <a href={cv.href} download className={primaryClass}>
+            <a href={cv.href} download className={primaryLink}>
               {cv.label}
               <span className="sr-only"> (PDF)</span>
             </a>
           </li>
           <li>
-            <a href={links.github} className={linkClass}>
+            <a href={links.github} className={outlineLink}>
               GitHub
             </a>
           </li>
           <li>
-            <a href={links.linkedin} className={linkClass}>
+            <a href={links.linkedin} className={outlineLink}>
               LinkedIn
             </a>
           </li>
           <li>
-            <a href={`mailto:${links.email}`} className={linkClass}>
+            <a href={`mailto:${links.email}`} className={outlineLink}>
               Email
             </a>
           </li>

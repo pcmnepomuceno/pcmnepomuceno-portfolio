@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 6 done. Next: Milestone 7 (polish: audit, adapt, polish)
+Milestone 7a done. Next: Milestone 7b (audit fixes)
