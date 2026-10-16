@@ -12,7 +12,7 @@ export default function Hero() {
       className="grid items-center gap-8 py-16 sm:grid-cols-[1fr_17.5rem] sm:gap-12 md:py-24"
     >
       <div className="min-w-0 space-y-6">
-        <div className="space-y-3">
+        <div className="space-y-4">
           <p className="flex items-start gap-2 font-mono text-sm text-muted">
             <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" />
             {profile.availability}
