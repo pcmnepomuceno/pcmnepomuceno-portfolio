@@ -9,8 +9,57 @@ import { menu, nav, profile } from "@/content";
 // then the tools passed as children, then the menu panel, which overlays the page below.
 export default function SiteNav({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  // "home" matches the server render; the observer corrects it after mount.
+  const [active, setActive] = useState(nav[0].toLowerCase());
+  const locked = useRef(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+
+  // The section crossing a thin line 35% down the viewport is current; at the very bottom
+  // (footer fully visible) it is the last one, since Contact is too short to reach the line.
+  useEffect(() => {
+    const ids = nav.map((item) => item.toLowerCase());
+    const crossing = new Set<string>();
+    let atBottom = false;
+    const update = () => {
+      if (locked.current) return; // a click just set it; ignore the jump's passes
+      const id = atBottom ? ids[ids.length - 1] : ids.findLast((i) => crossing.has(i));
+      if (id) setActive(id);
+    };
+    const sections = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) crossing.add(e.target.id);
+          else crossing.delete(e.target.id);
+        }
+        update();
+      },
+      { rootMargin: "-35% 0px -64% 0px" },
+    );
+    const footer = new IntersectionObserver(
+      ([e]) => {
+        atBottom = e.isIntersecting;
+        update();
+      },
+      { threshold: 1 },
+    );
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) sections.observe(el);
+    }
+    const foot = document.querySelector("footer");
+    if (foot) footer.observe(foot);
+    return () => {
+      sections.disconnect();
+      footer.disconnect();
+    };
+  }, []);
+
+  const select = (id: string) => {
+    setActive(id);
+    locked.current = true;
+    setTimeout(() => (locked.current = false), 300);
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -57,7 +106,9 @@ export default function SiteNav({ children }: { children: ReactNode }) {
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="inline-flex min-h-11 min-w-11 items-center justify-center px-2 hover:text-accent motion-safe:transition-colors"
+                  onClick={() => select(item.toLowerCase())}
+                  aria-current={active === item.toLowerCase() ? "location" : undefined}
+                  className={`inline-flex min-h-11 min-w-11 items-center justify-center border-b-2 px-2 hover:text-accent motion-safe:transition-colors ${active === item.toLowerCase() ? "border-accent text-accent" : "border-transparent"}`}
                 >
                   {item}
                 </a>
@@ -104,10 +155,15 @@ export default function SiteNav({ children }: { children: ReactNode }) {
                   if (!target) return;
                   event.preventDefault();
                   setOpen(false);
+                  select(item.toLowerCase());
                   jumpTo(target);
                 }}
-                className="flex min-h-11 items-center hover:text-accent"
+                aria-current={active === item.toLowerCase() ? "location" : undefined}
+                className={`flex min-h-11 items-center hover:text-accent ${active === item.toLowerCase() ? "text-accent" : ""}`}
               >
+                <span aria-hidden="true" className={`w-[2ch] ${active === item.toLowerCase() ? "" : "invisible"}`}>
+                  &gt;
+                </span>
                 {item}
               </a>
             </li>
