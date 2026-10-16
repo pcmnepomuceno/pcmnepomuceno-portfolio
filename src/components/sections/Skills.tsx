@@ -2,7 +2,7 @@ import { skills } from "@/content";
 
 export default function Skills() {
   return (
-    <section id="skills" className="space-y-10 border-t border-border py-16 sm:py-24">
+    <section id="skills" className="space-y-10 border-t border-border py-16 md:py-24">
       <div className="space-y-3">
         <p aria-hidden="true" className="font-mono text-sm text-muted">
           <span className="text-accent">~/</span>skills
