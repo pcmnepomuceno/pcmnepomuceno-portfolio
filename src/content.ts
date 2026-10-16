@@ -68,6 +68,8 @@ export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 export const skipLink = "Skip to content";
 
+export const backToTop = "Back to top";
+
 // Contact "Copy email" button and its result messages.
 export const copyEmail = {
   button: "Copy email",

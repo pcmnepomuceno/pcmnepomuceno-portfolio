@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import SiteNav from "@/components/SiteNav";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { profile, siteDescription, siteUrl, skipLink } from "@/content";
+import { backToTop, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
 
 const serif = Noto_Serif_JP({
@@ -61,9 +61,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </header>
           {children}
           <footer className="border-t border-border">
-            <p className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
-              © {new Date().getFullYear()} {profile.name}
-            </p>
+            <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 px-4 py-3 text-sm text-muted">
+              <p>
+                © {new Date().getFullYear()} {profile.name}
+              </p>
+              <a
+                href="#home"
+                className="inline-flex min-h-11 items-center font-mono hover:text-accent motion-safe:transition-colors"
+              >
+                {backToTop}
+              </a>
+            </div>
           </footer>
         </ThemeProvider>
       </body>
