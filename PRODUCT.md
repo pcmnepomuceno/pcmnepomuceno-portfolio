@@ -22,7 +22,7 @@ Single-page static site with anchored sections: Home, Experience, Projects, Skil
 - Static: no backend, database, auth, CMS or blog in v1. Chatbot, /now page and hackathon log are v2.
 - Light/dark mode following system preference with manual override; responsive; SEO/OG metadata; downloadable CV.
 - Minimal animation only (subtle scroll reveals); no heavy animation, 3D or page transitions.
-- Some projects are excluded until permission or readiness is confirmed; nothing is shown beyond what is in src/content.ts.
+- Some projects are excluded until readiness is confirmed; nothing is shown beyond what is in src/content.ts.
 - No claims about experience or projects beyond `src/content.ts`.
 - Decided: CosRec is shown as an in-progress card with no links until a live demo exists; tagline and summary wording are decided; the CV is produced by the owner and replaced manually in `public/cv/`.
 
