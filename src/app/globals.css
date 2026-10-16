@@ -27,6 +27,7 @@
 /* Sticky header height by width, measured (name wraps below 427px; the nav wraps to a second row
    from 640px to 834px). Anchor jumps and focus leave this much room. Re-measure if header content changes. */
 html {
+  scrollbar-gutter: stable; /* the page scrollbar stays reserved while a lightbox hides it, so nothing shifts */
   --header-h: 73px;
   scroll-padding-top: var(--header-h);
 }
@@ -60,4 +61,9 @@ html {
   main[tabindex="-1"]:focus {
     outline: none;
   }
+}
+
+/* Scroll lock while a screenshot lightbox is open; the command palette is not a lightbox and does not lock. */
+html:has(dialog[data-lightbox][open]) {
+  overflow: hidden;
 }
