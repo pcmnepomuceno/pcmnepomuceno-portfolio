@@ -43,7 +43,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         aria-label={lightbox.open(title)}
         className="group block w-full min-w-0 text-left"
       >
-        <span className="relative block aspect-[1104/500] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
+        <span className="relative block aspect-[1104/500] overflow-hidden md:aspect-[1104/851] rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
           <ThemedImages
             image={image}
             sizes="(min-width: 768px) 320px, calc(100vw - 32px)"
