@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { nav, profile, siteDescription, siteUrl } from "@/content";
+import { nav, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
 
 const serif = Noto_Serif_JP({
@@ -44,6 +44,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-4 focus:z-50 focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-md focus:border focus:border-border focus:bg-background focus:px-4 focus:font-mono focus:text-sm"
+        >
+          {skipLink}
+        </a>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="border-b border-border">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2">

@@ -39,8 +39,9 @@
     outline-offset: 2px;
   }
 
-  /* Sections the command palette focuses after a jump; a ring around a whole section is noise. */
-  section[tabindex="-1"]:focus {
+  /* Sections the palette focuses after a jump, and main after the skip link; a ring around a whole region is noise. */
+  section[tabindex="-1"]:focus,
+  main[tabindex="-1"]:focus {
     outline: none;
   }
 }

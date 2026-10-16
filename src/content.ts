@@ -66,6 +66,8 @@ export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Downl
 // Each item links to the section whose id is the lowercase item.
 export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
+export const skipLink = "Skip to content";
+
 // Command palette copy. Actions are built from nav and cv, so only fixed words live here.
 export const palette = {
   trigger: "Open command palette",
