@@ -13,7 +13,7 @@ function DateText({ value }: { value: string }) {
 
 export default function Experience() {
   return (
-    <section id="experience" className="space-y-10 border-t border-border py-16 sm:py-24">
+    <section id="experience" className="space-y-10 border-t border-border py-16 md:py-24">
       <div className="space-y-3">
         <p aria-hidden="true" className="font-mono text-sm text-muted">
           <span className="text-accent">~/</span>experience

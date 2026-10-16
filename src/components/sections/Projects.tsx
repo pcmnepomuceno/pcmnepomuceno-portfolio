@@ -1,8 +1,6 @@
+import { outlineLink } from "@/components/ui/links";
 import Stamp from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
-
-const linkClass =
-  "inline-flex min-h-11 items-center rounded-md border border-muted px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
 
 function ProjectItem({ project }: { project: Project }) {
   const meta = [project.role, project.period].filter(Boolean).join(" · ");
@@ -38,7 +36,7 @@ function ProjectItem({ project }: { project: Project }) {
         >
           {project.links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className={linkClass}>
+              <a href={link.href} className={outlineLink}>
                 {link.label}
                 <span className="sr-only"> for {project.title}</span>
               </a>
@@ -58,7 +56,7 @@ export default function Projects() {
   const others = projects.filter((project) => !project.featured);
 
   return (
-    <section id="projects" className="space-y-10 border-t border-border py-16 sm:py-24">
+    <section id="projects" className="space-y-10 border-t border-border py-16 md:py-24">
       <div className="space-y-3">
         <p aria-hidden="true" className="font-mono text-sm text-muted">
           <span className="text-accent">~/</span>projects

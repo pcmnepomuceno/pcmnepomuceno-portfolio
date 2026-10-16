@@ -27,6 +27,7 @@ export default function CommandPalette() {
   const jumpRef = useRef<string | null>(null);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
+  const [announcement, setAnnouncement] = useState("");
   const { setTheme } = useTheme();
   const id = useId();
   const listId = `${id}-list`;
@@ -35,6 +36,7 @@ export default function CommandPalette() {
   const open = () => {
     setQuery("");
     setActive(0);
+    setAnnouncement("");
     dialogRef.current?.showModal();
     inputRef.current?.focus();
   };
@@ -47,7 +49,9 @@ export default function CommandPalette() {
   const run = (command: Command) => {
     if (command.kind === "theme") {
       // Reads the class next-themes sets before hydration, like ThemeToggle, so the label never changes.
-      setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark");
+      const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
+      setTheme(next);
+      setAnnouncement(palette.themeChanged[next]);
     } else if (command.kind === "cv") {
       const link = document.createElement("a");
       link.href = cv.href;
@@ -181,6 +185,10 @@ export default function CommandPalette() {
           {filtered.length === 0 && palette.empty}
         </p>
       </dialog>
+      {/* Outside the dialog so it is not hidden when the dialog closes; cleared on open so each toggle is one change. */}
+      <p role="status" className="sr-only">
+        {announcement}
+      </p>
     </>
   );
 }

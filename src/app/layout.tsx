@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono, Noto_Serif_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { nav, profile, siteDescription, siteUrl } from "@/content";
+import { nav, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
 
 const serif = Noto_Serif_JP({
@@ -44,17 +44,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-4 focus:z-50 focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-md focus:border focus:border-border focus:bg-background focus:px-4 focus:font-mono focus:text-sm"
+        >
+          {skipLink}
+        </a>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="border-b border-border">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2">
               <a
                 href="#home"
-                className="font-serif text-lg hover:text-accent motion-safe:transition-colors"
+                className="inline-flex min-h-11 grow basis-0 items-center font-serif text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
               >
                 {profile.name}
               </a>
-              <div className="flex flex-wrap items-center gap-x-3">
-                <nav aria-label="Primary">
+              {/* Below sm this wrapper is display: contents, so nav and tools join the outer row:
+                  name and toggle on row 1, nav (order-last) below. DOM order is unchanged. */}
+              <div className="contents sm:flex sm:flex-wrap sm:items-center sm:gap-x-3">
+                <nav aria-label="Primary" className="order-last basis-full sm:order-none sm:basis-auto">
                   {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
                   <ul role="list" className="-mx-2 flex flex-wrap font-mono text-sm">
                     {nav.map((item) => (

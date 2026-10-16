@@ -6,7 +6,7 @@ import Skills from "@/components/sections/Skills";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-4">
+    <main id="main" tabIndex={-1} className="mx-auto max-w-5xl px-4">
       <Hero />
       <Experience />
       <Projects />
