@@ -30,6 +30,8 @@ export default function ScreenshotLightbox({ title, image }: Props) {
   const show = () => {
     setOpen(true);
     dialogRef.current?.showModal();
+    // Focus the dialog itself, so it is announced by name and no ring shows on a control; the first Tab reaches Close.
+    dialogRef.current?.focus();
   };
 
   return (
@@ -76,6 +78,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         ref={dialogRef}
         data-lightbox=""
         aria-labelledby={headingId}
+        tabIndex={-1}
         onClose={() => {
           setOpen(false);
           triggerRef.current?.focus({ preventScroll: true });
@@ -83,7 +86,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         onClick={(event) => {
           if (event.target === event.currentTarget) dialogRef.current?.close();
         }}
-        className="m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-[calc(1104px+2rem+2px)] flex-col rounded-md border border-border bg-background p-0 text-foreground open:flex backdrop:bg-[rgb(0_0_0/0.5)]"
+        className="m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-[calc(1104px+2rem+2px)] flex-col rounded-md border border-border bg-background p-0 text-foreground focus:outline-none open:flex backdrop:bg-[rgb(0_0_0/0.5)]"
       >
         <div className="flex min-h-0 flex-1 flex-col gap-3 p-4">
           <div className="flex items-center justify-between gap-4">
@@ -98,13 +101,18 @@ export default function ScreenshotLightbox({ title, image }: Props) {
               {lightbox.close}
             </button>
           </div>
-          {/* Natural size: on a phone the text is read by scrolling in here. tabIndex lets the keyboard scroll it. */}
-          <div tabIndex={0} className="max-h-[85dvh] min-h-0 overflow-auto overscroll-contain">
+          {/* Phone: natural size, read by panning in here (the cut-off edge is the cue). md and up: fitted to the dialog, so no row is cut and nothing scrolls. tabIndex lets the keyboard scroll it. */}
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label={lightbox.scrollRegion}
+            className="max-h-[85dvh] min-h-0 overflow-auto overscroll-contain"
+          >
             {open && (
               <ThemedImages
                 image={image}
                 sizes="1104px"
-                className="h-auto w-[1104px] max-w-none rounded-md border border-border md:w-full md:max-w-full"
+                className="h-auto w-[1104px] max-w-none rounded-md border border-border md:mx-auto md:w-auto md:max-w-full md:max-h-[calc(100dvh-11rem)]"
               />
             )}
           </div>

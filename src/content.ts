@@ -84,6 +84,7 @@ export const lightbox = {
   heading: (title: string) => `${title} results`,
   open: (title: string) => `Enlarge screenshot: ${title} results`,
   close: "Close",
+  scrollRegion: "Screenshot, scrollable",
 };
 
 // Contact "Copy email" button and its result messages.
