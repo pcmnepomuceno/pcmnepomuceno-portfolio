@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 7b and CSS slimming done; Milestone 8a (CosRec live demo, hero link) in review. Next: Milestone 8 (project visuals)
+Milestone 8a (CosRec live demo, hero link) in review; font slimming merged. Next: Milestone 8b (Steam visual)
