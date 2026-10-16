@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 7a done. Next: Milestone 7b (audit fixes)
+Milestone 7b done. Next: Milestone 8 (project visuals)

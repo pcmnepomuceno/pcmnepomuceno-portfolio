@@ -2,6 +2,7 @@
 
 import { useEffect, useEffectEvent, useId, useRef, useState, type KeyboardEvent } from "react";
 import { useTheme } from "next-themes";
+import { jumpTo } from "@/components/ui/jump";
 import { cv, nav, palette } from "@/content";
 
 type Command =
@@ -82,10 +83,7 @@ export default function CommandPalette() {
     const target = jumpRef.current && document.getElementById(jumpRef.current);
     jumpRef.current = null;
     if (target) {
-      location.hash = target.id;
-      target.scrollIntoView(); // also covers a hash that was already set
-      target.tabIndex = -1;
-      target.focus({ preventScroll: true });
+      jumpTo(target);
     } else {
       triggerRef.current?.focus({ preventScroll: true });
     }
