@@ -78,6 +78,7 @@ export const palette = {
   goTo: "Go to",
   toggleTheme: "Toggle theme",
   empty: "No matching commands",
+  themeChanged: { dark: "Theme changed to dark", light: "Theme changed to light" },
 };
 
 const items: ExperienceItem[] = [
