@@ -159,10 +159,11 @@ export const projects: Project[] = [
     title: "CosRec",
     summary:
       "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
-    status: "in-progress",
+    status: "live",
     featured: true,
+    period: "Apr 2026 – Oct 2026",
     tags: ["Python", "Vision Transformer", "TF-IDF"],
-    links: [],
+    links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
   },
   {
     slug: "picsel",
