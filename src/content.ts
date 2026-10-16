@@ -68,6 +68,9 @@ export const nav = ["Home", "Experience", "Projects", "Skills", "Contact"];
 
 export const skipLink = "Skip to content";
 
+// Accessible names of the mobile menu button (below sm).
+export const menu = { open: "Open menu", close: "Close menu" };
+
 // Command palette copy. Actions are built from nav and cv, so only fixed words live here.
 export const palette = {
   trigger: "Open command palette",
