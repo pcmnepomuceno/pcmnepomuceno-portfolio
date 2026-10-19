@@ -16,13 +16,13 @@ Prince Czedrick Nepomuceno's (nickname Czed) personal portfolio: an easily acces
 A resume PDF plus links cannot show shipped projects and personality in one place. This site does, and its own build quality is part of the evidence.
 
 ## Operating Context
-Single-page static site with anchored sections: Home, Experience, Projects, Skills, Contact. Hosted on Vercel free tier at pcmnepomuceno.vercel.app. Content lives in a typed `src/content.ts`. Scope, milestones and out-of-scope live in `docs/PROJECT_BRIEF.md`, which wins on those; this file owns audience, tone and design intent.
+Single-page static site with anchored sections: Home, Projects, Experience, Skills, Contact, plus one FashionTech case-study page at /projects/fashiontech. Hosted on Vercel free tier at pcmnepomuceno.vercel.app. Content lives in a typed `src/content.ts`. Scope, milestones and out-of-scope live in `docs/PROJECT_BRIEF.md`, which wins on those; this file owns audience, tone and design intent.
 
 ## Capabilities and Constraints
 - Static: no backend, database, auth, CMS or blog in v1. Chatbot, /now page and hackathon log are v2.
 - Light/dark mode following system preference with manual override; responsive; SEO/OG metadata; downloadable CV.
 - Minimal animation only (subtle scroll reveals); no heavy animation, 3D or page transitions.
-- Some projects are excluded until readiness is confirmed; nothing is shown beyond what is in src/content.ts.
+- Some projects are excluded until readiness is confirmed; nothing is shown beyond what is in src/content.ts. FashionTech (Limitless Lab) may show its name, the owner's role, screenshots and a written case study, with Limitless Lab credited; never code, a repo, a live demo, the pitch deck or slide templates, Firebase config or keys, or real-looking personal data.
 - No claims about experience or projects beyond `src/content.ts`.
 - Decided: CosRec is shown as an in-progress card with no links until a live demo exists; tagline and summary wording are decided; the CV is produced by the owner and replaced manually in `public/cv/`.
 
@@ -33,7 +33,8 @@ Light, clean, techy, Japanese-red visual style; visual style only, no Japanese t
 - Steam Review Analyzer: project is finished and the owner can show it.
 - CosRec: shown as an in-progress card with no links until a live demo exists.
 - Sablay photo and CV PDF: exist in `public/` and are in use.
-- Not available and not to be invented: testimonials, metrics, employer or client claims beyond `src/content.ts`, FashionTech material.
+- FashionTech: five dummy-data screenshots and the written case study, shown with permission from Limitless Lab (see docs/DECISIONS.md).
+- Not available and not to be invented: testimonials, metrics, employer or client claims beyond `src/content.ts`.
 
 ## Product Principles
 - Proof over polish: real projects and links come before decoration.
