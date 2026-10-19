@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { primaryLink, textLink } from "@/components/ui/links";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import Stamp, { Badge } from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
 
 function ProjectItem({ project }: { project: Project }) {
-  const meta = [project.role, project.period].filter(Boolean).join(" · ");
+  const meta = [project.org, project.role, project.period].filter(Boolean).join(" · ");
 
   return (
     <article
@@ -34,32 +35,38 @@ function ProjectItem({ project }: { project: Project }) {
             aria-label={`${project.title} links`}
             className="flex flex-wrap items-center gap-x-5 gap-y-1 pt-2"
           >
-            {/* The first link in the data (the live demo) is the primary action, the rest are quiet. */}
-            {project.links.map((link, i) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={i === 0 ? primaryLink : textLink}
-                >
-                  {link.label}
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="ml-1 size-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
-                  <span className="sr-only"> for {project.title} (opens in new tab)</span>
-                </a>
-              </li>
-            ))}
+            {/* The first link in the data (live demo or case study) is the primary action, the rest are quiet. */}
+            {project.links.map((link, i) => {
+              const className = i === 0 ? primaryLink : textLink;
+              // Paths starting with "/" are pages of this site: same tab, no arrow.
+              return (
+                <li key={link.href}>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href} className={className}>
+                      {link.label}
+                      <span className="sr-only"> for {project.title}</span>
+                    </Link>
+                  ) : (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+                      {link.label}
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        className="ml-1 size-3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M7 17 17 7M8 7h9v9" />
+                      </svg>
+                      <span className="sr-only"> for {project.title} (opens in new tab)</span>
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         )}
         {project.status === "in-progress" && (

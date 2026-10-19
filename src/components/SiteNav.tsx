@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { jumpTo } from "@/components/ui/jump";
 import { primaryLink } from "@/components/ui/links";
@@ -10,8 +12,11 @@ import { cv, menu, nav, profile } from "@/content";
 // then the tools passed as children, then the menu panel, which overlays the page below.
 export default function SiteNav({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   // "home" matches the server render; the observer corrects it after mount.
-  const [active, setActive] = useState(nav[0].toLowerCase());
+  const [activeId, setActive] = useState(nav[0].toLowerCase());
+  // Sections exist on the home page only; elsewhere no item is current.
+  const active = pathname === "/" ? activeId : null;
   const locked = useRef(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
@@ -19,6 +24,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
   // The section crossing a thin line 35% down the viewport is current; at the very bottom
   // (footer fully visible) it is the last one, since Contact is too short to reach the line.
   useEffect(() => {
+    if (pathname !== "/") return;
     const ids = nav.map((item) => item.toLowerCase());
     const crossing = new Set<string>();
     let atBottom = false;
@@ -54,7 +60,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
       sections.disconnect();
       footer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   const select = (id: string) => {
     setActive(id);
@@ -93,26 +99,26 @@ export default function SiteNav({ children }: { children: ReactNode }) {
       aria-label="Primary"
       className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2"
     >
-      <a
-        href="#home"
+      <Link
+        href="/#home"
         className="inline-flex min-h-11 grow basis-0 items-center font-serif text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
       >
         {profile.name}
-      </a>
+      </Link>
       <div className="flex items-center gap-2 sm:flex-wrap sm:gap-x-3 sm:gap-y-0">
         <div className="hidden sm:block">
           {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
           <ul role="list" className="-mx-2 flex flex-wrap font-mono text-sm">
             {nav.map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
+                <Link
+                  href={`/#${item.toLowerCase()}`}
                   onClick={() => select(item.toLowerCase())}
                   aria-current={active === item.toLowerCase() ? "location" : undefined}
                   className={`inline-flex min-h-11 min-w-11 items-center justify-center border-b-2 px-2 hover:text-accent motion-safe:transition-colors ${active === item.toLowerCase() ? "border-accent text-accent" : "border-transparent"}`}
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -153,13 +159,13 @@ export default function SiteNav({ children }: { children: ReactNode }) {
         <ul role="list" className="mx-auto max-w-5xl px-4 py-2 font-mono text-sm">
           {nav.map((item) => (
             <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
+              <Link
+                href={`/#${item.toLowerCase()}`}
                 onClick={(event) => {
                   const target = document.getElementById(item.toLowerCase());
-                  if (!target) return;
-                  event.preventDefault();
                   setOpen(false);
+                  if (!target) return; // off the home page: the link navigates there
+                  event.preventDefault();
                   select(item.toLowerCase());
                   jumpTo(target);
                 }}
@@ -170,7 +176,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
                   &gt;
                 </span>
                 {item}
-              </a>
+              </Link>
             </li>
           ))}
           <li>

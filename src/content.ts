@@ -18,6 +18,8 @@ export type ExperienceItem = {
   end: string;
   bullets: string[];
   tags: string[];
+  // `context` completes the link's accessible name for screen readers, e.g. "Case study for FashionTech".
+  link?: { label: string; href: string; context: string };
 };
 
 type ProjectImageFile = { src: string; width: number; height: number };
@@ -32,6 +34,8 @@ export type Project = {
   badge?: string;
   // One headline number, restated from the summary; shown under the title.
   result?: string;
+  // Organization the work was done for, shown first in the meta line, e.g. "Limitless Lab".
+  org?: string;
   period?: string;
   role?: string;
   tags: string[];
@@ -143,9 +147,10 @@ const items: ExperienceItem[] = [
     start: "Jun 2025",
     end: "Jul 2025",
     bullets: [
-      "Built a logging system and an automated financial dashboard for a business management platform used by real fashion and tailoring businesses.",
+      "Built FashionTech, an inventory and job-order mobile app for small fashion and tailoring businesses in Flutter and Firebase, including the data model, activity logging and the Transaction Dashboard.",
     ],
     tags: ["Flutter", "Firebase"],
+    link: { label: "Case study", href: "/projects/fashiontech", context: "FashionTech" },
   },
   {
     type: "org",
@@ -209,6 +214,19 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "fashiontech",
+    title: "FashionTech",
+    summary:
+      "A mobile app that puts inventory, job orders, and profit tracking for small tailoring and fashion businesses in one place. Built with a teammate during my internship at Limitless Lab.",
+    status: null,
+    featured: false,
+    badge: "Internship",
+    org: "Limitless Lab",
+    period: "Jun 2025 – Jul 2025",
+    tags: ["Flutter", "Firebase"],
+    links: [{ label: "Case study", href: "/projects/fashiontech" }],
+  },
+  {
     slug: "picsel",
     title: "PICSEL",
     summary:
@@ -230,3 +248,161 @@ export const skills: SkillGroup[] = [
   { label: "Data and ML", items: ["PostgreSQL", "MongoDB", "Firebase", "scikit-learn"] },
   { label: "Tools", items: ["Git", "Docker"] },
 ];
+
+export type CaseStudy = {
+  title: string;
+  subtitle: string;
+  meta: string[];
+  note: string;
+  description: string;
+  back: string;
+  // A body block is a paragraph (string) or a bullet list (string[]).
+  sections: { heading: string; body: (string | string[])[]; screenshots?: true }[];
+  screenshots: { src: string; width: number; height: number; alt: string; caption: string }[];
+  screenshotsLabel: string;
+  credit: string;
+};
+
+// Case study at /projects/fashiontech. Written with permission from Limitless Lab (see docs/DECISIONS.md):
+// no source code, repo, demo, deck, config or real-looking data.
+export const fashionTechCaseStudy: CaseStudy = {
+  title: "FashionTech",
+  subtitle: "Inventory and job-order management for small tailoring and fashion businesses",
+  meta: [
+    "Internship project at Limitless Lab · Jun–Jul 2025 · Team of two",
+    "My role: Software Engineer Intern",
+    "Stack: Flutter (Dart), Firebase (Authentication, Firestore, Storage), Figma",
+  ],
+  note: "Built during an internship at Limitless Lab and shown with permission. The source code, live deployment and company materials are not public. All data in the screenshots is dummy data.",
+  description:
+    "Case study of FashionTech, a Flutter and Firebase mobile app for inventory, job orders and profit tracking, built during an internship at Limitless Lab.",
+  back: "Back to Projects",
+  sections: [
+    {
+      heading: "The problem",
+      body: [
+        "Many small fashion retailers in Taytay still run their business on notebooks and memory. They lose track of fabric and product stock, can't tell whether a product actually earns a profit once fabric and production costs are counted, and juggle job orders that involve several fabrics and suppliers.",
+        "We framed it as three questions:",
+        [
+          "How might we simplify fabric and product inventory tracking to prevent oversupply and wastage?",
+          "How might we help retailers monitor profitability in real time?",
+          "How might we streamline job orders that involve multiple fabrics and suppliers?",
+        ],
+      ],
+    },
+    {
+      heading: "Who it's for",
+      body: [
+        "We designed around two personas. Ate Lorna, 45, owns a small fashion stall, tracks inventory in notebooks, and mostly uses Messenger and calls. Her daughter Anna, 22, helps with inventory and sales and is comfortable with digital tools. That pairing pushed us toward a mobile-first app with simple layouts and minimal forms.",
+      ],
+    },
+    {
+      heading: "The solution",
+      screenshots: true,
+      body: [
+        "FashionTech is a mobile app that puts the daily operations in one place:",
+        [
+          "Inventory: fabric and product stock with variants, low-stock indicators and an automatic activity log.",
+          "Job orders: assign fabrics and yardage to each product order and follow it through a status workflow.",
+          "Profit checker: profit per product, calculated from the sales log and unit costs.",
+          "Transactions: record sales, income and expenses, and see total profit with a fabric-cost breakdown.",
+          "Customers and suppliers: who bought what, when, and how much.",
+          "Roles and per-user data: admin and user roles. Each record carries its creator's ID and pages query by it, so users see their own records, and admins can see everything.",
+        ],
+      ],
+    },
+    {
+      heading: "How we split the work",
+      body: [
+        "We worked closely and both touched most of the app, with different focus areas.",
+        "My focus:",
+        [
+          "Designed the Firestore data model and migrated it through several revisions (ERD v7 to v9), updating the collections, models and services each time.",
+          "Built the fabric, product (variants, colors, sizes, multi-image upload), job order, customer, supplier and transaction modules.",
+          "Built the Transaction Dashboard (income, expenses, total profit and a fabric-cost breakdown) and the sell modal.",
+          "Implemented the activity-logging system across products, fabrics, job orders, transactions and suppliers.",
+          "Added per-user data filtering through Firestore queries, plus admin role checks.",
+          "Collaborated on the UI design in Figma and built responsive UI components.",
+          "Wrote the project README and tests for category management and fabric logging.",
+        ],
+        // HOLD: Justin's section (the next label and list). Do not publish until Justin Andrei Ibañez confirms it in writing.
+        "Justin Andrei Ibañez's focus:",
+        [
+          "The admin side.",
+          "The profit calculation and the stock-deducting sale transaction, and the profit checker on the home dashboard.",
+          "Notifications, profile and settings pages, and the recent-activity feed.",
+          "Bug fixing across the app.",
+        ],
+      ],
+    },
+    {
+      heading: "Challenges",
+      body: [
+        [
+          "A dynamic app for traditional users: we kept layouts simple and forms short, and designed for phones first.",
+          "An evolving data structure: jobs, products, fabrics and logs all relate to each other, so we kept an ERD and revised it as feedback came in.",
+          "Four weeks: we prioritized the core modules first: inventory, job board and profit checker.",
+          "Firestore has no joins, so related records are fetched and combined in the app, and per-user filtering is done with queries on a creator ID field.",
+        ],
+      ],
+    },
+    {
+      // HOLD: "What I'd do next". Do not publish until the owner has checked the Firebase console rules.
+      heading: "What I'd do next",
+      body: [
+        "Add Firestore security rules so the per-user filtering is enforced on the server, not only in the app.",
+      ],
+    },
+    {
+      heading: "What I learned",
+      body: [
+        [
+          "Building and shipping a working Flutter and Firebase MVP end to end in a short timeframe.",
+          "Structuring Firestore data and queries so they stay maintainable as requirements change.",
+          "Resolving bugs quickly in a fast-paced team environment.",
+          "Good design starts with the real user's problem, not only the interface.",
+        ],
+      ],
+    },
+  ],
+  screenshotsLabel: "FashionTech screenshots, scrollable",
+  // Order: home, products, job orders, profit, customers. One entry per image; the page renders them all.
+  screenshots: [
+    {
+      src: "/images/projects/fashiontech/fashiontech-05-home.png",
+      width: 1240,
+      height: 1750,
+      alt: "FashionTech home screen showing fabric and product totals and a recent-activity feed.",
+      caption: "Home",
+    },
+    {
+      src: "/images/projects/fashiontech/fashiontech-01-products.png",
+      width: 1236,
+      height: 1740,
+      alt: "FashionTech Inventory screen listing a product with its price, stock level, low-stock tag and variants.",
+      caption: "Inventory: products",
+    },
+    {
+      src: "/images/projects/fashiontech/fashiontech-02-job-orders.png",
+      width: 1242,
+      height: 1746,
+      alt: "FashionTech Job Orders screen with status counts for open, in progress, completed and overdue orders, and a job order card.",
+      caption: "Job orders",
+    },
+    {
+      src: "/images/projects/fashiontech/fashiontech-03-profit.png",
+      width: 1238,
+      height: 1746,
+      alt: "FashionTech Transaction Dashboard showing total profit of 835 pesos, income of 1,160 pesos and expenses of 325 pesos.",
+      caption: "Transaction Dashboard",
+    },
+    {
+      src: "/images/projects/fashiontech/fashiontech-04-customers.png",
+      width: 1242,
+      height: 1746,
+      alt: "FashionTech Customers screen with customer statistics and a customer card with notes.",
+      caption: "Customers",
+    },
+  ],
+  credit: "Built at Limitless Lab with Justin Andrei Ibañez.",
+};
