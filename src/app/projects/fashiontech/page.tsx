@@ -7,12 +7,15 @@ import { fashionTechCaseStudy as study, profile } from "@/content";
 const title = `${study.title} case study | ${profile.name}`;
 const path = "/projects/fashiontech";
 
+// A page that defines its own openGraph/twitter loses the root opengraph-image file's tags, so point at it here.
+const image = { url: "/opengraph-image", width: 1200, height: 630, alt: `${profile.name}, ${profile.role}` };
+
 export const metadata: Metadata = {
   title,
   description: study.description,
   alternates: { canonical: path },
-  openGraph: { title, description: study.description, url: path, type: "article" },
-  twitter: { card: "summary_large_image", title, description: study.description },
+  openGraph: { title, description: study.description, url: path, type: "article", images: [image] },
+  twitter: { card: "summary_large_image", title, description: study.description, images: [image] },
 };
 
 export default function FashionTechCaseStudy() {
