@@ -66,6 +66,8 @@ next-env.d.ts
 
 # Windows download markers
 *:Zone.Identifier
+# WSL saves the marker with a private-use colon (U+F03A), which the line above does not match
+*Zone.Identifier
 
 # Claude Code personal settings
 .claude/settings.local.json
