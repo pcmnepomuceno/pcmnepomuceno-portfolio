@@ -98,13 +98,17 @@ export const skipLink = "Skip to content";
 
 export const backToTop = "Back to top";
 
-// Screenshot lightbox on the Projects section.
+// Screenshot lightbox: Projects (light/dark pair) and the case study gallery (single images).
 export const lightbox = {
   heading: (title: string) => `${title} results`,
   open: (title: string) => `Enlarge screenshot: ${title} results`,
   close: "Close",
   scrollRegion: "Screenshot, scrollable",
   panHint: "Scroll sideways to see the full results.",
+  // Single screenshots in the case study gallery; the caption names the screen.
+  openShot: (caption: string) => `Enlarge screenshot: ${caption}`,
+  headingShot: (title: string) => `${title} screenshot`,
+  panHintShot: "Scroll to see the full screen.",
 };
 
 // Contact "Copy email" button and its result messages.

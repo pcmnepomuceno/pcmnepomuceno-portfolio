@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { textLink } from "@/components/ui/links";
+import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import { fashionTechCaseStudy as study, profile } from "@/content";
 
 const title = `${study.title} case study | ${profile.name}`;
@@ -56,24 +56,17 @@ export default function FashionTechCaseStudy() {
               )}
             </div>
             {section.screenshots && (
-              // One sideways-scrolling row at every width; focusable so the arrow keys scroll it.
+              // One sideways-scrolling row at every width; focusable so the arrow keys scroll it (Tab alone leaves a half-visible thumbnail where it is). The 4px of padding (cancelled by the negative margin) and scroll padding keep the thumbnails' focus rings from being clipped by the overflow.
               <ul
                 role="list"
                 aria-label={study.screenshotsLabel}
                 tabIndex={0}
-                className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+                className="-mx-1 -mt-1 flex scroll-px-1 snap-x snap-mandatory gap-4 overflow-x-auto px-1 pt-1 pb-2"
               >
                 {study.screenshots.map((shot) => (
                   <li key={shot.src} className="w-56 shrink-0 snap-start md:w-52 lg:w-56">
                     <figure className="space-y-2">
-                      <Image
-                        src={shot.src}
-                        width={shot.width}
-                        height={shot.height}
-                        alt={shot.alt}
-                        sizes="(min-width: 768px) and (max-width: 1023px) 208px, 224px"
-                        className="h-auto w-full rounded-md border border-border"
-                      />
+                      <ScreenshotLightbox title={study.title} image={shot} />
                       <figcaption className="text-sm text-muted">{shot.caption}</figcaption>
                     </figure>
                   </li>
