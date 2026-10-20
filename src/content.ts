@@ -340,7 +340,7 @@ export const fashionTechCaseStudy: CaseStudy = {
         [
           "A dynamic app for traditional users: we kept layouts simple and forms short, and designed for phones first.",
           "An evolving data structure: jobs, products, fabrics and logs all relate to each other, so we kept an ERD and revised it as feedback came in.",
-          "A short internship: we prioritized the core modules first (inventory, job board and profit checker) and left the rest for later.",
+          "A short internship: we prioritized the core modules first (inventory, job orders and profit checker) and left the rest for later.",
           "Firestore has no joins, so related records are fetched and combined in the app, and per-user filtering is done with queries on a creator ID field.",
         ],
       ],
