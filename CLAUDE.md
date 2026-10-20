@@ -37,7 +37,7 @@ Czed's personal portfolio website. Light, clean, techy, Japanese-red visual styl
 - Ask before adding any new dependency.
 - Minimal animation only.
 - No claims about experience or projects beyond what is in `content.ts`.
-- FashionTech (Limitless Lab): the project name, the owner's role, screenshots and a short demo video are allowed, and Limitless Lab must be credited wherever it's shown. NEVER add source code, code snippets, repo links or a public repo for it. Screenshots must not show real customer data.
+- FashionTech (Limitless Lab): the project name, the owner's role, screenshots and a written case study are allowed, and Limitless Lab must be credited wherever it's shown. NEVER add source code or snippets, a repo link or public repo, a live demo, the pitch deck or any slide template, Firebase config or keys, or real-looking personal data. Screenshots must show dummy data only.
 - `next.config.ts` keeps `agentRules: false` (stops Next generating AGENTS.md).
 - docs/PROJECT_BRIEF.md owns scope, milestones and out-of-scope. PRODUCT.md owns audience, tone and design intent. If they conflict, stop and ask me.
 - Log every non-trivial decision, including deferred items and reversals, in docs/DECISIONS.md (append-only).
@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Milestone 9 (critique fixes + ideas from friends' portfolios) in review; 8c merged.
+FashionTech case study (`feature/fashiontech-case-study`): PR #25 draft, awaiting final review. Milestone 9 merged.

@@ -72,7 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 © {new Date().getFullYear()} {profile.name}
               </p>
               <a
-                href="#home"
+                href="#main"
                 className="inline-flex min-h-11 items-center font-mono hover:text-accent motion-safe:transition-colors"
               >
                 {backToTop}

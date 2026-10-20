@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { textLink } from "@/components/ui/links";
 import { experience } from "@/content";
 
 const MONTHS = "JanFebMarAprMayJunJulAugSepOctNovDec";
@@ -42,6 +44,14 @@ export default function Experience() {
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
+              )}
+              {item.link && (
+                <p>
+                  <Link href={item.link.href} className={textLink}>
+                    {item.link.label}
+                    <span className="sr-only"> for {item.link.context}</span>
+                  </Link>
+                </p>
               )}
               {item.tags.length > 0 && (
                 <ul role="list" aria-label="Technologies" className="flex flex-wrap gap-2 pt-1">

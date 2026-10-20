@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useEffectEvent, useId, useRef, useState, type KeyboardEvent } from "react";
+import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { jumpTo } from "@/components/ui/jump";
 import { cv, nav, palette } from "@/content";
@@ -30,6 +31,7 @@ export default function CommandPalette() {
   const [active, setActive] = useState(0);
   const [announcement, setAnnouncement] = useState("");
   const { setTheme } = useTheme();
+  const router = useRouter();
   const id = useId();
   const listId = `${id}-list`;
   const optionId = (i: number) => `${id}-option-${i}`;
@@ -80,10 +82,13 @@ export default function CommandPalette() {
   // Esc, the shortcut and every command end here. The browser restores focus to whatever
   // had it before showModal, which is not the trigger when the shortcut opened the palette.
   const onClose = () => {
-    const target = jumpRef.current && document.getElementById(jumpRef.current);
+    const id = jumpRef.current;
+    const target = id && document.getElementById(id);
     jumpRef.current = null;
     if (target) {
       jumpTo(target);
+    } else if (id) {
+      router.push(`/#${id}`); // the section lives on the home page
     } else {
       triggerRef.current?.focus({ preventScroll: true });
     }

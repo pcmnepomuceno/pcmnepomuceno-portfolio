@@ -21,7 +21,7 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 - Chatbot ("Ask about Czed"): v2
 - /now page, hackathon log: v2
 - Steinholdt project: add when deployed + client agrees
-- FashionTech details (code/screenshots/demo): only after written permission from Limitless Lab
+- FashionTech code, repo link, live demo, pitch deck, slide templates, Firebase config and real-looking data: never. Name, role, screenshots and a written case study are allowed (permission received 2026-10-16, see DECISIONS)
 - Heavy animation, 3D, page transitions
 
 ## 4. Tech stack
@@ -38,12 +38,12 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 
 ## 5. Data model (content.ts)
 - Profile: name, role, location, education, summary, links (email, github, linkedin), photo (src, alt)
-- ExperienceItem: type (work | org), title, organization, start, end, bullets[], tags[]
-- Project: slug, title, summary, status ("live" | "in-progress" | null), featured, period?, role?, tags[], links[] { label, href }
+- ExperienceItem: type (work | org), title, organization, start, end, bullets[], tags[], link?
+- Project: slug, title, summary, status ("live" | "in-progress" | null), featured, badge?, result?, org?, period?, role?, tags[], links[] { label, href }, image?
 - SkillGroup: label, items[]
 
 ## 6. Key screens
-Single page with anchored sections: Home, Projects, Experience, Skills, Contact. Plus /resume (print-friendly, optional).
+Single page with anchored sections: Home, Projects, Experience, Skills, Contact. Plus the /projects/fashiontech case study and /resume (print-friendly, optional).
 
 ## 7. Milestones
 | # | Milestone | Done when... |
