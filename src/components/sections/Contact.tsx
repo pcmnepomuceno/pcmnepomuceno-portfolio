@@ -1,5 +1,5 @@
 import CopyEmail from "@/components/ui/CopyEmail";
-import { outlineLink } from "@/components/ui/links";
+import { textLink } from "@/components/ui/links";
 import { contactIntro, cv, profile } from "@/content";
 
 export default function Contact() {
@@ -16,19 +16,19 @@ export default function Contact() {
       <div className="space-y-6">
         <p className="max-w-prose">{contactIntro}</p>
         <CopyEmail />
-        <ul role="list" className="flex flex-wrap gap-3">
+        <ul role="list" className="flex flex-wrap gap-x-6 gap-y-1">
           <li>
-            <a href={links.github} className={outlineLink}>
+            <a href={links.github} className={textLink}>
               GitHub
             </a>
           </li>
           <li>
-            <a href={links.linkedin} className={outlineLink}>
+            <a href={links.linkedin} className={textLink}>
               LinkedIn
             </a>
           </li>
           <li>
-            <a href={cv.href} download className={outlineLink}>
+            <a href={cv.href} download className={textLink}>
               {cv.label}
               <span className="sr-only"> (PDF)</span>
             </a>

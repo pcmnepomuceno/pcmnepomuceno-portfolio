@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-FashionTech case study merged (PR #25, squash `fe31f74`) and live. Milestone 9 merged. Follow-up PRs pending, listed in `docs/DECISIONS.md` (2026-10-20, "After FashionTech").
+FashionTech case study merged (PR #25, squash `fe31f74`) and live. Milestone 9 merged. `feature/polish-extras` (click-to-enlarge gallery, compact club roles, Contact text links, Skills split) is open as a PR, ready for review. Remaining follow-up PRs are listed in `docs/DECISIONS.md` (2026-10-20, "After FashionTech").
