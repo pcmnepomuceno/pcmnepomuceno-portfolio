@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-FashionTech case study (`feature/fashiontech-case-study`) in progress, on hold until Justin Andrei Ibañez confirms his section; Milestone 9 merged.
+FashionTech case study (`feature/fashiontech-case-study`) is a draft PR, on hold until Justin Andrei Ibañez confirms his section; do not merge. Milestone 9 merged.
