@@ -1,4 +1,4 @@
-// Link styles shared by Hero, Projects and Contact; textLink is Projects only.
+// Link styles shared across the site.
 export const outlineLink =
   "inline-flex min-h-11 items-center rounded-md border border-muted px-4 font-medium hover:border-accent hover:text-accent motion-safe:transition-colors";
 
