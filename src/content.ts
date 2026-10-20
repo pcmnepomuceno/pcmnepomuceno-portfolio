@@ -249,7 +249,8 @@ export const skills: SkillGroup[] = [
   { label: "Backend", items: ["FastAPI", "Node.js", "Express.js"] },
   { label: "Frontend", items: ["React", "Next.js"] },
   { label: "Mobile", items: ["Flutter"] },
-  { label: "Data and ML", items: ["PostgreSQL", "MongoDB", "Firebase", "scikit-learn"] },
+  { label: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase"] },
+  { label: "Machine learning", items: ["scikit-learn"] },
   { label: "Tools", items: ["Git", "Docker"] },
 ];
 
