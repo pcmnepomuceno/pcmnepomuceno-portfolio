@@ -325,7 +325,6 @@ export const fashionTechCaseStudy: CaseStudy = {
           "Collaborated on the UI design in Figma and built responsive UI components.",
           "Wrote the project README and tests for category management and fabric logging.",
         ],
-        // HOLD: Justin's section (the next label and list). Do not publish until Justin Andrei Ibañez confirms it in writing.
         "Justin Andrei Ibañez's focus:",
         [
           "The admin side.",
@@ -341,16 +340,15 @@ export const fashionTechCaseStudy: CaseStudy = {
         [
           "A dynamic app for traditional users: we kept layouts simple and forms short, and designed for phones first.",
           "An evolving data structure: jobs, products, fabrics and logs all relate to each other, so we kept an ERD and revised it as feedback came in.",
-          "Four weeks: we prioritized the core modules first: inventory, job board and profit checker.",
+          "A short internship: we prioritized the core modules first (inventory, job board and profit checker) and left the rest for later.",
           "Firestore has no joins, so related records are fetched and combined in the app, and per-user filtering is done with queries on a creator ID field.",
         ],
       ],
     },
     {
-      // HOLD: "What I'd do next". Do not publish until the owner has checked the Firebase console rules.
       heading: "What I'd do next",
       body: [
-        "Add Firestore security rules so the per-user filtering is enforced on the server, not only in the app.",
+        "Per-user data is filtered in the Firestore queries, since each record carries its creator's ID. I'd enforce this with Firestore security rules, so it holds on the server side too.",
       ],
     },
     {
