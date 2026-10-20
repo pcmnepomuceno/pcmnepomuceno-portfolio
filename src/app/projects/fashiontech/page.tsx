@@ -56,22 +56,22 @@ export default function FashionTechCaseStudy() {
               )}
             </div>
             {section.screenshots && (
-              // Focusable so the row can be scrolled with the arrow keys; below md it scrolls sideways.
+              // One sideways-scrolling row at every width; focusable so the arrow keys scroll it.
               <ul
                 role="list"
                 aria-label={study.screenshotsLabel}
                 tabIndex={0}
-                className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:flex-wrap md:overflow-visible"
+                className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
               >
                 {study.screenshots.map((shot) => (
-                  <li key={shot.src} className="w-56 shrink-0 snap-start md:w-[calc((100%-2rem)/3)]">
+                  <li key={shot.src} className="w-56 shrink-0 snap-start md:w-52 lg:w-56">
                     <figure className="space-y-2">
                       <Image
                         src={shot.src}
                         width={shot.width}
                         height={shot.height}
                         alt={shot.alt}
-                        sizes="(min-width: 768px) 320px, 224px"
+                        sizes="(min-width: 768px) and (max-width: 1023px) 208px, 224px"
                         className="h-auto w-full rounded-md border border-border"
                       />
                       <figcaption className="text-sm text-muted">{shot.caption}</figcaption>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { primaryLink, textLink } from "@/components/ui/links";
+import { outlineLink, primaryLink, textLink } from "@/components/ui/links";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import Stamp, { Badge } from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
@@ -35,13 +35,14 @@ function ProjectItem({ project }: { project: Project }) {
             aria-label={`${project.title} links`}
             className="flex flex-wrap items-center gap-x-5 gap-y-1 pt-2"
           >
-            {/* The first link in the data (live demo or case study) is the primary action, the rest are quiet. */}
+            {/* The first external link (the live demo) is the primary action, the rest are quiet. */}
             {project.links.map((link, i) => {
-              const className = i === 0 ? primaryLink : textLink;
-              // Paths starting with "/" are pages of this site: same tab, no arrow.
+              // Paths starting with "/" are pages of this site: same tab, no arrow, always outline.
+              const internal = link.href.startsWith("/");
+              const className = internal ? outlineLink : i === 0 ? primaryLink : textLink;
               return (
                 <li key={link.href}>
-                  {link.href.startsWith("/") ? (
+                  {internal ? (
                     <Link href={link.href} className={className}>
                       {link.label}
                       <span className="sr-only"> for {project.title}</span>
