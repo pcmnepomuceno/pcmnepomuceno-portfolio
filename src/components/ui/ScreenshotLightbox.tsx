@@ -9,9 +9,26 @@ type Shot = CaseStudy["screenshots"][number];
 type Props = { title: string; image: NonNullable<Project["image"]> | Shot };
 
 // A pair renders both files and CSS hides the inactive one: display:none skips the lazy load and drops it from the accessibility tree.
-function ShotImages({ image, sizes, className }: { image: Props["image"]; sizes: string; className: string }) {
+function ShotImages({
+  image,
+  sizes,
+  className,
+}: {
+  image: Props["image"];
+  sizes: string;
+  className: string;
+}) {
   if (!("light" in image)) {
-    return <Image src={image.src} width={image.width} height={image.height} alt={image.alt} sizes={sizes} className={className} />;
+    return (
+      <Image
+        src={image.src}
+        width={image.width}
+        height={image.height}
+        alt={image.alt}
+        sizes={sizes}
+        className={className}
+      />
+    );
   }
   return (["light", "dark"] as const).map((theme) => (
     <Image
@@ -70,6 +87,17 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         ref={triggerRef}
         type="button"
         onClick={show}
+        // Gallery only: Tab does not scroll a partly visible thumbnail, so bring the whole one into its row. "auto" follows the CSS scroll-behavior, which reduced motion leaves instant.
+        onFocus={
+          pair
+            ? undefined
+            : (event) =>
+                event.currentTarget.scrollIntoView({
+                  inline: "nearest",
+                  block: "nearest",
+                  behavior: "auto",
+                })
+        }
         aria-haspopup="dialog"
         aria-label={pair ? lightbox.open(title) : lightbox.openShot(image.caption)}
         className="group block w-full min-w-0 text-left"
@@ -128,7 +156,11 @@ export default function ScreenshotLightbox({ title, image }: Props) {
             role="region"
             aria-label={lightbox.scrollRegion}
             // The single screenshots are phone captures at 3x, so one CSS px per 3 image px is their natural size.
-            style={pair ? undefined : ({ "--shot-w": `${Math.round(image.width / 3)}px` } as CSSProperties)}
+            style={
+              pair
+                ? undefined
+                : ({ "--shot-w": `${Math.round(image.width / 3)}px` } as CSSProperties)
+            }
             className="max-h-[85dvh] min-h-0 overflow-auto overscroll-contain"
           >
             {open && (
@@ -139,7 +171,9 @@ export default function ScreenshotLightbox({ title, image }: Props) {
               />
             )}
           </div>
-          <p className="text-sm text-muted md:hidden">{pair ? lightbox.panHint : lightbox.panHintShot}</p>
+          <p className="text-sm text-muted md:hidden">
+            {pair ? lightbox.panHint : lightbox.panHintShot}
+          </p>
           <p className="text-sm text-muted">{image.caption}</p>
         </div>
       </dialog>
