@@ -55,6 +55,12 @@ Single page with anchored sections: Home, Projects, Experience, Skills, Contact.
 | 5 | Contact + CV PDF + SEO/OG metadata | CV downloads; link preview looks right |
 | 6 | Command palette (Ctrl+K) + hanko status stamps | Palette jumps to sections, toggles theme |
 | 7 | Polish: responsive, accessibility, Lighthouse | Mobile OK; Lighthouse 90+ |
+| Perf | Self-host latin Noto Serif JP to slim render-blocking CSS (PR #20) | Merged; CJK font slices no longer in the render-blocking stylesheet |
+| 8a | CosRec live demo + hero link (PR #21) | Merged; CosRec card links to the live demo |
+| 8b | Theme-aware Steam screenshot (PR #22) | Merged; screenshot follows the light/dark theme |
+| 8c | Projects list rows + screenshot lightbox (PR #23) | Merged; project rows render from content.ts, screenshot opens in a lightbox |
+| 9 | Critique fixes and ideas from friends' portfolios (PR #24) | Merged; Projects before Experience, CosRec as flagship, hero Summary / TL;DR toggle, header CV button |
+| 10 | FashionTech case study (PR #25) | Merged; case study page, project row and Experience entry live, Limitless Lab credited |
 
 ## 8. Constraints and risks
 - **Time:** [fill in hours/week]
