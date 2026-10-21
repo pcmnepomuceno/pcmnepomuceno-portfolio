@@ -15,7 +15,7 @@ export default function Foundations() {
           {foundations.items.map((item) => (
             <li key={item.title} className="space-y-2 rounded-md border border-border p-5">
               <h3 className="font-serif text-lg font-semibold">{item.title}</h3>
-              <p className="font-mono text-sm text-muted">{item.meta}</p>
+              <p className="font-mono text-sm text-balance text-muted">{item.meta}</p>
               <p>{item.what}</p>
               <p>
                 <span className="font-mono text-sm text-muted">{foundations.partLabel}:</span> {item.part}
