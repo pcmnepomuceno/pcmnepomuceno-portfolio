@@ -12,7 +12,7 @@
 1. Hero: Sablay photo + name + short summary + links
 2. Experience timeline (chronological: work, orgs); projects have their own section
 3. Featured projects: Steam Review Analyzer, CosRec (+ small PICSEL card)
-4. Skills grouped by area
+4. Skills grouped by depth (Core, Used in my projects, Coursework), then Technical foundations (three course projects)
 5. Contact (email, GitHub, LinkedIn) + downloadable CV (PDF)
 Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 
@@ -41,9 +41,10 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 - ExperienceItem: type (work | org), title, organization, start, end, bullets[], tags[], link?
 - Project: slug, title, summary, status ("live" | "in-progress" | null), featured, badge?, result?, org?, period?, role?, tags[], links[] { label, href }, image?
 - SkillGroup: label, items[]
+- Foundation: title, meta, what, part
 
 ## 6. Key screens
-Single page with anchored sections: Home, Projects, Experience, Skills, Contact. Plus the /projects/fashiontech case study and /resume (print-friendly, optional).
+Single page with anchored sections: Home, Projects, Experience, Skills, Technical foundations (no nav item), Contact. Plus the /projects/fashiontech case study and /resume (print-friendly, optional).
 
 ## 7. Milestones
 | # | Milestone | Done when... |

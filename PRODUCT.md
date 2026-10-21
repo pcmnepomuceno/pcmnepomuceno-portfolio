@@ -16,7 +16,7 @@ Prince Czedrick Nepomuceno's (nickname Czed) personal portfolio: an easily acces
 A resume PDF plus links cannot show shipped projects and personality in one place. This site does, and its own build quality is part of the evidence.
 
 ## Operating Context
-Single-page static site with anchored sections: Home, Projects, Experience, Skills, Contact, plus one FashionTech case-study page at /projects/fashiontech. Hosted on Vercel free tier at pcmnepomuceno.vercel.app. Content lives in a typed `src/content.ts`. Scope, milestones and out-of-scope live in `docs/PROJECT_BRIEF.md`, which wins on those; this file owns audience, tone and design intent.
+Single-page static site with anchored sections: Home, Projects, Experience, Skills, Technical foundations (no nav item), Contact, plus one FashionTech case-study page at /projects/fashiontech. Hosted on Vercel free tier at pcmnepomuceno.vercel.app. Content lives in a typed `src/content.ts`. Scope, milestones and out-of-scope live in `docs/PROJECT_BRIEF.md`, which wins on those; this file owns audience, tone and design intent.
 
 ## Capabilities and Constraints
 - Static: no backend, database, auth, CMS or blog in v1. Chatbot, /now page and hackathon log are v2.

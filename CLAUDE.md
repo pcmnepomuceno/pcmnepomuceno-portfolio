@@ -25,7 +25,7 @@ Czed's personal portfolio website. Light, clean, techy, Japanese-red visual styl
 ## Folder structure (target)
 
 - `src/app/` — `layout.tsx`, `page.tsx`, `globals.css`: routes, theme provider, tokens
-- `src/components/sections/` — Hero, Experience, Projects, Skills, Contact
+- `src/components/sections/` — Hero, Experience, Projects, Skills, Foundations, Contact
 - `src/components/ui/` — small reusable pieces
 - `src/content.ts` — all data, typed (Profile, ExperienceItem, Project, SkillGroup). Content is not hardcoded in components.
 - `public/` — photo, CV PDF, og-image
@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Polish PR #27 merged (squash `3792f18`) and live: case-study lightbox, compact club roles, Contact text links, Skills split. Follow-up PRs pending, listed in `docs/DECISIONS.md` (2026-10-20, "After polish").
+Branch `feature/skills-foundations` (not pushed, not merged): Skills regrouped by depth, MongoDB removed, new Technical foundations section after Skills. Follow-up PRs from the 2026-10-20 "After polish" list in `docs/DECISIONS.md` are still pending.

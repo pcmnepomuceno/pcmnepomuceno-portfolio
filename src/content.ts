@@ -244,15 +244,63 @@ export const projects: Project[] = [
   },
 ];
 
+// Grouped by depth, most-used first. No years, counts or ratings per skill.
 export const skills: SkillGroup[] = [
-  { label: "Languages", items: ["Python", "JavaScript", "Java", "Dart"] },
-  { label: "Backend", items: ["FastAPI", "Node.js", "Express.js"] },
-  { label: "Frontend", items: ["React", "Next.js"] },
-  { label: "Mobile", items: ["Flutter"] },
-  { label: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase"] },
-  { label: "Machine learning", items: ["scikit-learn"] },
-  { label: "Tools", items: ["Git", "Docker"] },
+  {
+    label: "Core",
+    items: ["Python", "JavaScript", "TypeScript", "C", "Dart", "Flutter", "React", "Node.js / Express", "HTML/CSS"],
+  },
+  {
+    label: "Used in my projects",
+    items: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Firebase", "Git", "scikit-learn"],
+  },
+  {
+    label: "Coursework",
+    items: ["Java", "SQL (MariaDB)", "R", "x86 assembly", "Lex/Yacc", "Rust", "TensorFlow"],
+  },
 ];
+
+export const skillsExposure = "Exposure to other language paradigms: Erlang, COBOL, Scheme, Prolog, VHDL.";
+
+export const skillsFoundationsLink = "See technical foundations";
+
+export type Foundation = {
+  title: string;
+  // Course and whether it was solo or group work, e.g. "CMSC 180 · Solo".
+  meta: string;
+  what: string;
+  part: string;
+};
+
+// Course projects, separate from Projects. Group work is always marked "Group project".
+export const foundations: { heading: string; partLabel: string; items: Foundation[]; notes: string[] } = {
+  heading: "Technical foundations",
+  partLabel: "My part",
+  items: [
+    {
+      title: "Parallel computing labs",
+      meta: "CMSC 180 · Solo",
+      what: "Min-max transformation of a matrix, taken from a serial version to pthreads, core pinning and a TCP master/slave setup.",
+      part: "Wrote all five labs.",
+    },
+    {
+      title: "Expense manager",
+      meta: "CMSC 127 · Group project (team of four)",
+      what: "A Tkinter app over a four-table MariaDB database for tracking expenses between friends and groups.",
+      part: "I worked on expense add, view, edit and search, group and user search, the outstanding-balances report and the README.",
+    },
+    {
+      title: "LOLCODE interpreter",
+      meta: "CMSC 124 · Group project",
+      what: "A partial LOLCODE interpreter in Python with a lexer, parser, runtime and Tkinter GUI. It handles variables, input and output, string concatenation and arithmetic.",
+      part: "I worked on the lexer, parser and runtime for variables, output and arithmetic. The structure follows a public interpreter-building tutorial.",
+    },
+  ],
+  notes: [
+    "Also in C: operating-systems labs on scheduling (shortest remaining time), virtual memory (TLB and page table), shared memory and threads.",
+    "Deep learning: TensorFlow and GAN notebooks (CMSC 191).",
+  ],
+};
 
 export type CaseStudy = {
   title: string;
