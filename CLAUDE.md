@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Branch `feature/skills-foundations` (not pushed, not merged): Skills regrouped by depth, MongoDB removed, new Technical foundations section after Skills. Follow-up PRs from the 2026-10-20 "After polish" list in `docs/DECISIONS.md` are still pending.
+Skills by depth + Technical foundations merged (PR #29, squash `4ca1c12`) and live. Follow-up PRs pending, listed in `docs/DECISIONS.md` (2026-10-21, "After skills").
