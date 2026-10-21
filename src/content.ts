@@ -244,15 +244,23 @@ export const projects: Project[] = [
   },
 ];
 
+// Grouped by depth, most-used first. No years, counts or ratings per skill.
 export const skills: SkillGroup[] = [
-  { label: "Languages", items: ["Python", "JavaScript", "Java", "Dart"] },
-  { label: "Backend", items: ["FastAPI", "Node.js", "Express.js"] },
-  { label: "Frontend", items: ["React", "Next.js"] },
-  { label: "Mobile", items: ["Flutter"] },
-  { label: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase"] },
-  { label: "Machine learning", items: ["scikit-learn"] },
-  { label: "Tools", items: ["Git", "Docker"] },
+  {
+    label: "Core",
+    items: ["Python", "JavaScript", "TypeScript", "C", "Dart", "Flutter", "React", "Node.js / Express", "HTML/CSS"],
+  },
+  {
+    label: "Used in my projects",
+    items: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Firebase", "Git", "scikit-learn"],
+  },
+  {
+    label: "Coursework",
+    items: ["Java", "SQL (MariaDB)", "R", "x86 assembly", "Lex/Yacc", "Rust", "TensorFlow"],
+  },
 ];
+
+export const skillsExposure = "Exposure to other language paradigms: Erlang, COBOL, Scheme, Prolog, VHDL.";
 
 export type CaseStudy = {
   title: string;
