@@ -1,4 +1,5 @@
-import { skills, skillsExposure } from "@/content";
+import { textLink } from "@/components/ui/links";
+import { skills, skillsExposure, skillsFoundationsLink } from "@/content";
 
 export default function Skills() {
   return (
@@ -18,7 +19,13 @@ export default function Skills() {
             </div>
           ))}
         </dl>
-        <p className="text-sm text-muted">{skillsExposure}</p>
+        <p className="max-w-prose text-sm text-muted">{skillsExposure}</p>
+        {/* Foundations has no top-nav item (the header stays at five), so Skills links to it. */}
+        <p>
+          <a href="#foundations" className={textLink}>
+            {skillsFoundationsLink}
+          </a>
+        </p>
       </div>
     </section>
   );

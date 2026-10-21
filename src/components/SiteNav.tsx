@@ -30,7 +30,11 @@ export default function SiteNav({ children }: { children: ReactNode }) {
     let atBottom = false;
     const update = () => {
       if (locked.current) return; // a click just set it; ignore the jump's passes
-      const id = atBottom ? ids[ids.length - 1] : ids.findLast((i) => crossing.has(i));
+      // A section with data-nav-parent (Foundations) has no nav item and counts as its parent.
+      const current = new Set(
+        [...crossing].map((i) => document.getElementById(i)?.dataset.navParent ?? i),
+      );
+      const id = atBottom ? ids[ids.length - 1] : ids.findLast((i) => current.has(i));
       if (id) setActive(id);
     };
     const sections = new IntersectionObserver(
@@ -54,6 +58,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
       const el = document.getElementById(id);
       if (el) sections.observe(el);
     }
+    for (const el of document.querySelectorAll("[data-nav-parent]")) sections.observe(el);
     const foot = document.querySelector("footer");
     if (foot) footer.observe(foot);
     return () => {

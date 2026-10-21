@@ -4,7 +4,7 @@ import { useEffect, useEffectEvent, useId, useRef, useState, type KeyboardEvent 
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { jumpTo } from "@/components/ui/jump";
-import { cv, nav, palette } from "@/content";
+import { cv, foundations, nav, palette } from "@/content";
 
 type Command =
   | { kind: "section"; label: string; section: string }
@@ -17,6 +17,8 @@ const commands: Command[] = [
     label: `${palette.goTo} ${item}`,
     section: item.toLowerCase(),
   })),
+  // Not in nav (no top-nav item), so it is added here.
+  { kind: "section", label: `${palette.goTo} ${foundations.heading}`, section: "foundations" },
   { kind: "theme", label: palette.toggleTheme },
   { kind: "cv", label: cv.label },
 ];
