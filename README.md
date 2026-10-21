@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio website of Prince Czedrick Nepomuceno (Czed): a single-page static site with experience, projects, skills, contact details and a downloadable CV.
+Personal portfolio website of Prince Czedrick Nepomuceno (Czed): a single-page static site with experience, projects, skills, technical foundations, contact details and a downloadable CV.
 
 Live: https://pcmnepomuceno.vercel.app
 
@@ -23,7 +23,7 @@ npm run lint    # ESLint
 ## Structure
 
 - `src/app/` - layout, page, global styles and design tokens, metadata and icon routes
-- `src/components/sections/` - Hero, Experience, Projects, Skills, Contact
+- `src/components/sections/` - Hero, Experience, Projects, Skills, Foundations, Contact
 - `src/components/ui/` - small reusable pieces
 - `src/content.ts` - all site content, typed
 - `public/` - photo and CV PDF
