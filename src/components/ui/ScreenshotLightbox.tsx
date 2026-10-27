@@ -106,7 +106,8 @@ export default function ScreenshotLightbox({ title, image }: Props) {
           <span className="relative block aspect-[475/335] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
             <ShotImages
               image={image}
-              sizes="(min-width: 1024px) 928px, (min-width: 768px) 743px, calc(232vw - 75px)"
+              // The image is 232% of the frame: a 15rem (240px) column from md, (100vw - 80px) capped at 24rem below.
+              sizes="(min-width: 768px) 557px, min(891px, calc(232vw - 186px))"
               className="h-auto -mt-[17.9%] -ml-[5.3%] w-[232%] max-w-none"
             />
             {expandChip}
