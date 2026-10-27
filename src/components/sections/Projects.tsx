@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { outlineLink, primaryLink, textLink } from "@/components/ui/links";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
-import Stamp, { Badge } from "@/components/ui/Stamp";
 import { projects, type Project } from "@/content";
 
 function ProjectItem({ project }: { project: Project }) {
@@ -14,8 +13,6 @@ function ProjectItem({ project }: { project: Project }) {
       <div className="flex min-w-0 max-w-prose flex-col gap-4">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="text-2xl font-medium">{project.title}</h3>
-          {project.featured && project.status && <Stamp status={project.status} />}
-          {project.badge && <Badge label={project.badge} />}
           {meta && <p className="text-sm text-muted">{meta}</p>}
         </div>
         {project.result && <p className="text-sm">{project.result}</p>}
