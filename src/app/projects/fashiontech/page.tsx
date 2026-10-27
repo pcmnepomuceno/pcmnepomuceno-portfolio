@@ -28,7 +28,7 @@ export default function FashionTechCaseStudy() {
             {study.back}
           </Link>
           <div className="space-y-3">
-            <h1 className="text-4xl">{study.title}</h1>
+            <h1 className="text-4xl font-light md:text-5xl">{study.title}</h1>
             <p className="text-lg">{study.subtitle}</p>
           </div>
           <div className="space-y-1 text-sm text-muted">

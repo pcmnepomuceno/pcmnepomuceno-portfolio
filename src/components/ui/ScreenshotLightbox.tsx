@@ -47,7 +47,7 @@ function ShotImages({
 const expandChip = (
   <span
     aria-hidden="true"
-    className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-md border border-border bg-background text-foreground"
+    className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-sm border border-border bg-background text-foreground"
   >
     <svg
       viewBox="0 0 24 24"
@@ -103,10 +103,11 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         className="group block w-full min-w-0 text-left"
       >
         {pair ? (
-          <span className="relative block aspect-[475/335] overflow-hidden rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground">
+          <span className="relative block aspect-[475/335] overflow-hidden rounded-sm border border-border group-hover:border-foreground group-focus-visible:border-foreground">
             <ShotImages
               image={image}
-              sizes="(min-width: 1024px) 928px, (min-width: 768px) 743px, calc(232vw - 75px)"
+              // The image is 232% of the frame: a 15rem (240px) column from md, (100vw - 80px) capped at 24rem below.
+              sizes="(min-width: 768px) 557px, min(891px, calc(232vw - 186px))"
               className="h-auto -mt-[17.9%] -ml-[5.3%] w-[232%] max-w-none"
             />
             {expandChip}
@@ -116,7 +117,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
             <ShotImages
               image={image}
               sizes="(min-width: 768px) and (max-width: 1023px) 208px, 224px"
-              className="h-auto w-full rounded-md border border-border group-hover:border-foreground group-focus-visible:border-foreground"
+              className="h-auto w-full rounded-sm border border-border group-hover:border-foreground group-focus-visible:border-foreground"
             />
             {expandChip}
           </span>
@@ -135,7 +136,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         onClick={(event) => {
           if (event.target === event.currentTarget) dialogRef.current?.close();
         }}
-        className="m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-[calc(1104px+2rem+2px)] flex-col rounded-md border border-border bg-background p-0 text-foreground focus:outline-none open:flex backdrop:bg-[rgb(0_0_0/0.5)]"
+        className="m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-[calc(1104px+2rem+2px)] flex-col rounded-sm border border-border bg-background p-0 text-foreground focus:outline-none open:flex backdrop:bg-[rgb(0_0_0/0.5)]"
       >
         <div className="flex min-h-0 flex-1 flex-col gap-3 p-4">
           <div className="flex items-center justify-between gap-4">
@@ -167,7 +168,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
               <ShotImages
                 image={image}
                 sizes={pair ? "1104px" : `${Math.round(image.width / 3)}px`}
-                className={`h-auto max-w-none rounded-md border border-border md:mx-auto md:w-auto md:max-w-full md:max-h-[calc(100dvh-11rem)] ${pair ? "w-[1104px]" : "w-(--shot-w)"}`}
+                className={`h-auto max-w-none rounded-sm border border-border md:mx-auto md:w-auto md:max-w-full md:max-h-[calc(100dvh-11rem)] ${pair ? "w-[1104px]" : "w-(--shot-w)"}`}
               />
             )}
           </div>

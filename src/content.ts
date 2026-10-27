@@ -30,13 +30,15 @@ export type Project = {
   summary: string;
   status: "live" | "in-progress" | null;
   featured: boolean;
-  // One headline number, restated from the summary; shown under the title.
+  // One headline number; shown under the summary of the featured project.
   result?: string;
   // Organization the work was done for, shown first in the meta line, e.g. "Limitless Lab".
   org?: string;
   period?: string;
-  role?: string;
-  tags: string[];
+  // Plain-text label beside the title, e.g. "Thesis", "Internship".
+  type: string;
+  // One sentence naming the technologies; used instead of tag chips.
+  stack?: string;
   links: { label: string; href: string }[];
   // Theme pair: Projects shows the light file in light mode and the dark file in dark mode.
   image?: { light: ProjectImageFile; dark: ProjectImageFile; alt: string; caption: string };
@@ -170,24 +172,24 @@ export const projects: Project[] = [
     slug: "cosrec",
     title: "CosRec",
     summary:
-      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% top-5 accuracy on a 500-item leave-one-out test (text-only retrieval; the hybrid scores 97.4%).",
+      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem).",
     status: "live",
     featured: true,
     result: "97.8% top-5 accuracy on a 500-item leave-one-out test (text-only retrieval; the hybrid scores 97.4%)",
     period: "Apr 2026 – Oct 2026",
-    tags: ["Python", "Vision Transformer", "TF-IDF"],
+    type: "Thesis",
+    stack: "Built with Python, a pretrained Vision Transformer and TF-IDF retrieval.",
     links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
   },
   {
     slug: "steam-review-analyzer",
     title: "Steam Review Analyzer",
     summary:
-      "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on negative reviews, up from 0.727 for the first model.",
+      "Breaks down a game's Steam reviews by aspect, such as gameplay and story, using a trained sentiment classifier.",
     status: "live",
-    featured: true,
+    featured: false,
     period: "Oct 2026",
-    result: "F1 0.780 on negative reviews, up from 0.727 for the first model",
-    tags: ["Python", "FastAPI", "PostgreSQL", "scikit-learn", "Next.js"],
+    type: "Personal project",
     links: [
       { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
       { label: "Source code", href: "https://github.com/pcmnepomuceno/steam-review-analyzer" },
@@ -203,12 +205,12 @@ export const projects: Project[] = [
     slug: "fashiontech",
     title: "FashionTech",
     summary:
-      "A mobile app that puts inventory, job orders, and profit tracking for small tailoring and fashion businesses in one place. Built with a teammate during my internship at Limitless Lab.",
+      "A Flutter and Firebase inventory and job-order app for tailoring businesses, built with a teammate. I designed the Firestore data model and built the inventory, job-order and transaction modules.",
     status: null,
     featured: false,
     org: "Limitless Lab",
     period: "Jun 2025 – Jul 2025",
-    tags: ["Flutter", "Firebase"],
+    type: "Internship",
     links: [{ label: "Case study", href: "/projects/fashiontech" }],
   },
   {
@@ -218,9 +220,8 @@ export const projects: Project[] = [
       "A team room-reservation web app built with the PERN stack. I built front-end pieces (account and booking modals, dashboard cards, nested routes) and wrote the documentation.",
     status: null,
     featured: false,
-    role: "Team project",
     period: "Mar – May 2024",
-    tags: ["React", "Bootstrap"],
+    type: "Team project",
     links: [],
   },
 ];
