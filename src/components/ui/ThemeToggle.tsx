@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground hover:border-accent hover:text-accent motion-safe:transition-colors"
+      className="inline-flex size-11 items-center justify-center rounded-sm border border-border text-foreground hover:border-accent hover:text-accent motion-safe:transition-colors"
     >
       <span className="sr-only dark:hidden">Switch to dark theme</span>
       <span className="sr-only hidden dark:inline">Switch to light theme</span>
