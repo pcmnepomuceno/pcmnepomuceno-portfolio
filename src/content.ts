@@ -1,6 +1,8 @@
 export type Profile = {
   name: string;
+  shortName: string;
   role: string;
+  headline: string;
   location: string;
   education: string;
   summary: (string | { text: string; href: string })[];
@@ -47,7 +49,9 @@ export type SkillGroup = {
 
 export const profile: Profile = {
   name: "Prince Czedrick Nepomuceno",
+  shortName: "Czed",
   role: "Full-stack developer",
+  headline: "Full-stack developer, from backend to search.",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
   summary: [
@@ -77,7 +81,7 @@ export const contactIntro =
 export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Download CV", navLabel: "CV" };
 
 // Each item links to the section whose id is the lowercase item.
-export const nav = ["Home", "Projects", "Experience", "Skills", "Contact"];
+export const nav = ["Intro", "Projects", "Experience", "Skills", "Contact"];
 
 export const skipLink = "Skip to content";
 

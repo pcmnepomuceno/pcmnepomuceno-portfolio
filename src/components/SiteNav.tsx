@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { jumpTo } from "@/components/ui/jump";
+import Seal from "@/components/ui/Seal";
 import { primaryLink } from "@/components/ui/links";
 import { cv, menu, nav, profile } from "@/content";
 
@@ -13,7 +14,7 @@ import { cv, menu, nav, profile } from "@/content";
 export default function SiteNav({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  // "home" matches the server render; the observer corrects it after mount.
+  // "intro" matches the server render; the observer corrects it after mount.
   const [activeId, setActive] = useState(nav[0].toLowerCase());
   // Sections exist on the home page only; elsewhere no item is current.
   const active = pathname === "/" ? activeId : null;
@@ -105,10 +106,12 @@ export default function SiteNav({ children }: { children: ReactNode }) {
       className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2"
     >
       <Link
-        href="/#home"
-        className="inline-flex min-h-11 grow basis-0 items-center text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
+        href="/#intro"
+        className="inline-flex min-h-11 grow basis-0 items-center gap-3 text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
       >
-        {profile.name}
+        <Seal />
+        <span className="font-medium">{profile.shortName}</span>
+        <span className="sr-only text-sm text-muted xl:not-sr-only">{profile.name}</span>
       </Link>
       <div className="flex items-center gap-2 sm:flex-wrap sm:gap-x-3 sm:gap-y-0">
         <div className="hidden sm:block">
@@ -120,7 +123,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
                   href={`/#${item.toLowerCase()}`}
                   onClick={() => select(item.toLowerCase())}
                   aria-current={active === item.toLowerCase() ? "location" : undefined}
-                  className={`inline-flex min-h-11 min-w-11 items-center justify-center border-b-2 px-2 hover:text-accent motion-safe:transition-colors ${active === item.toLowerCase() ? "border-accent text-accent" : "border-transparent"}`}
+                  className={`inline-flex min-h-11 min-w-11 items-center justify-center border-b px-2 hover:text-accent motion-safe:transition-colors ${active === item.toLowerCase() ? "border-accent text-accent" : "border-transparent"}`}
                 >
                   {item}
                 </Link>
@@ -138,7 +141,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
-          className="inline-flex size-11 items-center justify-center rounded-md border border-border text-foreground hover:border-accent hover:text-accent sm:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-sm border border-border text-foreground hover:border-accent hover:text-accent sm:hidden"
         >
           <span className="sr-only">{open ? menu.close : menu.open}</span>
           <svg
@@ -177,18 +180,12 @@ export default function SiteNav({ children }: { children: ReactNode }) {
                 aria-current={active === item.toLowerCase() ? "location" : undefined}
                 className={`flex min-h-11 items-center hover:text-accent ${active === item.toLowerCase() ? "text-accent" : ""}`}
               >
-                <span aria-hidden="true" className={`w-[2ch] ${active === item.toLowerCase() ? "" : "invisible"}`}>
-                  &gt;
-                </span>
                 {item}
               </Link>
             </li>
           ))}
           <li>
             <a href={cv.href} download className="flex min-h-11 items-center hover:text-accent">
-              <span aria-hidden="true" className="invisible w-[2ch]">
-                &gt;
-              </span>
               {cv.label}
               <span className="sr-only"> (PDF)</span>
             </a>
