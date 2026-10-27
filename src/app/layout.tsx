@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import SiteNav from "@/components/SiteNav";
@@ -8,30 +7,12 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import { backToTop, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
 
-// Self-hosted latin subset of Noto Serif JP 600. next/font/google would add ~120 CJK @font-face
-// rules (about 34 KB gzip) to the render-blocking stylesheet. The site has no Japanese text.
-// next/font/local names the family after this constant, so it must not be a CSS generic like "serif".
-const notoSerifJP = localFont({
-  src: "./fonts/NotoSerifJP-600-latin.woff2",
-  weight: "600",
-  style: "normal",
-  display: "swap",
-  variable: "--font-noto-serif-jp",
-  adjustFontFallback: "Times New Roman",
-});
-
-const mono = JetBrains_Mono({
+// The only font. No 600/700 is loaded, so font-semibold and font-bold would render faux bold.
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400", "500"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
-});
-
-const sans = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-  variable: "--font-inter",
+  variable: "--font-plus-jakarta-sans",
 });
 
 export const metadata: Metadata = {
@@ -45,15 +26,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${notoSerifJP.variable} ${mono.variable} ${sans.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
       <body>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-4 focus:z-50 focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-md focus:border focus:border-border focus:bg-background focus:px-4 focus:font-mono focus:text-sm"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-4 focus:z-50 focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-md focus:border focus:border-border focus:bg-background focus:px-4 focus:text-sm"
         >
           {skipLink}
         </a>
@@ -73,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </p>
               <a
                 href="#main"
-                className="inline-flex min-h-11 items-center font-mono hover:text-accent motion-safe:transition-colors"
+                className="inline-flex min-h-11 items-center hover:text-accent motion-safe:transition-colors"
               >
                 {backToTop}
               </a>

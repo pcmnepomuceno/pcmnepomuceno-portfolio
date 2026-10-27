@@ -2,42 +2,57 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* accent is vermilion tuned to pass AA (4.5:1) as small text on background and surface;
+   vermilion is the exact brand hex (about 4.3:1), for fills and large text only. */
 @theme {
-  --color-background: #faf7f2; /* washi */
-  --color-foreground: #1a1614; /* sumi */
-  --color-muted: #6b625b;
-  --color-border: #e4ddd3;
-  --color-accent: #c8102e; /* vermilion */
+  --color-background: #f2ede4; /* canvas */
+  --color-foreground: #1a1614; /* ink */
+  --color-muted: #635c56; /* ink-2 */
+  --color-border: #d6cebf; /* hairline */
+  --color-accent: #b81f18;
+  --color-vermilion: #d7261e;
+  --color-surface: #e8e2d7;
+  --color-band: #1a1614; /* Experience band: ink in light, indigo in dark */
+  --color-band-foreground: #f2ede4;
 }
 
 .dark {
-  --color-background: #14110f;
-  --color-foreground: #f2eee8;
-  --color-muted: #a39a91;
-  --color-border: #2e2925;
-  --color-accent: #ff4d5e;
+  --color-background: #1a1614;
+  --color-foreground: #f2ede4;
+  --color-muted: #a39a8e;
+  --color-border: #2c2622;
+  --color-accent: #f0554c;
+  --color-vermilion: #e63930;
+  --color-surface: #231f1c;
+  --color-band: #121826;
+  --color-band-foreground: #f2ede4;
 }
 
 @theme inline {
-  --font-serif: var(--font-noto-serif-jp), serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Sticky header height by width, measured (name wraps below 427px; the nav wraps to a second row
-   from 640px to 834px). Anchor jumps and focus leave this much room. Re-measure if header content changes. */
+/* Sticky header height by width, measured with Plus Jakarta Sans (the brand name wraps below 485px,
+   twice below 366px and three times below 348px; the nav wraps to a second row from 640px to 877px).
+   Anchor jumps and focus leave this much room. Re-measure if header content or the font changes. */
 html {
   scrollbar-gutter: stable; /* the page scrollbar stays reserved while a lightbox hides it, so nothing shifts */
-  --header-h: 73px;
+  --header-h: 113px;
   scroll-padding-top: var(--header-h);
 }
-@media (min-width: 427px) {
+@media (min-width: 348px) {
+  html { --header-h: 101px; }
+}
+@media (min-width: 366px) {
+  html { --header-h: 73px; }
+}
+@media (min-width: 485px) {
   html { --header-h: 61px; }
 }
 @media (min-width: 640px) {
   html { --header-h: 97px; }
 }
-@media (min-width: 835px) {
+@media (min-width: 878px) {
   html { --header-h: 61px; }
 }
 

@@ -3,9 +3,7 @@ export type Profile = {
   role: string;
   location: string;
   education: string;
-  availability: string;
   summary: (string | { text: string; href: string })[];
-  tldr: string[];
   links: { email: string; github: string; linkedin: string };
   photo: { src: string; alt: string };
 };
@@ -30,8 +28,6 @@ export type Project = {
   summary: string;
   status: "live" | "in-progress" | null;
   featured: boolean;
-  // Short context tag shown beside the title, e.g. "Thesis".
-  badge?: string;
   // One headline number, restated from the summary; shown under the title.
   result?: string;
   // Organization the work was done for, shown first in the meta line, e.g. "Limitless Lab".
@@ -54,18 +50,10 @@ export const profile: Profile = {
   role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
-  availability:
-    "Open to Software Engineer, Backend, Full-Stack and AI Automation roles · Philippines (UTC+8) · remote or on-site",
   summary: [
     "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. My thesis, ",
     { text: "CosRec", href: "https://cosrec.vercel.app" },
     ", is a live image-text search system.",
-  ],
-  tldr: [
-    "CS graduate, UP Los Baños, July 2026",
-    "Built CosRec, a live image-text search; the right item is in the top results 97.8% of the time",
-    "Built Steam Review Analyzer, a live tool that reads game reviews for sentiment and topics",
-    "Software Engineer intern at Limitless Lab (Flutter, Firebase)",
   ],
   links: {
     email: "pcmnepomuceno@gmail.com",
@@ -90,9 +78,6 @@ export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Downl
 
 // Each item links to the section whose id is the lowercase item.
 export const nav = ["Home", "Projects", "Experience", "Skills", "Contact"];
-
-// Hero summary / TL;DR switch.
-export const summaryToggle = { label: "Hero summary view", summary: "Summary", tldr: "TL;DR" };
 
 export const skipLink = "Skip to content";
 
@@ -175,12 +160,6 @@ export const experience: ExperienceItem[] = [...items].sort(
   (a, b) => year(b.end) - year(a.end) || year(b.start) - year(a.start),
 );
 
-// Stamp text for each project status; null shows no stamp.
-export const statusLabels: Record<NonNullable<Project["status"]>, string> = {
-  live: "LIVE",
-  "in-progress": "IN PROGRESS",
-};
-
 // Display order is source order (not sorted).
 export const projects: Project[] = [
   {
@@ -190,7 +169,6 @@ export const projects: Project[] = [
       "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
     status: "live",
     featured: true,
-    badge: "Thesis",
     result: "Right item in the top results 97.8% of the time (500-item test set)",
     period: "Apr 2026 – Oct 2026",
     tags: ["Python", "Vision Transformer", "TF-IDF"],
@@ -224,7 +202,6 @@ export const projects: Project[] = [
       "A mobile app that puts inventory, job orders, and profit tracking for small tailoring and fashion businesses in one place. Built with a teammate during my internship at Limitless Lab.",
     status: null,
     featured: false,
-    badge: "Internship",
     org: "Limitless Lab",
     period: "Jun 2025 – Jul 2025",
     tags: ["Flutter", "Firebase"],

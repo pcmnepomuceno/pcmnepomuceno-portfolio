@@ -17,12 +17,7 @@ function DateText({ value }: { value: string }) {
 export default function Experience() {
   return (
     <section id="experience" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="font-mono text-sm text-muted">
-          <span className="text-accent">~/</span>experience
-        </p>
-        <h2 className="font-serif text-3xl">Experience</h2>
-      </div>
+      <h2 className="text-3xl">Experience</h2>
       <ol role="list" className="border-l border-border">
         {experience.map((item) => {
           const compact = item.type === "org";
@@ -35,13 +30,13 @@ export default function Experience() {
                 aria-hidden="true"
                 className="absolute top-1.5 -left-1 size-2 rounded-full bg-accent sm:top-2.5"
               />
-              <p className="font-mono text-sm whitespace-nowrap text-muted sm:pt-1">
+              <p className="text-sm whitespace-nowrap text-muted sm:pt-1">
                 <DateText value={item.start} /> – <DateText value={item.end} />
               </p>
               <div className={`min-w-0 ${compact ? "space-y-1" : "space-y-2"}`}>
                 {compact ? (
                   <>
-                    <h3 className="font-serif text-lg font-semibold">
+                    <h3 className="text-lg font-medium">
                       {item.title}
                       <span
                         aria-hidden="true"
@@ -62,7 +57,7 @@ export default function Experience() {
                   </>
                 ) : (
                   <>
-                    <h3 className="font-serif text-lg font-semibold">{item.title}</h3>
+                    <h3 className="text-lg font-medium">{item.title}</h3>
                     <p className="text-muted">{item.organization}</p>
                   </>
                 )}
@@ -86,7 +81,7 @@ export default function Experience() {
                     {item.tags.map((tag) => (
                       <li
                         key={tag}
-                        className="rounded-md border border-border px-2 py-0.5 font-mono text-xs"
+                        className="rounded-md border border-border px-2 py-0.5 text-xs"
                       >
                         {tag}
                       </li>

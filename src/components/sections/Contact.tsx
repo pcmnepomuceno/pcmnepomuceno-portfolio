@@ -7,12 +7,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="font-mono text-sm text-muted">
-          <span className="text-accent">~/</span>contact
-        </p>
-        <h2 className="font-serif text-3xl">Contact</h2>
-      </div>
+      <h2 className="text-3xl">Contact</h2>
       <div className="space-y-6">
         <p className="max-w-prose">{contactIntro}</p>
         <CopyEmail />

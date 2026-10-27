@@ -32,7 +32,7 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 | Theming | next-themes | No flash on load, system preference |
 | Animation | Motion (minimal) | Subtle scroll reveals only |
 | Content | Typed `content.ts` | Add a project = one-file edit |
-| Fonts | Noto Serif JP / Shippori Mincho (headings), JetBrains Mono (labels) | Japanese + tech mix |
+| Fonts | Plus Jakarta Sans only, weights 300/400/500 (next/font), per docs/redesign-spec.md | One calm sans; no serif or monospace |
 | Backend/DB/Auth | None | Static site |
 | Hosting | Vercel (free), pcmnepomuceno.vercel.app | Free, deploy on push |
 

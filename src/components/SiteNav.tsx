@@ -106,14 +106,14 @@ export default function SiteNav({ children }: { children: ReactNode }) {
     >
       <Link
         href="/#home"
-        className="inline-flex min-h-11 grow basis-0 items-center font-serif text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
+        className="inline-flex min-h-11 grow basis-0 items-center text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
       >
         {profile.name}
       </Link>
       <div className="flex items-center gap-2 sm:flex-wrap sm:gap-x-3 sm:gap-y-0">
         <div className="hidden sm:block">
           {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
-          <ul role="list" className="-mx-2 flex flex-wrap font-mono text-sm">
+          <ul role="list" className="-mx-2 flex flex-wrap text-sm">
             {nav.map((item) => (
               <li key={item}>
                 <Link
@@ -161,7 +161,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
         hidden={!open}
         className="absolute inset-x-0 top-full border-y border-border bg-background sm:hidden"
       >
-        <ul role="list" className="mx-auto max-w-5xl px-4 py-2 font-mono text-sm">
+        <ul role="list" className="mx-auto max-w-5xl px-4 py-2 text-sm">
           {nav.map((item) => (
             <li key={item}>
               <Link

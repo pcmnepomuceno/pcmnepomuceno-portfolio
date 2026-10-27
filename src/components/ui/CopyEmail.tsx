@@ -50,7 +50,7 @@ export default function CopyEmail() {
         {message}
       </p>
       {/* Grid stack: an invisible copy of the longest message holds the height, so showing or clearing the message never moves what follows. */}
-      <p aria-hidden="true" className="grid font-mono text-sm text-muted">
+      <p aria-hidden="true" className="grid text-sm text-muted">
         <span className="invisible col-start-1 row-start-1">{copyEmail.failed}</span>
         <span className="col-start-1 row-start-1">{message}</span>
       </p>
