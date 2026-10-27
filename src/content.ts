@@ -3,9 +3,7 @@ export type Profile = {
   role: string;
   location: string;
   education: string;
-  availability: string;
   summary: (string | { text: string; href: string })[];
-  tldr: string[];
   links: { email: string; github: string; linkedin: string };
   photo: { src: string; alt: string };
 };
@@ -54,18 +52,10 @@ export const profile: Profile = {
   role: "Full-stack developer",
   location: "Philippines",
   education: "BS Computer Science, UPLB (2026)",
-  availability:
-    "Open to Software Engineer, Backend, Full-Stack and AI Automation roles · Philippines (UTC+8) · remote or on-site",
   summary: [
     "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. My thesis, ",
     { text: "CosRec", href: "https://cosrec.vercel.app" },
     ", is a live image-text search system.",
-  ],
-  tldr: [
-    "CS graduate, UP Los Baños, July 2026",
-    "Built CosRec, a live image-text search; the right item is in the top results 97.8% of the time",
-    "Built Steam Review Analyzer, a live tool that reads game reviews for sentiment and topics",
-    "Software Engineer intern at Limitless Lab (Flutter, Firebase)",
   ],
   links: {
     email: "pcmnepomuceno@gmail.com",
@@ -90,9 +80,6 @@ export const cv = { href: "/cv/Prince-Czedrick-Nepomuceno-CV.pdf", label: "Downl
 
 // Each item links to the section whose id is the lowercase item.
 export const nav = ["Home", "Projects", "Experience", "Skills", "Contact"];
-
-// Hero summary / TL;DR switch.
-export const summaryToggle = { label: "Hero summary view", summary: "Summary", tldr: "TL;DR" };
 
 export const skipLink = "Skip to content";
 
