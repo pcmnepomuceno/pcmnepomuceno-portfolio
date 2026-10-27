@@ -60,7 +60,7 @@ export default function Hero() {
       </div>
       {/* The square file is zoomed inside a 4:5 frame to crop to head and upper chest; the file is untouched. */}
       <div className="relative order-first aspect-[4/5] w-48 border border-border md:order-none md:w-full">
-        <div className="size-full overflow-hidden">
+        <div className="relative size-full overflow-hidden">
           <Image
             src={photo.src}
             alt={photo.alt}
