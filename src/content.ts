@@ -166,10 +166,10 @@ export const projects: Project[] = [
     slug: "cosrec",
     title: "CosRec",
     summary:
-      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% Top-K accuracy on a 500-item dataset.",
+      "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem). It pairs a pretrained Vision Transformer with TF-IDF retrieval and reached 97.8% top-5 accuracy on a 500-item leave-one-out test (text-only retrieval; the hybrid scores 97.4%).",
     status: "live",
     featured: true,
-    result: "Right item in the top results 97.8% of the time (500-item test set)",
+    result: "97.8% top-5 accuracy on a 500-item leave-one-out test (text-only retrieval; the hybrid scores 97.4%)",
     period: "Apr 2026 – Oct 2026",
     tags: ["Python", "Vision Transformer", "TF-IDF"],
     links: [{ label: "Live demo", href: "https://cosrec.vercel.app" }],
@@ -178,11 +178,11 @@ export const projects: Project[] = [
     slug: "steam-review-analyzer",
     title: "Steam Review Analyzer",
     summary:
-      "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on the minority class against a 0.000 baseline.",
+      "Analyzes Steam game reviews for sentiment and the aspects players talk about. Sentiment comes from a TF-IDF and logistic regression model trained on Steam's own thumbs-up and thumbs-down labels, which reached F1 0.780 on negative reviews, up from 0.727 for the first model.",
     status: "live",
     featured: true,
     period: "Oct 2026",
-    result: "Spots the rarer review class a naive baseline misses entirely (F1 0.780 vs 0.000)",
+    result: "F1 0.780 on negative reviews, up from 0.727 for the first model",
     tags: ["Python", "FastAPI", "PostgreSQL", "scikit-learn", "Next.js"],
     links: [
       { label: "Live demo", href: "https://steam-review-analyzer-wheat.vercel.app/" },
