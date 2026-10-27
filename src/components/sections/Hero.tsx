@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
+      id="intro"
       className="grid items-center gap-8 py-16 sm:grid-cols-[1fr_17.5rem] sm:gap-12 md:py-24"
     >
       <div className="min-w-0 space-y-6">
