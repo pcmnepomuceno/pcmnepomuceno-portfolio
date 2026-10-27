@@ -139,7 +139,7 @@ export default function ScreenshotLightbox({ title, image }: Props) {
       >
         <div className="flex min-h-0 flex-1 flex-col gap-3 p-4">
           <div className="flex items-center justify-between gap-4">
-            <h3 id={headingId} className="font-serif text-lg font-semibold">
+            <h3 id={headingId} className="text-lg font-medium">
               {pair ? lightbox.heading(title) : lightbox.headingShot(title)}
             </h3>
             <button

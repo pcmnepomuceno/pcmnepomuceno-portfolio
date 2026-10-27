@@ -29,9 +29,7 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-noto-serif-jp), serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Sticky header height by width, measured (name wraps below 427px; the nav wraps to a second row

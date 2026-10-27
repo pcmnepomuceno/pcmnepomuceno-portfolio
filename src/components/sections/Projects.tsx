@@ -13,17 +13,17 @@ function ProjectItem({ project }: { project: Project }) {
     >
       <div className="flex min-w-0 max-w-prose flex-col gap-4">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="font-serif text-2xl font-semibold">{project.title}</h3>
+          <h3 className="text-2xl font-medium">{project.title}</h3>
           {project.featured && project.status && <Stamp status={project.status} />}
           {project.badge && <Badge label={project.badge} />}
-          {meta && <p className="font-mono text-sm text-muted">{meta}</p>}
+          {meta && <p className="text-sm text-muted">{meta}</p>}
         </div>
-        {project.result && <p className="font-mono text-sm">{project.result}</p>}
+        {project.result && <p className="text-sm">{project.result}</p>}
         <p>{project.summary}</p>
         {project.tags.length > 0 && (
           <ul role="list" aria-label="Technologies" className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <li key={tag} className="rounded-md border border-border px-2 py-0.5 font-mono text-xs">
+              <li key={tag} className="rounded-md border border-border px-2 py-0.5 text-xs">
                 {tag}
               </li>
             ))}
@@ -71,7 +71,7 @@ function ProjectItem({ project }: { project: Project }) {
           </ul>
         )}
         {project.status === "in-progress" && (
-          <p className="pt-2 font-mono text-sm text-muted">Live demo in progress</p>
+          <p className="pt-2 text-sm text-muted">Live demo in progress</p>
         )}
       </div>
       {project.image && (
@@ -87,10 +87,10 @@ export default function Projects() {
   return (
     <section id="projects" className="space-y-10 border-t border-border py-16 md:py-24">
       <div className="space-y-3">
-        <p aria-hidden="true" className="font-mono text-sm text-muted">
+        <p aria-hidden="true" className="text-sm text-muted">
           <span className="text-accent">~/</span>projects
         </p>
-        <h2 className="font-serif text-3xl">Projects</h2>
+        <h2 className="text-3xl">Projects</h2>
       </div>
       <div className="divide-y divide-border">
         {projects.map((project) => (

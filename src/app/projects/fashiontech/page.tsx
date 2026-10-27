@@ -23,15 +23,15 @@ export default function FashionTechCaseStudy() {
     <main id="main" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-10 md:py-16">
       <article className="space-y-10">
         <div className="max-w-prose space-y-6">
-          <Link href="/#projects" className={`${textLink} font-mono text-sm`}>
+          <Link href="/#projects" className={`${textLink} text-sm`}>
             <span aria-hidden="true">←&nbsp;</span>
             {study.back}
           </Link>
           <div className="space-y-3">
-            <h1 className="font-serif text-4xl">{study.title}</h1>
+            <h1 className="text-4xl">{study.title}</h1>
             <p className="text-lg">{study.subtitle}</p>
           </div>
-          <div className="space-y-1 font-mono text-sm text-muted">
+          <div className="space-y-1 text-sm text-muted">
             {study.meta.map((line) => (
               <p key={line}>{line}</p>
             ))}
@@ -42,7 +42,7 @@ export default function FashionTechCaseStudy() {
         {study.sections.map((section) => (
           <section key={section.heading} className="space-y-4">
             <div className="max-w-prose space-y-4">
-              <h2 className="font-serif text-2xl">{section.heading}</h2>
+              <h2 className="text-2xl">{section.heading}</h2>
               {section.body.map((block) =>
                 typeof block === "string" ? (
                   <p key={block}>{block}</p>

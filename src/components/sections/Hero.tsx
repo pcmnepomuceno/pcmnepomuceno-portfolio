@@ -13,11 +13,11 @@ export default function Hero() {
     >
       <div className="min-w-0 space-y-6">
         <div className="space-y-4">
-          <p className="flex items-start gap-2 font-mono text-sm text-muted">
+          <p className="flex items-start gap-2 text-sm text-muted">
             <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" />
             {profile.availability}
           </p>
-          <h1 className="font-serif text-3xl text-balance sm:text-4xl md:text-5xl">
+          <h1 className="text-3xl text-balance sm:text-4xl md:text-5xl">
             {profile.name}
           </h1>
           <p className="text-lg sm:text-xl">{profile.role}</p>
@@ -40,7 +40,7 @@ export default function Hero() {
             ),
           )}
         </SummaryToggle>
-        <p className="font-mono text-sm text-muted">
+        <p className="text-sm text-muted">
           {profile.education} · {profile.location}
         </p>
         <ul role="list" className="flex flex-wrap gap-3">

@@ -135,7 +135,7 @@ export default function CommandPalette() {
           <path d="m5 7 5 5-5 5" />
           <path d="M12 17h7" />
         </svg>
-        <kbd aria-hidden="true" className="hidden font-mono text-xs text-muted sm:inline">
+        <kbd aria-hidden="true" className="hidden text-xs text-muted sm:inline">
           {palette.hint}
         </kbd>
       </button>
@@ -165,7 +165,7 @@ export default function CommandPalette() {
             setActive(0);
           }}
           onKeyDown={onKeyDown}
-          className="w-full border-b border-border bg-transparent px-4 py-3 font-mono text-sm -outline-offset-2 placeholder:text-muted"
+          className="w-full border-b border-border bg-transparent px-4 py-3 text-sm -outline-offset-2 placeholder:text-muted"
         />
         {filtered.length > 0 && (
           <ul id={listId} role="listbox" className="max-h-[60vh] overflow-y-auto py-2">
@@ -179,14 +179,14 @@ export default function CommandPalette() {
                 onMouseDown={(event) => event.preventDefault()}
                 onMouseMove={() => setActive(i)}
                 onClick={() => run(command)}
-                className={`flex min-h-11 cursor-pointer items-center px-4 font-mono text-sm ${i === active ? "bg-foreground/5 text-accent" : ""}`}
+                className={`flex min-h-11 cursor-pointer items-center px-4 text-sm ${i === active ? "bg-foreground/5 text-accent" : ""}`}
               >
                 {command.label}
               </li>
             ))}
           </ul>
         )}
-        <p role="status" className="px-4 py-3 font-mono text-sm text-muted empty:hidden">
+        <p role="status" className="px-4 py-3 text-sm text-muted empty:hidden">
           {filtered.length === 0 && palette.empty}
         </p>
       </dialog>
