@@ -2,20 +2,30 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* accent is vermilion tuned to pass AA (4.5:1) as small text on background and surface;
+   vermilion is the exact brand hex (about 4.3:1), for fills and large text only. */
 @theme {
-  --color-background: #faf7f2; /* washi */
-  --color-foreground: #1a1614; /* sumi */
-  --color-muted: #6b625b;
-  --color-border: #e4ddd3;
-  --color-accent: #c8102e; /* vermilion */
+  --color-background: #f2ede4; /* canvas */
+  --color-foreground: #1a1614; /* ink */
+  --color-muted: #635c56; /* ink-2 */
+  --color-border: #d6cebf; /* hairline */
+  --color-accent: #b81f18;
+  --color-vermilion: #d7261e;
+  --color-surface: #e8e2d7;
+  --color-band: #1a1614; /* Experience band: ink in light, indigo in dark */
+  --color-band-foreground: #f2ede4;
 }
 
 .dark {
-  --color-background: #14110f;
-  --color-foreground: #f2eee8;
-  --color-muted: #a39a91;
-  --color-border: #2e2925;
-  --color-accent: #ff4d5e;
+  --color-background: #1a1614;
+  --color-foreground: #f2ede4;
+  --color-muted: #a39a8e;
+  --color-border: #2c2622;
+  --color-accent: #f0554c;
+  --color-vermilion: #e63930;
+  --color-surface: #231f1c;
+  --color-band: #121826;
+  --color-band-foreground: #f2ede4;
 }
 
 @theme inline {
