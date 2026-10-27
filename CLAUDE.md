@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Skills by depth + Technical foundations merged (PR #29, squash `4ca1c12`) and live. Follow-up PRs pending, listed in `docs/DECISIONS.md` (2026-10-21, "After skills").
+Redesign in progress (`docs/redesign-spec.md`): PR 1 (tokens, Plus Jakarta Sans, removals) on branch `redesign/pr1-tokens-font`, not pushed. Earlier: Skills by depth + Technical foundations merged (PR #29, `4ca1c12`). Follow-ups in `docs/DECISIONS.md`.
