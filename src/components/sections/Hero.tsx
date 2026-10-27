@@ -67,6 +67,7 @@ export default function Hero() {
             fill
             sizes="(min-width: 768px) 480px, 320px"
             preload
+            fetchPriority="high"
             className="origin-[50%_52%] scale-[1.33] object-cover object-center"
           />
         </div>
