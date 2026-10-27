@@ -103,12 +103,13 @@ export default function ScreenshotLightbox({ title, image }: Props) {
         className="group block w-full min-w-0 text-left"
       >
         {pair ? (
-          <span className="relative block aspect-[475/335] overflow-hidden rounded-sm border border-border group-hover:border-foreground group-focus-visible:border-foreground">
+          // Crop: image x 40-725, y 118-546 (the first two topic rows, ending on the divider); margins are % of that 685px width.
+          <span className="relative block aspect-[16/10] overflow-hidden rounded-sm border border-border group-hover:border-foreground group-focus-visible:border-foreground">
             <ShotImages
               image={image}
-              // The image is 232% of the frame: a 15rem (240px) column from md, (100vw - 80px) capped at 24rem below.
-              sizes="(min-width: 768px) 557px, min(891px, calc(232vw - 186px))"
-              className="h-auto -mt-[17.9%] -ml-[5.3%] w-[232%] max-w-none"
+              // The image is 238% of the frame: a 15rem (240px) column from md, (100vw - 80px) capped at 24rem below.
+              sizes="(min-width: 768px) 571px, min(914px, calc(238vw - 190px))"
+              className="h-auto -mt-[17.2%] -ml-[5.8%] w-[238%] max-w-none"
             />
             {expandChip}
           </span>
