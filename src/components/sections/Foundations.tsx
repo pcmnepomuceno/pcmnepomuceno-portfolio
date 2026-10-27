@@ -4,12 +4,7 @@ import { foundations } from "@/content";
 export default function Foundations() {
   return (
     <section id="foundations" data-nav-parent="skills" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="text-sm text-muted">
-          <span className="text-accent">~/</span>foundations
-        </p>
-        <h2 className="text-3xl">{foundations.heading}</h2>
-      </div>
+      <h2 className="text-3xl">{foundations.heading}</h2>
       <div className="space-y-6">
         <ul role="list" className="grid gap-4 lg:grid-cols-3">
           {foundations.items.map((item) => (

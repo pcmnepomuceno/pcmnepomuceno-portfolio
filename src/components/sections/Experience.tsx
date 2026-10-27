@@ -17,12 +17,7 @@ function DateText({ value }: { value: string }) {
 export default function Experience() {
   return (
     <section id="experience" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="text-sm text-muted">
-          <span className="text-accent">~/</span>experience
-        </p>
-        <h2 className="text-3xl">Experience</h2>
-      </div>
+      <h2 className="text-3xl">Experience</h2>
       <ol role="list" className="border-l border-border">
         {experience.map((item) => {
           const compact = item.type === "org";

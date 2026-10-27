@@ -4,12 +4,7 @@ import { skills, skillsExposure, skillsFoundationsLink } from "@/content";
 export default function Skills() {
   return (
     <section id="skills" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="text-sm text-muted">
-          <span className="text-accent">~/</span>skills
-        </p>
-        <h2 className="text-3xl">Skills</h2>
-      </div>
+      <h2 className="text-3xl">Skills</h2>
       <div className="space-y-4">
         <dl className="divide-y divide-border border-y border-border">
           {skills.map((group) => (

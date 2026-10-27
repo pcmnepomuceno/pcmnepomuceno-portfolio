@@ -86,12 +86,7 @@ function ProjectItem({ project }: { project: Project }) {
 export default function Projects() {
   return (
     <section id="projects" className="space-y-10 border-t border-border py-16 md:py-24">
-      <div className="space-y-3">
-        <p aria-hidden="true" className="text-sm text-muted">
-          <span className="text-accent">~/</span>projects
-        </p>
-        <h2 className="text-3xl">Projects</h2>
-      </div>
+      <h2 className="text-3xl">Projects</h2>
       <div className="divide-y divide-border">
         {projects.map((project) => (
           <ProjectItem key={project.slug} project={project} />
