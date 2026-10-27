@@ -32,27 +32,21 @@
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Sticky header height by width, measured with Plus Jakarta Sans (the brand name wraps below 485px,
-   twice below 366px and three times below 348px; the nav wraps to a second row from 640px to 877px).
+/* Sticky header height by width, measured with Plus Jakarta Sans (the brand wraps below 318px;
+   the nav wraps to a second row from 640px to 700px).
    Anchor jumps and focus leave this much room. Re-measure if header content or the font changes. */
 html {
   scrollbar-gutter: stable; /* the page scrollbar stays reserved while a lightbox hides it, so nothing shifts */
   --header-h: 113px;
   scroll-padding-top: var(--header-h);
 }
-@media (min-width: 348px) {
-  html { --header-h: 101px; }
-}
-@media (min-width: 366px) {
-  html { --header-h: 73px; }
-}
-@media (min-width: 485px) {
+@media (min-width: 318px) {
   html { --header-h: 61px; }
 }
 @media (min-width: 640px) {
   html { --header-h: 97px; }
 }
-@media (min-width: 878px) {
+@media (min-width: 701px) {
   html { --header-h: 61px; }
 }
 
