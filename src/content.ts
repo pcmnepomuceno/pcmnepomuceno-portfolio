@@ -11,13 +11,11 @@ export type Profile = {
 };
 
 export type ExperienceItem = {
-  type: "work" | "org";
   title: string;
   organization: string;
   start: string;
   end: string;
   bullets: string[];
-  tags: string[];
   // `context` completes the link's accessible name for screen readers, e.g. "Case study for FashionTech".
   link?: { label: string; href: string; context: string };
 };
@@ -127,34 +125,28 @@ export const palette = {
 
 const items: ExperienceItem[] = [
   {
-    type: "org",
     title: "Vice President for External Affairs",
     organization: "UPLB Computer Science Society",
     start: "2023",
     end: "2024",
     bullets: ["Handled external partnerships and email correspondence for the society."],
-    tags: [],
   },
   {
-    type: "work",
     title: "Software Engineer Intern",
     organization: "Limitless Lab",
     start: "Jun 2025",
     end: "Jul 2025",
     bullets: [
-      "Built FashionTech, an inventory and job-order mobile app for small fashion and tailoring businesses in Flutter and Firebase, including the data model, activity logging and the Transaction Dashboard.",
+      "Built FashionTech with one teammate, a Flutter and Firebase app for tailoring businesses. I designed the data model and built the core modules.",
     ],
-    tags: ["Flutter", "Firebase"],
     link: { label: "Case study", href: "/projects/fashiontech", context: "FashionTech" },
   },
   {
-    type: "org",
     title: "Secretary and Secretariat Committee Lead",
     organization: "UP Soma Soshiki (UPLB Japanese pop culture organization)",
     start: "2024",
     end: "2025",
     bullets: ["Handled email correspondence and wrote the minutes of meetings."],
-    tags: [],
   },
 ];
 
