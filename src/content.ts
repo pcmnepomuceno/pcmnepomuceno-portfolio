@@ -195,10 +195,10 @@ export const projects: Project[] = [
       { label: "Source code", href: "https://github.com/pcmnepomuceno/steam-review-analyzer" },
     ],
     image: {
-      light: { src: "/images/projects/steam-review-analyzer-light.png", width: 1104, height: 851 },
-      dark: { src: "/images/projects/steam-review-analyzer-dark.png", width: 1104, height: 851 },
-      alt: "Steam Review Analyzer 'By topic' results for Cyberpunk 2077, showing the share of reviews that read as positive for each topic: Performance 63%, Price and value 74%, Bugs and stability 55%, Story and writing 81%, Gameplay 83%, each with example review quotes.",
-      caption: "Cyberpunk 2077, the 1,000 most recent English reviews, Oct 5 to Oct 12, 2026.",
+      light: { src: "/images/projects/steam-review-analyzer-payday3-light.png", width: 1630, height: 1214 },
+      dark: { src: "/images/projects/steam-review-analyzer-payday3-dark.png", width: 1630, height: 1214 },
+      alt: "Steam Review Analyzer 'By topic' results for PAYDAY 3, showing the share of reviews that read as positive for each topic: Performance 57%, Price and value 55%, Bugs and stability 32%, Story and writing 47%, Gameplay 66%, each with example review quotes.",
+      caption: "PAYDAY 3, one of the five games in the live demo.",
     },
   },
   {
