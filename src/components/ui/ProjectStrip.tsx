@@ -37,9 +37,9 @@ export default function ProjectStrip({
   const [index, setIndex] = useState(0);
   const id = useId();
 
-  // One slide plus its gap, measured from the first two slides so no number is hard-coded.
+  // One slide plus its gap, measured from the first two slides so no number is hard-coded. ":scope > ol > li" skips the links' own list items.
   const step = () => {
-    const slides = stripRef.current?.querySelectorAll("li");
+    const slides = stripRef.current?.querySelectorAll<HTMLLIElement>(":scope > ol > li");
     return slides && slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : 0;
   };
 
@@ -101,7 +101,7 @@ export default function ProjectStrip({
         aria-label={projectStrip.region}
         tabIndex={0}
         onScroll={onScroll}
-        className="relative -mx-1 -mt-1 scroll-px-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain px-1 pt-1 pb-3"
+        className="relative -mx-1 [scrollbar-color:var(--color-muted)_var(--color-surface)] -mt-1 scroll-px-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain px-1 pt-1 pb-3"
       >
         <ol role="list" className="flex gap-6">
           {children}
