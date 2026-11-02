@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
 import SiteNav from "@/components/SiteNav";
+import Seal from "@/components/ui/Seal";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { backToTop, profile, siteDescription, siteUrl, skipLink } from "@/content";
 import "./globals.css";
@@ -43,10 +44,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </SiteNav>
           </header>
           {children}
-          <footer className="border-t border-border">
+          {/* On the canvas, not the red band: it also closes the case study, and the red seal would vanish on red.
+              No top hairline: the red band's edge (home) or the credit line's hairline (case study) separates it. */}
+          <footer>
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 px-4 py-3 text-sm text-muted">
-              <p>
-                © {new Date().getFullYear()} {profile.name}
+              <p className="flex items-center gap-3">
+                <Seal className="size-5 text-xs" />
+                {/* Short name below sm so the footer stays one row at 320px. */}
+                <span>
+                  <span className="sm:hidden">{profile.shortName}</span>
+                  <span className="hidden sm:inline">{profile.name}</span> © {new Date().getFullYear()}
+                </span>
               </p>
               <a
                 href="#main"

@@ -1,13 +1,14 @@
 import CopyEmail from "@/components/ui/CopyEmail";
 import { textLink } from "@/components/ui/links";
-import { contactIntro, cv, profile } from "@/content";
+import { contactHeading, contactIntro, cv, profile } from "@/content";
 
+// Sits on the red band (see .contact-band in globals.css): every color token inside resolves to white.
 export default function Contact() {
   const { links } = profile;
 
   return (
-    <section id="contact" className="space-y-10 border-t border-border py-16 md:py-24">
-      <h2 className="text-3xl">Contact</h2>
+    <section id="contact" className="space-y-10 py-16 md:py-24">
+      <h2 className="text-3xl">{contactHeading}</h2>
       <div className="space-y-6">
         <p className="max-w-prose">{contactIntro}</p>
         <CopyEmail />

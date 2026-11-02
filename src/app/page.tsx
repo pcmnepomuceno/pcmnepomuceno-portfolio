@@ -5,7 +5,7 @@ import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 
-// Sections sit in one centered column; a color band (Projects, Experience) spans the full width behind its column.
+// Sections sit in one centered column; a color band (Projects, Experience, Contact) spans the full width behind its column.
 const column = "mx-auto max-w-5xl px-4";
 
 export default function Home() {
@@ -27,7 +27,11 @@ export default function Home() {
       <div className={column}>
         <Skills />
         <Foundations />
-        <Contact />
+      </div>
+      <div className="contact-band">
+        <div className={column}>
+          <Contact />
+        </div>
       </div>
     </main>
   );
