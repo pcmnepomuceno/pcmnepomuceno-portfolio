@@ -14,9 +14,9 @@ export default function Hero() {
       <div className="min-w-0 space-y-6">
         <div className="space-y-4">
           <h1 className="text-4xl font-light text-balance md:text-6xl">{profile.name}</h1>
-          <p className="text-lg md:text-xl">{profile.headline}</p>
+          <p className="text-lg motion-safe:animate-hero-in md:text-xl">{profile.headline}</p>
         </div>
-        <p className="max-w-prose">
+        <p className="max-w-prose motion-safe:animate-hero-in motion-safe:[animation-delay:60ms]">
           {profile.summary.map((part) =>
             typeof part === "string" ? (
               part
@@ -34,7 +34,10 @@ export default function Hero() {
             ),
           )}
         </p>
-        <ul role="list" className="flex flex-wrap gap-3">
+        <ul
+          role="list"
+          className="flex flex-wrap gap-3 motion-safe:animate-hero-in motion-safe:[animation-delay:120ms]"
+        >
           <li>
             <a href={`mailto:${links.email}`} className={outlineLink}>
               Email
