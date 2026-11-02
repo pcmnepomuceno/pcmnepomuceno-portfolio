@@ -41,6 +41,31 @@
   color: var(--color-band-foreground);
 }
 
+/* Contact band: brand red in both themes (the vermilion token is lighter in dark and fails with white).
+   Only white passes on it (5.02:1), so every token inside resolves to white. This covers muted text,
+   hover, borders, the focus outline and ::selection (white highlight, red text). */
+.contact-band {
+  --color-background: #d7261e;
+  --color-foreground: #fff;
+  --color-muted: #fff;
+  --color-accent: #fff;
+  --color-border: #fff;
+  background-color: #d7261e;
+  color: #fff;
+}
+
+/* Buttons on the band invert on hover and keyboard focus (red on white, 5.02:1); links stay underline-only.
+   Unlayered, so it wins over the utility classes. */
+.contact-band button:is(:hover, :focus-visible) {
+  background-color: #fff;
+  color: #d7261e;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .contact-band button {
+    transition-duration: 100ms;
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
