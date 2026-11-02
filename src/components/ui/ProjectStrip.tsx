@@ -101,7 +101,7 @@ export default function ProjectStrip({
         aria-label={projectStrip.region}
         tabIndex={0}
         onScroll={onScroll}
-        className="relative -mx-1 [scrollbar-color:var(--color-muted)_var(--color-surface)] -mt-1 scroll-px-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain px-1 pt-1 pb-3"
+        className="relative -mx-1 [scrollbar-color:var(--color-muted)_var(--color-surface)] -mt-1 scroll-px-1 scroll-smooth snap-x snap-mandatory overflow-x-auto overscroll-x-contain px-1 pt-1 pb-3"
       >
         <ol role="list" className="flex gap-6">
           {children}

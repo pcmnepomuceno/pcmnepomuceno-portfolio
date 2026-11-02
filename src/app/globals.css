@@ -25,6 +25,9 @@
   --color-band: #1a1614; /* Experience band: ink in light, indigo in dark */
   --color-band-foreground: #f2ede4;
   --color-band-muted: #b1aca6; /* band-foreground mixed 70% over band */
+  /* Motion. Hover and focus swaps run 100ms, entrances and small moves 150-200ms. Every use is behind motion-safe or no-preference. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .dark {
@@ -95,6 +98,73 @@ html {
 }
 @media (min-width: 701px) {
   html { --header-h: 61px; }
+}
+
+/* Smooth anchor jumps and a brief underline on the target heading, only when motion is allowed.
+   scroll-padding-top above keeps the landing spot under the sticky header. The flash is a text-decoration, so nothing shifts.
+   :target covers a hard load of /#projects; [data-flash] is set by jump.ts for in-page jumps, where Next's Link does not update :target.
+   currentColor, not accent: inside the bands accent resolves to the text color. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  @keyframes heading-flash {
+    from {
+      text-decoration-color: currentColor;
+    }
+    to {
+      text-decoration-color: transparent;
+    }
+  }
+  section:is(:target, [data-flash]) h2 {
+    text-decoration: underline 2px;
+    text-underline-offset: 6px;
+    animation: heading-flash 900ms var(--ease-out) both;
+  }
+}
+
+/* Desktop nav underline. SiteNav measures the current link and sets --u-x, --u-y, --u-w and --u-o on [data-nav];
+   data-slide (after the first measure) hides the per-link borders, data-anim (a frame later) turns the transition on,
+   so the first placement never slides in from the left. Without JS the current link keeps its own border. */
+.nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: var(--u-w, 0);
+  background-color: var(--color-accent);
+  opacity: var(--u-o, 0);
+  transform: translate(var(--u-x, 0), var(--u-y, 0));
+  pointer-events: none;
+}
+[data-nav][data-slide] a {
+  border-color: transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-nav][data-anim] .nav-indicator {
+    transition:
+      transform 200ms var(--ease-in-out),
+      width 200ms var(--ease-in-out),
+      opacity 100ms linear;
+  }
+  /* Mobile menu panel. The hidden attribute stays the source of truth (it removes the panel from the tab order and the accessibility tree);
+     allow-discrete holds display until the fade ends. Where discrete transitions are unsupported it opens and closes instantly. */
+  .menu-panel {
+    transition:
+      opacity 160ms var(--ease-out),
+      translate 160ms var(--ease-out),
+      display 160ms allow-discrete;
+  }
+  .menu-panel[hidden] {
+    opacity: 0;
+    translate: 0 -0.25rem;
+  }
+  @starting-style {
+    .menu-panel:not([hidden]) {
+      opacity: 0;
+      translate: 0 -0.25rem;
+    }
+  }
 }
 
 @layer base {

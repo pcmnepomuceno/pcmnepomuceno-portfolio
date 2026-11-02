@@ -71,13 +71,16 @@ function Row({ project, index }: { project: Project; index: number }) {
   const meta = [project.org, project.period].filter(Boolean).join(" · ");
 
   return (
-    <li className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-4 gap-y-3 py-8 md:grid-cols-[3rem_minmax(0,1fr)_15rem] md:gap-x-8">
+    // The ::before layer turns the row canvas-colored from edge to edge of the column on hover or focus inside; it adds no layout.
+    <li className="group/row relative isolate grid grid-cols-[2rem_minmax(0,1fr)] gap-x-4 gap-y-3 py-8 before:absolute before:inset-y-0 before:-inset-x-4 before:-z-10 before:bg-background before:opacity-0 before:motion-safe:transition-opacity before:motion-safe:duration-100 before:motion-safe:ease-out hover:before:opacity-100 has-[:focus-visible]:before:opacity-100 md:grid-cols-[3rem_minmax(0,1fr)_15rem] md:gap-x-8">
       <span aria-hidden="true" className="row-span-2 pt-1 text-sm text-muted tabular-nums">
         {String(index + 1).padStart(2, "0")}
       </span>
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 md:col-span-2">
         <div>
-          <h3 className="text-xl font-medium">{project.title}</h3>
+          <h3 className="text-xl font-medium motion-safe:transition-colors motion-safe:duration-100 motion-safe:ease-out group-hover/row:text-accent group-has-[:focus-visible]/row:text-accent">
+            {project.title}
+          </h3>
           {meta && <p className="text-sm text-muted">{meta}</p>}
         </div>
         {/* Its own line on phones, so every row reads the same; right-aligned from sm. */}
@@ -102,14 +105,16 @@ function Slide({ project, index }: { project: Project; index: number }) {
 
   return (
     <li
-      className={`grid shrink-0 basis-[85%] snap-start gap-x-8 rounded-sm border border-border bg-background p-8 ${project.image ? "grid-cols-[minmax(0,1fr)_15rem]" : "grid-cols-[minmax(0,1fr)]"}`}
+      className={`group/slide grid shrink-0 basis-[85%] snap-start snap-always gap-x-8 rounded-sm border border-border bg-background p-8 motion-safe:transition-colors motion-safe:duration-100 motion-safe:ease-out hover:border-foreground has-[:focus-visible]:border-foreground ${project.image ? "grid-cols-[minmax(0,1fr)_15rem]" : "grid-cols-[minmax(0,1fr)]"}`}
     >
       <div className="min-w-0 max-w-prose space-y-4">
         <p aria-hidden="true" className="text-sm text-muted tabular-nums">
           {String(index + 1).padStart(2, "0")}
         </p>
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="text-3xl font-light">{project.title}</h3>
+          <h3 className="text-3xl font-light motion-safe:transition-colors motion-safe:duration-100 motion-safe:ease-out group-hover/slide:text-accent group-has-[:focus-visible]/slide:text-accent">
+            {project.title}
+          </h3>
           <p className="text-sm text-muted">{project.type}</p>
         </div>
         {meta && <p className="text-sm text-muted">{meta}</p>}

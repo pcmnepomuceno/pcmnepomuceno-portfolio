@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { jumpTo } from "@/components/ui/jump";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { afterScroll, flash, jumpTo } from "@/components/ui/jump";
 import Seal from "@/components/ui/Seal";
 import { primaryLink } from "@/components/ui/links";
 import { cv, menu, nav, profile } from "@/content";
@@ -68,11 +68,52 @@ export default function SiteNav({ children }: { children: ReactNode }) {
     };
   }, [pathname]);
 
+  // Lock until the jump's scroll ends (smooth scroll runs longer than any fixed delay), so the underline
+  // goes straight to the clicked item instead of stepping through the sections it passes.
   const select = (id: string) => {
     setActive(id);
     locked.current = true;
-    setTimeout(() => (locked.current = false), 300);
+    afterScroll(() => (locked.current = false));
   };
+
+  // Jumps from the palette and the mobile menu (jumpTo). Foundations counts as its parent, Skills.
+  useEffect(() => {
+    const onJump = (event: Event) => {
+      const id = (event as CustomEvent<string>).detail;
+      select(document.getElementById(id)?.dataset.navParent ?? id);
+    };
+    addEventListener("jump", onJump);
+    return () => removeEventListener("jump", onJump);
+  }, []);
+
+  // Place the sliding underline under the current link (see .nav-indicator in globals.css).
+  // Offsets are relative to the wrapper, which is positioned. The wrapper is display: none below sm, so the
+  // ResizeObserver re-measures when it appears, when the font swaps in and when the row wraps.
+  const navRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const wrap = navRef.current;
+    if (!wrap) return;
+    const place = () => {
+      const link = wrap.querySelector<HTMLElement>('[aria-current="location"]');
+      if (!link || !link.offsetWidth) {
+        wrap.style.setProperty("--u-o", "0");
+        return;
+      }
+      wrap.style.setProperty("--u-x", `${link.offsetLeft}px`);
+      wrap.style.setProperty("--u-y", `${link.offsetTop + link.offsetHeight - 1}px`);
+      wrap.style.setProperty("--u-w", `${link.offsetWidth}px`);
+      wrap.style.setProperty("--u-o", "1");
+      if (wrap.dataset.slide === undefined) {
+        wrap.dataset.slide = "";
+        requestAnimationFrame(() => (wrap.dataset.anim = ""));
+      }
+    };
+    place();
+    const observer = new ResizeObserver(place);
+    observer.observe(wrap);
+    wrap.querySelectorAll("a").forEach((link) => observer.observe(link));
+    return () => observer.disconnect();
+  }, [active]);
 
   useEffect(() => {
     if (!open) return;
@@ -107,21 +148,26 @@ export default function SiteNav({ children }: { children: ReactNode }) {
     >
       <Link
         href="/#intro"
-        className="inline-flex min-h-11 grow basis-0 items-center gap-3 text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
+        className="group inline-flex min-h-11 grow basis-0 items-center gap-3 text-lg sm:min-h-0 sm:grow-0 sm:basis-auto hover:text-accent motion-safe:transition-colors"
       >
-        <Seal />
+        <Seal className="size-7 text-sm motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-out motion-safe:group-hover:-rotate-6 motion-safe:group-focus-visible:-rotate-6" />
         <span className="font-medium">{profile.shortName}</span>
         <span className="sr-only text-sm text-muted xl:not-sr-only">{profile.name}</span>
       </Link>
       <div className="flex items-center gap-2 sm:flex-wrap sm:gap-x-3 sm:gap-y-0">
-        <div className="hidden sm:block">
+        <div ref={navRef} data-nav="" className="relative hidden sm:block">
+          <span aria-hidden="true" className="nav-indicator" />
           {/* links carry the spacing as padding (44px hit area); -mx-2 keeps text aligned */}
           <ul role="list" className="-mx-2 flex flex-wrap text-sm">
             {nav.map((item) => (
               <li key={item}>
                 <Link
                   href={`/#${item.toLowerCase()}`}
-                  onClick={() => select(item.toLowerCase())}
+                  onClick={() => {
+                    select(item.toLowerCase());
+                    const target = document.getElementById(item.toLowerCase());
+                    if (target) flash(target); // the mobile menu path flashes inside jumpTo
+                  }}
                   aria-current={active === item.toLowerCase() ? "location" : undefined}
                   className={`inline-flex min-h-11 min-w-11 items-center justify-center border-b px-2 hover:text-accent motion-safe:transition-colors ${active === item.toLowerCase() ? "border-accent text-accent" : "border-transparent"}`}
                 >
@@ -162,7 +208,7 @@ export default function SiteNav({ children }: { children: ReactNode }) {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full border-y border-border bg-background sm:hidden"
+        className="menu-panel absolute inset-x-0 top-full border-y border-border bg-background sm:hidden"
       >
         <ul role="list" className="mx-auto max-w-5xl px-4 py-2 text-sm">
           {nav.map((item) => (
@@ -174,7 +220,6 @@ export default function SiteNav({ children }: { children: ReactNode }) {
                   setOpen(false);
                   if (!target) return; // off the home page: the link navigates there
                   event.preventDefault();
-                  select(item.toLowerCase());
                   jumpTo(target);
                 }}
                 aria-current={active === item.toLowerCase() ? "location" : undefined}
