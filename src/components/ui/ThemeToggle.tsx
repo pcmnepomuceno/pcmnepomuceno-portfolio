@@ -1,22 +1,16 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { toggleTheme } from "@/components/ui/theme";
 
 export default function ThemeToggle() {
   const { setTheme } = useTheme();
 
   // Icon and label switch with CSS, so server and client markup match.
-  // The click reads the class next-themes' script sets before hydration,
-  // so it is correct even right after load.
-  const toggle = () =>
-    setTheme(
-      document.documentElement.classList.contains("dark") ? "light" : "dark",
-    );
-
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={() => toggleTheme(setTheme)}
       className="inline-flex size-11 items-center justify-center rounded-sm border border-border text-foreground hover:border-accent hover:text-accent motion-safe:transition-colors"
     >
       <span className="sr-only dark:hidden">Switch to dark theme</span>

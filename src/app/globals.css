@@ -28,6 +28,14 @@
   /* Motion. Hover and focus swaps run 100ms, entrances and small moves 150-200ms. Every use is behind motion-safe or no-preference. */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Hero entrance: headline, summary and links only (not the h1, not the photo, so LCP is untouched). Used as motion-safe:animate-hero-in. */
+  --animate-hero-in: hero-in 400ms var(--ease-out) both;
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      translate: 0 6px;
+    }
+  }
 }
 
 .dark {
@@ -164,6 +172,21 @@ html {
       opacity: 0;
       translate: 0 -0.25rem;
     }
+  }
+}
+
+/* Theme crossfade (View Transitions, started by toggleTheme in ui/theme.ts, which skips it under reduce).
+   The CSS backstop turns the UA fade off too. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+  animation-timing-function: var(--ease-in-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
   }
 }
 
