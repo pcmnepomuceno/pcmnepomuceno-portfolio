@@ -48,4 +48,4 @@ One milestone at a time, branch per milestone, plan mode first, small logical co
 
 ## Status
 
-Redesign in progress (`docs/redesign-spec.md`): PR 1 (tokens, Plus Jakarta Sans, removals) merged (#31); PR 2 (hero, photo, header, nav) merged (#33); PR 3 (Projects featured + rows, case-study restyle) on branch `redesign/pr3-projects`, not pushed. Earlier: Skills by depth + Technical foundations merged (PR #29, `4ca1c12`). Follow-ups in `docs/DECISIONS.md`.
+Redesign in progress (`docs/redesign-spec.md`): PR 1 (tokens, Plus Jakarta Sans, removals) merged (#31); PR 2 (hero, photo, header, nav) merged (#33); PR 3 (Projects featured + rows, case-study restyle) merged (#35); Steam screenshot retake merged (#36); PR 4 (Experience band, Skills/Foundations hairline rows) on branch `redesign/pr4-experience-skills`, not pushed. Earlier: Skills by depth + Technical foundations merged (PR #29, `4ca1c12`). Follow-ups in `docs/DECISIONS.md`.

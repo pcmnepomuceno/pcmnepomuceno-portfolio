@@ -14,6 +14,7 @@
   --color-surface: #e8e2d7;
   --color-band: #1a1614; /* Experience band: ink in light, indigo in dark */
   --color-band-foreground: #f2ede4;
+  --color-band-muted: #b1aca6; /* band-foreground mixed 70% over band */
 }
 
 .dark {
@@ -26,6 +27,18 @@
   --color-surface: #231f1c;
   --color-band: #121826;
   --color-band-foreground: #f2ede4;
+  --color-band-muted: #afadab;
+}
+
+/* Experience band: muted and accent fail on the band, so text tokens inside resolve to band colors.
+   This also covers textLink hover, the focus outline and ::selection, which read these vars. */
+.band {
+  --color-background: var(--color-band);
+  --color-foreground: var(--color-band-foreground);
+  --color-muted: var(--color-band-muted);
+  --color-accent: var(--color-band-foreground);
+  background-color: var(--color-band);
+  color: var(--color-band-foreground);
 }
 
 @theme inline {
