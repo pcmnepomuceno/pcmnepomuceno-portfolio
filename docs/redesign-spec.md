@@ -41,5 +41,5 @@ Same names on desktop and mobile: Intro, Projects, Experience, Skills, Contact. 
 3. Projects (featured CosRec + rows) + FashionTech case-study restyle.
 4. Experience (ink/indigo band) + Skills/Foundations restyle.
 5. Contact vermilion band + footer.
-6. Desktop horizontal emaki scroll + progress nav + reduced-motion/mobile fallback + keyboard.
+6. Desktop horizontal emaki scroll + progress nav + reduced-motion/mobile fallback + keyboard. Full-page horizontal scroll deferred 2026-11-02 (see docs/emaki-scroll-plan.md); replaced by a desktop-only Projects strip (PR 6). PR 7 is cleanup.
 7. Cleanup, Lighthouse (mobile) and a11y pass.
