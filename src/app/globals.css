@@ -175,6 +175,21 @@ html {
   }
 }
 
+/* Theme crossfade (View Transitions, started by toggleTheme in ui/theme.ts, which skips it under reduce).
+   The CSS backstop turns the UA fade off too. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+  animation-timing-function: var(--ease-in-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
 @layer base {
   body {
     @apply bg-background text-foreground font-sans;

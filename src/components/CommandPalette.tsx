@@ -4,6 +4,7 @@ import { useEffect, useEffectEvent, useId, useRef, useState, type KeyboardEvent 
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { jumpTo } from "@/components/ui/jump";
+import { toggleTheme } from "@/components/ui/theme";
 import { cv, foundations, nav, palette } from "@/content";
 
 type Command =
@@ -53,9 +54,7 @@ export default function CommandPalette() {
 
   const run = (command: Command) => {
     if (command.kind === "theme") {
-      // Reads the class next-themes sets before hydration, like ThemeToggle, so the label never changes.
-      const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
-      setTheme(next);
+      const next = toggleTheme(setTheme);
       setAnnouncement(palette.themeChanged[next]);
     } else if (command.kind === "cv") {
       const link = document.createElement("a");

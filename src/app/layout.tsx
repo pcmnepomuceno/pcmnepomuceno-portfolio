@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           {skipLink}
         </a>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {/* z-40: below the skip link (z-50); the palette dialog sits in the top layer above both. */}
           <header className="sticky top-0 z-40 border-b border-border bg-background">
             <SiteNav>
