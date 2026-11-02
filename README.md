@@ -26,7 +26,7 @@ npm run lint    # ESLint
 - `src/components/sections/` - Hero, Experience, Projects, Skills, Foundations, Contact
 - `src/components/ui/` - small reusable pieces
 - `src/content.ts` - all site content, typed
-- `public/` - photo and CV PDF
+- `public/` - photo, CV PDF and project screenshots
 - `docs/` - project brief and decisions log
 
 ## Content
@@ -35,7 +35,7 @@ Text, projects, skills and links live in `src/content.ts`. Edit that file to cha
 
 ## Fonts
 
-Inter and JetBrains Mono load through `next/font/google`. The heading font is a self-hosted file, `src/app/fonts/NotoSerifJP-600-latin.woff2`: Noto Serif JP, weight 600, latin subset only. It is copyright (c) 2017-2024 Adobe and licensed under the SIL Open Font License 1.1 (https://openfontlicense.org). The full license text is not bundled in the repo; add an `OFL.txt` next to the font if the license requires it for your use.
+Plus Jakarta Sans (weights 300, 400 and 500) loads through `next/font/google`. The OG image and icons are rendered by `next/og`, which cannot read woff2, so they use static TTF copies in `src/app/og-fonts/`. Plus Jakarta Sans is copyright 2020 The Plus Jakarta Sans Project Authors and licensed under the SIL Open Font License 1.1; the license text is in `src/app/og-fonts/OFL.txt`.
 
 ## Decisions
 

@@ -30,16 +30,16 @@ Cross-cutting: light/dark mode, responsive, SEO/OG metadata.
 | Frontend | Next.js (App Router) + TypeScript | Already known; same as friends' sites |
 | Styling | Tailwind CSS | Design tokens, dark mode |
 | Theming | next-themes | No flash on load, system preference |
-| Animation | Motion (minimal) | Subtle scroll reveals only |
+| Animation | CSS only (`motion-safe` transitions, scroll-snap) | Minimal motion; no animation library |
 | Content | Typed `content.ts` | Add a project = one-file edit |
 | Fonts | Plus Jakarta Sans only, weights 300/400/500 (next/font), per docs/redesign-spec.md | One calm sans; no serif or monospace |
 | Backend/DB/Auth | None | Static site |
 | Hosting | Vercel (free), pcmnepomuceno.vercel.app | Free, deploy on push |
 
 ## 5. Data model (content.ts)
-- Profile: name, role, location, education, summary, links (email, github, linkedin), photo (src, alt)
-- ExperienceItem: type (work | org), title, organization, start, end, bullets[], tags[], link?
-- Project: slug, title, summary, status ("live" | "in-progress" | null), featured, badge?, result?, org?, period?, role?, tags[], links[] { label, href }, image?
+- Profile: name, shortName, role, headline, summary, links (email, github, linkedin), photo (src, alt)
+- ExperienceItem: title, organization, start, end, bullets[], link? { label, href, context }
+- Project: slug, title, summary, featured, result?, org?, period?, type, stack?, links[] { label, href }, image? { light, dark, alt, caption }
 - SkillGroup: label, items[]
 - Foundation: title, meta, what, part
 
