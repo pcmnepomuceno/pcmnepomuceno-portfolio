@@ -135,7 +135,8 @@ export default function CommandPalette() {
           <path d="m5 7 5 5-5 5" />
           <path d="M12 17h7" />
         </svg>
-        <kbd aria-hidden="true" className="hidden text-xs text-muted sm:inline">
+        {/* font-sans: Tailwind's preflight gives kbd the monospace stack. */}
+        <kbd aria-hidden="true" className="hidden font-sans text-xs text-muted sm:inline">
           {palette.hint}
         </kbd>
       </button>
