@@ -102,6 +102,13 @@ export const lightbox = {
   panHintShot: "Scroll to see the full screen.",
 };
 
+// Projects strip (desktop with a mouse): the sideways row of slides and its Previous/Next buttons.
+export const projectStrip = {
+  region: "Projects, scroll sideways",
+  previous: "Previous project",
+  next: "Next project",
+};
+
 // Contact "Copy email" button and its result messages.
 export const copyEmail = {
   button: "Copy email",
