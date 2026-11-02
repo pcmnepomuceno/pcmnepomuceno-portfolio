@@ -3,8 +3,6 @@ export type Profile = {
   shortName: string;
   role: string;
   headline: string;
-  location: string;
-  education: string;
   summary: (string | { text: string; href: string })[];
   links: { email: string; github: string; linkedin: string };
   photo: { src: string; alt: string };
@@ -26,7 +24,6 @@ export type Project = {
   slug: string;
   title: string;
   summary: string;
-  status: "live" | "in-progress" | null;
   featured: boolean;
   // One headline number; shown under the summary of the featured project.
   result?: string;
@@ -52,8 +49,6 @@ export const profile: Profile = {
   shortName: "Czed",
   role: "Full-stack developer",
   headline: "Full-stack developer, from backend to search.",
-  location: "Philippines",
-  education: "BS Computer Science, UPLB (2026)",
   summary: [
     "I'm a Computer Science graduate from UP Los Baños (July 2026) who builds full-stack, from backend systems to AI-powered search. My thesis, ",
     { text: "CosRec", href: "https://cosrec.vercel.app" },
@@ -174,7 +169,6 @@ export const projects: Project[] = [
     title: "CosRec",
     summary:
       "A hybrid image-text search system for matching cosplay items, built as my solo undergraduate thesis project (Special Problem).",
-    status: "live",
     featured: true,
     result: "97.8% top-5 accuracy on a 500-item leave-one-out test (text-only retrieval; the hybrid scores 97.4%)",
     period: "Apr 2026 – Oct 2026",
@@ -187,7 +181,6 @@ export const projects: Project[] = [
     title: "Steam Review Analyzer",
     summary:
       "Breaks down a game's Steam reviews by aspect, such as gameplay and story, using a trained sentiment classifier.",
-    status: "live",
     featured: false,
     period: "Oct 2026",
     type: "Personal project",
@@ -207,7 +200,6 @@ export const projects: Project[] = [
     title: "FashionTech",
     summary:
       "A Flutter and Firebase inventory and job-order app for tailoring businesses, built with a teammate. I designed the Firestore data model and built the inventory, job-order and transaction modules.",
-    status: null,
     featured: false,
     org: "Limitless Lab",
     period: "Jun 2025 – Jul 2025",
@@ -219,7 +211,6 @@ export const projects: Project[] = [
     title: "PICSEL",
     summary:
       "A team room-reservation web app built with the PERN stack. I built front-end pieces (account and booking modals, dashboard cards, nested routes) and wrote the documentation.",
-    status: null,
     featured: false,
     period: "Mar – May 2024",
     type: "Team project",

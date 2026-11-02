@@ -1,5 +1,5 @@
 // Brand seal: a vermilion square with the letter C. Decorative; the text beside it names the site.
-// Fixed #D7261E in both themes (the vermilion token is lighter in dark); white on it is 5.02:1.
+// Fixed #D7261E in both themes (the spec's dark vermilion #E63930 is lighter); white on it is 5.02:1.
 export default function Seal({ className = "size-7 text-sm" }: { className?: string }) {
   return (
     <span

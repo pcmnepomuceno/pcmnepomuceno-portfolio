@@ -4,7 +4,7 @@ import ProjectStrip from "@/components/ui/ProjectStrip";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import { projects, type Project } from "@/content";
 
-// Featured: the first external link (the live demo) is the primary action. Rows: every link is quiet text.
+// Featured: the first external link (the live demo) is the primary action. Rows: every link is plain underlined text.
 function ProjectLinks({ project, featured }: { project: Project; featured?: boolean }) {
   if (project.links.length === 0) return null;
   return (
