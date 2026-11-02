@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Projects strip. Applies only inside [data-strip] (the section) and only on a wide screen with a mouse and no reduced-motion:
+   at most one of the two Projects layouts shows, and outside the gate nothing changes. Kill switch: remove data-strip from the section. */
+@custom-variant strip {
+  @media screen and (min-width: 64rem) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    &:where([data-strip] *) {
+      @slot;
+    }
+  }
+}
+
 /* accent is vermilion tuned to pass AA (4.5:1) as small text on background and surface;
    vermilion is the exact brand hex (about 4.3:1), for fills and large text only. */
 @theme {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { outlineLink, primaryLink, textLink } from "@/components/ui/links";
+import ProjectStrip from "@/components/ui/ProjectStrip";
 import ScreenshotLightbox from "@/components/ui/ScreenshotLightbox";
 import { projects, type Project } from "@/content";
 
@@ -95,19 +96,59 @@ function Row({ project, index }: { project: Project; index: number }) {
   );
 }
 
+// One slide of the desktop strip. Same fields as the featured block and the rows, in one layout; the image column exists only when the project has an image.
+function Slide({ project, index }: { project: Project; index: number }) {
+  const meta = [project.org, project.period].filter(Boolean).join(" · ");
+
+  return (
+    <li
+      className={`grid shrink-0 basis-[85%] snap-start gap-x-8 rounded-sm border border-border bg-background p-8 ${project.image ? "grid-cols-[minmax(0,1fr)_15rem]" : "grid-cols-[minmax(0,1fr)]"}`}
+    >
+      <div className="min-w-0 max-w-prose space-y-4">
+        <p aria-hidden="true" className="text-sm text-muted tabular-nums">
+          {String(index + 1).padStart(2, "0")}
+        </p>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 className="text-3xl font-light">{project.title}</h3>
+          <p className="text-sm text-muted">{project.type}</p>
+        </div>
+        {meta && <p className="text-sm text-muted">{meta}</p>}
+        <p>{project.summary}</p>
+        {project.result && <p>{project.result}</p>}
+        {project.stack && <p className="text-muted">{project.stack}</p>}
+        <ProjectLinks project={project} featured={project.featured} />
+      </div>
+      {project.image && (
+        <div className="min-w-0 self-end">
+          <ScreenshotLightbox title={project.title} image={project.image} />
+        </div>
+      )}
+    </li>
+  );
+}
+
+// Two layouts in the HTML; CSS shows one. Today's list (hidden by strip:hidden) is unchanged and ships everywhere the strip gate fails.
+// The gate and the kill switch (remove data-strip) live in globals.css.
 export default function Projects() {
   const featured = projects.find((project) => project.featured);
   const rows = projects.filter((project) => !project.featured);
 
   return (
-    <section id="projects" className="space-y-12 py-16 md:py-24">
-      <h2 className="text-3xl">Projects</h2>
-      {featured && <Featured project={featured} />}
-      <ol role="list" className="divide-y divide-border border-y border-border">
-        {rows.map((project, i) => (
-          <Row key={project.slug} project={project} index={i} />
+    <section id="projects" data-strip="" className="py-16 md:py-24">
+      <div className="space-y-12 strip:hidden">
+        <h2 className="text-3xl">Projects</h2>
+        {featured && <Featured project={featured} />}
+        <ol role="list" className="divide-y divide-border border-y border-border">
+          {rows.map((project, i) => (
+            <Row key={project.slug} project={project} index={i} />
+          ))}
+        </ol>
+      </div>
+      <ProjectStrip heading={<h2 className="text-3xl">Projects</h2>} count={projects.length}>
+        {projects.map((project, i) => (
+          <Slide key={project.slug} project={project} index={i} />
         ))}
-      </ol>
+      </ProjectStrip>
     </section>
   );
 }
